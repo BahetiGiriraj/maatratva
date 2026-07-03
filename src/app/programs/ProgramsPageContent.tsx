@@ -1,274 +1,589 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Check, Clock, Users, Star, Sparkles } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Phone, Star } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { FadeUp, FadeLeft, FadeRight, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 
-const programs = [
+// ── DATA ─────────────────────────────────────────────────────────────────────
+
+const plans = [
   {
-    id: "signature",
-    badge: "Most Popular",
-    icon: "🌸",
-    title: "Maatratva Signature Program",
-    subtitle: "Complete Pregnancy Journey",
-    duration: "Full Pregnancy (9 months)",
-    group: "Group + 1-on-1",
-    description:
-      "Our flagship holistic pregnancy wellness program that accompanies you from preconception through postpartum. The most comprehensive, transformative experience we offer — covering body, mind and baby.",
+    id: "bloom",
+    name: "Bloom",
+    price: "₹1,999",
+    duration: "1 Month Program",
+    tagline: "Your first step into mindful pregnancy",
+    highlight: false,
+    badge: "",
+    emoji: "🌸",
+    cta: "Begin with Bloom",
     features: [
-      "Weekly live group sessions",
-      "Garbh Sanskar complete module",
-      "Prenatal yoga & breathwork",
-      "Ayurvedic nutrition guidance",
-      "NLP mind programming sessions",
-      "Meditation & sound healing",
-      "Birth preparation workshop",
-      "Postpartum recovery support",
-      "Private community access",
-      "24/7 WhatsApp support",
+      "Pregnancy yoga & exercise",
+      "Mindfulness activities",
+      "Garbh Sanskar",
+      "4 weekly live sessions with mentor",
+      "1 expert guided session",
+      "Limited bonus access",
     ],
+    included: [],
+  },
+  {
+    id: "nurture",
+    name: "Nurture",
+    price: "₹5,499",
+    duration: "1 Trimester Program",
+    tagline: "Deeper care for a transformative trimester",
     highlight: true,
-    color: "#A15C7A",
+    badge: "Most Popular",
+    emoji: "🌺",
+    cta: "Choose Nurture",
+    features: [
+      "Personalized diet plan",
+      "4 weekly live sessions with mentor",
+      "3 expert guided sessions",
+      "Birth preparation program (3rd trimester)",
+    ],
+    included: ["Everything in Bloom, plus:"],
   },
   {
-    id: "garbh-sanskar",
-    badge: "Ancient Wisdom",
-    icon: "🎵",
-    title: "Garbh Sanskar Intensive",
-    subtitle: "Baby Mind Programming",
-    duration: "12 Weeks",
-    group: "Group",
-    description:
-      "Deep dive into the ancient science of prenatal education. Music, mantras, stories and practices to nurture your baby's mind, personality and emotional intelligence from the womb.",
-    features: [
-      "Garbh Sanskar history & science",
-      "Curated music & mantra protocols",
-      "Storytelling techniques",
-      "Positive affirmation scripts",
-      "Breathing & visualization",
-      "Partner involvement sessions",
-      "Weekly live coaching",
-      "Recorded session library",
-    ],
+    id: "womb-to-wonder",
+    name: "Womb to Wonder",
+    price: "₹9,999",
+    duration: "Full Pregnancy Program",
+    tagline: "The complete journey — conception to birth",
     highlight: false,
-    color: "#A15C7A",
-  },
-  {
-    id: "mind-wellness",
-    badge: "Emotional Health",
-    icon: "🧠",
-    title: "Mind & Emotional Wellness",
-    subtitle: "NLP + Meditation",
-    duration: "8 Weeks",
-    group: "Group + Personal",
-    description:
-      "Specialized program focusing on the psychological and emotional dimensions of pregnancy. Uses NLP, mindfulness, and somatic techniques to release fear and build inner joy.",
+    badge: "Complete Care",
+    emoji: "✨",
+    cta: "Begin Full Journey",
     features: [
-      "NLP belief reprogramming",
-      "Fear-release techniques",
-      "Guided meditations library",
-      "Emotional regulation tools",
-      "Anxiety management protocols",
-      "Partner bonding practices",
-      "Postpartum emotion prep",
-      "Live coaching sessions",
+      "Monthly one-on-one mentor call",
+      "4 weekly live sessions with mentor",
+      "9 expert guided sessions",
+      "Birth preparation program",
+      "Maatratva completion certificate",
     ],
-    highlight: false,
-    color: "#A15C7A",
-  },
-  {
-    id: "fertility",
-    badge: "Preconception",
-    icon: "🌱",
-    title: "Fertility & Preconception Care",
-    subtitle: "Planning Your Journey",
-    duration: "3–6 Months",
-    group: "1-on-1 + Group",
-    description:
-      "A gentle, holistic preparation program for women planning to conceive — naturally or through IVF. Supports your body, mind and spirit for optimal fertility and readiness.",
-    features: [
-      "Fertility yoga sequences",
-      "Ayurvedic cleanse protocols",
-      "Cycle tracking & awareness",
-      "IVF emotional support",
-      "Nutrition optimization",
-      "Stress & cortisol reduction",
-      "Partner wellness inclusion",
-      "Specialist consultations",
-    ],
-    highlight: false,
-    color: "#A15C7A",
+    included: ["Everything in Bloom & Nurture, plus:"],
   },
 ];
 
-const steps = [
-  { n: "01", title: "Free Discovery Call", desc: "We listen to your story and understand your unique needs." },
-  { n: "02", title: "Custom Wellness Plan", desc: "Receive a personalised program recommendation." },
-  { n: "03", title: "Begin Your Journey", desc: "Join your cohort and start transforming." },
-  { n: "04", title: "Ongoing Support", desc: "We walk beside you every step of the way." },
+const curriculumSections = [
+  {
+    id: "physical",
+    emoji: "🧘‍♀️",
+    title: "Physical Wellbeing",
+    items: [
+      "Guided prenatal yoga and safe practices",
+      "Strength building with props",
+      "Breathwork and deep relaxation",
+      "Pelvic floor strengthening (Kegel exercises)",
+      "Mind-body connection (face yoga, near yoga etc.)",
+    ],
+    experts: [],
+  },
+  {
+    id: "mindful",
+    emoji: "🌸",
+    title: "Mindful Motherhood",
+    items: [
+      "Guided pregnancy meditation",
+      "Positive mindset practices (NLP technique)",
+      "Energy balancing practices (chakras and aura)",
+      "Mother-baby connection practices",
+      "Tratak kriya (focus and concentration)",
+    ],
+    experts: [],
+  },
+  {
+    id: "garbh",
+    emoji: "👶",
+    title: "Garbh Sanskar & Baby Development",
+    items: [
+      "Visualisation for child's personality development",
+      "Baby talk practice for emotional connection",
+      "Genetic blueprint for optimal development",
+      "Brain development activity and stimulation",
+      "Sensory exploration activities",
+    ],
+    experts: [],
+  },
+  {
+    id: "expert",
+    emoji: "👩‍⚕️",
+    title: "Expert Sessions",
+    items: [
+      "Nutrition and diet planning",
+      "Emotional wellbeing support",
+      "Doubt solving support",
+      "One-on-one guided support",
+    ],
+    experts: ["Dietician & Nutritionist", "Ayurveda Expert", "Gynaecologist", "Psychotherapist", "Lactation Expert", "and many more..."],
+  },
+  {
+    id: "bonuses",
+    emoji: "✨",
+    title: "Bonuses",
+    items: [],
+    experts: [],
+  },
 ];
 
-const testimonials = [
-  { name: "Priya K.", text: "The Signature Program changed everything. I felt held, guided and deeply supported.", tag: "Signature Program" },
-  { name: "Ananya R.", text: "Garbh Sanskar sessions gave me a bond with my baby I cannot describe.", tag: "Garbh Sanskar" },
-  { name: "Megha S.", text: "The NLP sessions removed fears I had carried for years. I felt free.", tag: "Mind Wellness" },
+const bonuses = [
+  {
+    emoji: "📋",
+    title: "Pregnancy Wellness Blueprint",
+    items: ["Personalized Diet Plan", "Month-wise Care Guide", "Daily Routine Guide"],
+  },
+  {
+    emoji: "🎵",
+    title: "Audio & Learning Library",
+    items: ["Pregnancy Music & Mantras", "Blissful Sleep Kit", "Stories Library"],
+  },
+  {
+    emoji: "🧠",
+    title: "Baby Development Activity Kit",
+    items: ["Brain Activities", "Sensory Activities", "Baby Bonding Audio"],
+  },
+  {
+    emoji: "📖",
+    title: "Pregnancy Resource Guide",
+    items: ["Common Problems & Solutions", "Baby Development Guide", "Pregnancy Journal"],
+  },
+  {
+    emoji: "👨‍👩‍👧",
+    title: "Family & Birth Support Toolkit",
+    items: ["Partner Guide", "Birth Preparation", "Breastfeeding Guidance"],
+  },
 ];
+
+const faqs = [
+  {
+    q: "Which program is right for me?",
+    a: "Bloom is perfect if you're just beginning your wellness journey or want to try one month first. Nurture is ideal for a full trimester of deeper support. Womb to Wonder is for mothers who want comprehensive care throughout their entire pregnancy.",
+  },
+  {
+    q: "Can I upgrade my plan later?",
+    a: "Yes! You can upgrade from Bloom to Nurture, or from Nurture to Womb to Wonder at any time. The difference in price is all you pay — no re-enrollment needed.",
+  },
+  {
+    q: "Are the sessions live or recorded?",
+    a: "Weekly group sessions are live so you can interact, ask questions and feel the community energy. All live sessions are also recorded and added to your library within 24 hours.",
+  },
+  {
+    q: "What if I join late in my pregnancy?",
+    a: "We welcome mothers at any stage. We'll customise your journey to focus on what's most relevant to your current trimester and upcoming needs.",
+  },
+  {
+    q: "Is the program available online?",
+    a: "Yes — completely online. Join from anywhere in India or abroad, on any device.",
+  },
+  {
+    q: "Is there a refund policy?",
+    a: "We offer a 7-day satisfaction guarantee. If you feel the program isn't right for you within the first 7 days, we'll process a full refund — no questions asked.",
+  },
+];
+
+// ── COMPONENT ────────────────────────────────────────────────────────────────
 
 export default function ProgramsPageContent() {
+  const [openSection, setOpenSection] = useState<string>("physical");
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
     <div className="pt-24" style={{ background: "#FAF7F4" }}>
-
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden py-28 md:py-36" style={{ background: "linear-gradient(160deg,#F4EBE8 0%,#FAF7F4 100%)" }}>
+      
+      {/* ── 1. HERO SECTION ── */}
+      <section className="relative overflow-hidden py-20 md:py-28"
+        style={{ background: "linear-gradient(160deg, #F4EBE8 0%, #E9D8D3 100%)" }}>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
-            style={{ background: "#A15C7A" }} animate={{ scale: [1,1.1,1] }} transition={{ duration: 10, repeat: Infinity }} />
+          <motion.div
+            className="absolute top-10 right-10 w-64 h-64 rounded-full blur-3xl opacity-30"
+            style={{ background: "#A15C7A" }}
+            animate={{ scale: [1, 1.2, 1], x: [0, 20, 0] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-10 left-10 w-96 h-96 rounded-full blur-3xl opacity-20"
+            style={{ background: "#D4AF37" }}
+            animate={{ scale: [1, 1.15, 1], y: [0, -20, 0] }}
+            transition={{ duration: 10, repeat: Infinity, delay: 2 }}
+          />
         </div>
-        <div className="container-wide relative z-10 text-center max-w-3xl mx-auto">
-          <FadeUp>
-            <SectionLabel centered>Our Programs</SectionLabel>
-            <h1 className="font-display text-6xl md:text-7xl font-semibold leading-[1.05] mb-6" style={{ color: "#4B3B3B" }}>
-              Every Mother&apos;s Journey is <span style={{ color: "#A15C7A" }}>Unique</span>
-            </h1>
-            <p className="font-body text-xl leading-relaxed mb-10" style={{ color: "#7C6A6A" }}>
-              We offer programs tailored to every stage — from fertility and preconception through pregnancy and beyond. Each designed with intention, care and deep expertise.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-primary text-base px-10 py-4 inline-flex group">
-                Book Free Consultation <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="#programs" className="btn-secondary text-base px-10 py-4 inline-flex">
-                Explore Programs
-              </Link>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* ── PROGRAMS ── */}
-      <section id="programs" className="section-padding" style={{ background: "#FAF7F4" }}>
-        <div className="container-wide space-y-8">
-          {programs.map((p, i) => (
-            <FadeUp key={p.id} delay={i * 0.08}>
-              <div className="relative rounded-[32px] overflow-hidden"
-                style={{
-                  background: p.highlight ? "linear-gradient(135deg,rgba(161,92,122,0.07) 0%,rgba(233,216,211,0.4) 100%)" : "white",
-                  border: p.highlight ? "1.5px solid rgba(161,92,122,0.25)" : "1px solid rgba(233,216,211,0.7)",
-                  boxShadow: p.highlight ? "0 12px 60px rgba(161,92,122,0.12)" : "0 4px 24px rgba(75,59,59,0.06)",
-                }}>
-                {p.highlight && (
-                  <div className="absolute top-6 right-6 px-4 py-1.5 rounded-full font-body text-xs font-semibold"
-                    style={{ background: "#A15C7A", color: "white" }}>✦ {p.badge}</div>
-                )}
-                <div className="grid lg:grid-cols-3 gap-8 p-8 md:p-10">
-                  {/* Left */}
-                  <div className="lg:col-span-2 space-y-5">
-                    {!p.highlight && (
-                      <span className="inline-block px-3 py-1 rounded-full font-body text-xs font-medium"
-                        style={{ background: "rgba(161,92,122,0.08)", color: "#A15C7A", border: "1px solid rgba(161,92,122,0.15)" }}>
-                        {p.badge}
-                      </span>
-                    )}
-                    <div className="flex items-start gap-5">
-                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shrink-0"
-                        style={{ background: "rgba(161,92,122,0.08)", border: "1px solid rgba(161,92,122,0.15)" }}>
-                        {p.icon}
-                      </div>
-                      <div>
-                        <h2 className="font-display text-3xl md:text-4xl font-semibold mb-1" style={{ color: "#4B3B3B" }}>{p.title}</h2>
-                        <p className="font-body text-sm font-medium" style={{ color: "#A15C7A" }}>{p.subtitle}</p>
-                      </div>
-                    </div>
-                    <p className="font-body text-base leading-relaxed" style={{ color: "#7C6A6A" }}>{p.description}</p>
-                    <div className="flex flex-wrap gap-4">
-                      <div className="flex items-center gap-2">
-                        <Clock size={14} style={{ color: "#A89090" }} />
-                        <span className="font-body text-sm" style={{ color: "#7C6A6A" }}>{p.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users size={14} style={{ color: "#A89090" }} />
-                        <span className="font-body text-sm" style={{ color: "#7C6A6A" }}>{p.group}</span>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Right */}
-                  <div className="space-y-4">
-                    <p className="font-body text-xs font-semibold tracking-[0.15em] uppercase" style={{ color: "#A89090" }}>What&apos;s Included</p>
-                    <ul className="space-y-2.5">
-                      {p.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2.5">
-                          <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(161,92,122,0.12)" }}>
-                            <Check size={10} style={{ color: "#A15C7A" }} />
-                          </div>
-                          <span className="font-body text-sm" style={{ color: "#7C6A6A" }}>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact" className="btn-primary w-full justify-center mt-4 inline-flex group">
-                      Get Started <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
+        <div className="container-wide relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <FadeUp>
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6"
+                style={{ background: "rgba(161,92,122,0.08)", border: "1px solid rgba(161,92,122,0.15)" }}>
+                <span className="text-lg">✨</span>
+                <span className="font-body text-sm font-medium" style={{ color: "#A15C7A" }}>
+                  Choose Your Pregnancy Journey
+                </span>
               </div>
             </FadeUp>
-          ))}
+            <FadeUp delay={0.1}>
+              <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] mb-6"
+                style={{ color: "#4B3B3B" }}>
+                Choose Your <span style={{ color: "#A15C7A" }}>Maatratva</span> Path
+              </h1>
+            </FadeUp>
+            <FadeUp delay={0.2}>
+              <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+                style={{ color: "#7C6A6A" }}>
+                Every pregnancy is unique. Choose the level of care, guidance and support that matches your journey.
+              </p>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
-      <section className="section-padding" style={{ background: "#F4EBE8" }}>
-        <div className="container-wide">
-          <FadeUp className="text-center max-w-xl mx-auto mb-16">
-            <SectionLabel centered>How It Works</SectionLabel>
-            <h2 className="font-display text-5xl font-semibold" style={{ color: "#4B3B3B" }}>Your Path Forward</h2>
-          </FadeUp>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((s) => (
-              <StaggerItem key={s.n}>
-                <motion.div className="p-8 rounded-[24px] text-center h-full"
-                  style={{ background: "white", border: "1px solid rgba(233,216,211,0.6)" }}
-                  whileHover={{ y: -6 }} transition={{ duration: 0.3 }}>
-                  <span className="font-display text-5xl font-bold block mb-4 leading-none" style={{ color: "rgba(161,92,122,0.18)" }}>{s.n}</span>
-                  <h3 className="font-display text-xl font-semibold mb-3" style={{ color: "#4B3B3B" }}>{s.title}</h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: "#7C6A6A" }}>{s.desc}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ── */}
+      {/* ── 2. PRICING CARDS ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>
         <div className="container-wide">
-          <FadeUp className="text-center max-w-xl mx-auto mb-12">
-            <SectionLabel centered>What Mothers Say</SectionLabel>
-            <h2 className="font-display text-5xl font-semibold" style={{ color: "#4B3B3B" }}>
-              Voices of <span style={{ color: "#A15C7A" }}>Experience</span>
-            </h2>
-          </FadeUp>
-          <StaggerContainer className="grid sm:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <StaggerItem key={t.name}>
-                <motion.div className="p-7 rounded-[24px] h-full flex flex-col"
-                  style={{ background: "white", border: "1px solid rgba(233,216,211,0.6)", boxShadow: "0 4px 24px rgba(75,59,59,0.06)" }}
-                  whileHover={{ y: -6 }} transition={{ duration: 0.3 }}>
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#A15C7A" color="#A15C7A" />)}
-                  </div>
-                  <p className="font-display text-lg font-light italic leading-relaxed flex-1" style={{ color: "#4B3B3B" }}>
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                  <div className="mt-5 pt-4" style={{ borderTop: "1px solid rgba(233,216,211,0.6)" }}>
-                    <p className="font-body text-sm font-semibold" style={{ color: "#4B3B3B" }}>{t.name}</p>
-                    <p className="font-body text-xs mt-0.5" style={{ color: "#A15C7A" }}>{t.tag}</p>
-                  </div>
-                </motion.div>
+          <StaggerContainer className="grid lg:grid-cols-3 gap-8">
+            {plans.map((plan, idx) => (
+              <StaggerItem key={plan.id}>
+                {plan.highlight ? (
+                  // HIGHLIGHTED CARD (Nurture)
+                  <motion.div
+                    className="relative rounded-[28px] p-8 md:p-10 h-full flex flex-col"
+                    style={{
+                      background: "linear-gradient(135deg, #A15C7A 0%, #7D4460 100%)",
+                      boxShadow: "0 20px 60px rgba(161,92,122,0.35)",
+                    }}
+                    whileHover={{ y: -8, boxShadow: "0 24px 70px rgba(161,92,122,0.45)" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="px-4 py-1.5 rounded-full text-xs font-semibold"
+                        style={{ background: "#D4AF37", color: "#4B3B3B" }}>
+                        {plan.badge}
+                      </div>
+                      <div className="px-4 py-1.5 rounded-full text-xs font-medium"
+                        style={{ background: "rgba(255,255,255,0.15)", color: "white" }}>
+                        {plan.duration}
+                      </div>
+                    </div>
+                    <div className="text-5xl mb-4">{plan.emoji}</div>
+                    <h3 className="font-display text-4xl font-semibold mb-2 text-white">{plan.name}</h3>
+                    <p className="font-body text-sm mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>
+                      {plan.tagline}
+                    </p>
+                    <div className="mb-6">
+                      <span className="font-display text-5xl font-bold text-white">{plan.price}</span>
+                      <span className="font-body text-sm ml-2" style={{ color: "rgba(255,255,255,0.7)" }}>
+                        / {plan.duration.toLowerCase()}
+                      </span>
+                    </div>
+                    <div className="space-y-3 mb-8 flex-1">
+                      {plan.included.length > 0 && (
+                        <p className="font-body text-sm font-semibold mb-3"
+                          style={{ color: "rgba(255,255,255,0.9)" }}>
+                          {plan.included[0]}
+                        </p>
+                      )}
+                      {plan.features.map((f) => (
+                        <div key={f} className="flex items-start gap-3">
+                          <Check size={18} className="shrink-0 mt-0.5" style={{ color: "#D4AF37" }} />
+                          <span className="font-body text-sm" style={{ color: "rgba(255,255,255,0.9)" }}>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <Link href="/contact" className="btn-gold w-full text-center">
+                      {plan.cta}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  // REGULAR CARD (Bloom, Womb to Wonder)
+                  <motion.div
+                    className="relative rounded-[28px] p-8 md:p-10 h-full flex flex-col"
+                    style={{
+                      background: "white",
+                      border: "1px solid rgba(161,92,122,0.15)",
+                      boxShadow: "0 8px 40px rgba(161,92,122,0.08)",
+                    }}
+                    whileHover={{ y: -8, boxShadow: "0 12px 50px rgba(161,92,122,0.15)" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex items-center gap-3 mb-6">
+                      {plan.badge && (
+                        <div className="px-4 py-1.5 rounded-full text-xs font-semibold"
+                          style={{ background: "#E9D8D3", color: "#A15C7A" }}>
+                          {plan.badge}
+                        </div>
+                      )}
+                      <div className="px-4 py-1.5 rounded-full text-xs font-medium"
+                        style={{ background: "#F4EBE8", color: "#7C6A6A" }}>
+                        {plan.duration}
+                      </div>
+                    </div>
+                    <div className="text-5xl mb-4">{plan.emoji}</div>
+                    <h3 className="font-display text-4xl font-semibold mb-2" style={{ color: "#4B3B3B" }}>
+                      {plan.name}
+                    </h3>
+                    <p className="font-body text-sm mb-6" style={{ color: "#7C6A6A" }}>
+                      {plan.tagline}
+                    </p>
+                    <div className="mb-6">
+                      <span className="font-display text-5xl font-bold" style={{ color: "#A15C7A" }}>
+                        {plan.price}
+                      </span>
+                      <span className="font-body text-sm ml-2" style={{ color: "#7C6A6A" }}>
+                        / {plan.duration.toLowerCase()}
+                      </span>
+                    </div>
+                    <div className="space-y-3 mb-8 flex-1">
+                      {plan.included.length > 0 && (
+                        <p className="font-body text-sm font-semibold mb-3" style={{ color: "#A15C7A" }}>
+                          {plan.included[0]}
+                        </p>
+                      )}
+                      {plan.features.map((f) => (
+                        <div key={f} className="flex items-start gap-3">
+                          <Check size={18} className="shrink-0 mt-0.5" style={{ color: "#A15C7A" }} />
+                          <span className="font-body text-sm" style={{ color: "#4B3B3B" }}>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <Link href="/contact" className="btn-primary w-full text-center">
+                      {plan.cta}
+                    </Link>
+                  </motion.div>
+                )}
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── 3. WHAT'S INCLUDED SECTION ── */}
+      <section className="section-padding" style={{ background: "#F4EBE8" }}>
+        <div className="container-wide">
+          <FadeUp className="text-center max-w-3xl mx-auto mb-16">
+            <SectionLabel centered>What&apos;s Inside</SectionLabel>
+            <h2 className="font-display text-5xl md:text-6xl font-semibold mb-4" style={{ color: "#4B3B3B" }}>
+              Everything Your Journey <span style={{ color: "#A15C7A" }}>Includes</span>
+            </h2>
+            <p className="font-body text-lg" style={{ color: "#7C6A6A" }}>
+              Thoughtfully designed sessions, expert guidance and holistic practices to nurture your body, mind and baby.
+            </p>
+          </FadeUp>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {curriculumSections.map((section) => (
+              <FadeUp key={section.id}>
+                <div className="rounded-[20px] overflow-hidden"
+                  style={{
+                    background: "white",
+                    border: "1px solid rgba(161,92,122,0.15)",
+                    boxShadow: "0 4px 24px rgba(161,92,122,0.06)",
+                  }}>
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left"
+                    onClick={() => setOpenSection(openSection === section.id ? "" : section.id)}
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="text-3xl">{section.emoji}</span>
+                      <h3 className="font-display text-2xl font-semibold" style={{ color: "#4B3B3B" }}>
+                        {section.title}
+                      </h3>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: openSection === section.id ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown size={20} style={{ color: "#A15C7A" }} />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {openSection === section.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        style={{ overflow: "hidden" }}
+                      >
+                        <div className="px-6 pb-6">
+                          <div className="w-full h-px mb-5"
+                            style={{ background: "rgba(161,92,122,0.1)" }} />
+
+                          {/* Regular items */}
+                          {section.id !== "bonuses" && (
+                            <div className="space-y-3 mb-5">
+                              {section.items.map((item) => (
+                                <div key={item} className="flex items-start gap-3">
+                                  <div className="w-5 h-5 rounded-full shrink-0 mt-0.5 flex items-center justify-center"
+                                    style={{ background: "rgba(161,92,122,0.1)" }}>
+                                    <Check size={12} style={{ color: "#A15C7A" }} />
+                                  </div>
+                                  <span className="font-body text-sm" style={{ color: "#4B3B3B" }}>{item}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Expert chips */}
+                          {section.experts && section.experts.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mt-4">
+                              {section.experts.map((exp) => (
+                                <span key={exp}
+                                  className="px-3 py-1.5 rounded-full font-body text-xs font-medium"
+                                  style={{ background: "#F4EBE8", color: "#A15C7A", border: "1px solid rgba(161,92,122,0.2)" }}>
+                                  {exp}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Bonuses grid */}
+                          {section.id === "bonuses" && (
+                            <div className="grid sm:grid-cols-2 gap-4">
+                              {bonuses.map((bonus) => (
+                                <div key={bonus.title}
+                                  className="p-5 rounded-[16px]"
+                                  style={{ background: "#F4EBE8", border: "1px solid rgba(161,92,122,0.1)" }}>
+                                  <div className="flex items-center gap-3 mb-3">
+                                    <span className="text-2xl">{bonus.emoji}</span>
+                                    <h4 className="font-display text-base font-semibold" style={{ color: "#4B3B3B" }}>
+                                      {bonus.title}
+                                    </h4>
+                                  </div>
+                                  <div className="space-y-1.5">
+                                    {bonus.items.map((item) => (
+                                      <div key={item} className="flex items-center gap-2">
+                                        <Star size={11} style={{ color: "#D4AF37" }} />
+                                        <span className="font-body text-xs" style={{ color: "#7C6A6A" }}>{item}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. FAQ SECTION ── */}
+      <section className="section-padding" style={{ background: "#FAF7F4" }}>
+        <div className="container-wide">
+          <FadeUp className="text-center max-w-2xl mx-auto mb-16">
+            <SectionLabel centered>Common Questions</SectionLabel>
+            <h2 className="font-display text-5xl md:text-6xl font-semibold" style={{ color: "#4B3B3B" }}>
+              You Asked, We <span style={{ color: "#A15C7A" }}>Answered</span>
+            </h2>
+          </FadeUp>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, idx) => (
+              <FadeUp key={idx} delay={idx * 0.05}>
+                <div className="rounded-[20px] overflow-hidden"
+                  style={{
+                    background: "white",
+                    border: "1px solid rgba(161,92,122,0.15)",
+                    boxShadow: "0 4px 24px rgba(161,92,122,0.06)",
+                  }}>
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left"
+                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  >
+                    <h3 className="font-display text-xl font-semibold pr-4" style={{ color: "#4B3B3B" }}>
+                      {faq.q}
+                    </h3>
+                    <motion.div
+                      animate={{ rotate: openFaq === idx ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="shrink-0"
+                    >
+                      <ChevronDown size={20} style={{ color: "#A15C7A" }} />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {openFaq === idx && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        style={{ overflow: "hidden" }}
+                      >
+                        <div className="px-6 pb-6">
+                          <div className="w-full h-px mb-4"
+                            style={{ background: "rgba(161,92,122,0.1)" }} />
+                          <p className="font-body text-sm leading-relaxed" style={{ color: "#7C6A6A" }}>
+                            {faq.a}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. FINAL CTA SECTION ── */}
+      <section className="relative overflow-hidden py-24 md:py-32"
+        style={{ background: "linear-gradient(160deg, #4B3B3B 0%, #3A2D2D 50%, #7D4460 100%)" }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div
+            className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
+            style={{ background: "#E9D8D3" }}
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 9, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-15"
+            style={{ background: "#D4AF37" }}
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 7, repeat: Infinity, delay: 2 }}
+          />
+        </div>
+
+        <div className="container-wide relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <FadeUp>
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-6 text-white">
+                Every Mother Deserves Guidance That{" "}
+                <span style={{ color: "#D4AF37" }}>Grows</span>{" "}
+                With Her Journey
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.15}>
+              <p className="font-body text-lg md:text-xl leading-relaxed mb-10"
+                style={{ color: "rgba(233,216,211,0.85)" }}>
+                Join thousands of mothers discovering confidence, calmness and connection through the Maatratva experience.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.25}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="#pricing" className="btn-gold">
+                  Choose Your Program
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-body font-medium text-sm text-white transition-all duration-300 hover:bg-white/10"
+                  style={{ border: "1.5px solid rgba(255,255,255,0.5)" }}
+                >
+                  <Phone size={16} />
+                  Schedule Free Consultation
+                </Link>
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
