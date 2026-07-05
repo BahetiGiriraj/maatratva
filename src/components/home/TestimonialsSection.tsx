@@ -1,262 +1,120 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Star, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star, Play, ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion";
+import { FadeUp } from "@/components/ui/motion";
 
-const testimonials = [
-  {
-    name: "Priya K.",
-    location: "Mumbai",
-    rating: 5,
-    text: "Maatratva transformed my entire pregnancy experience. Dheera&apos;s Garbh Sanskar sessions gave me such a deep connection with my baby. My daughter is now 18 months old and she is so calm, so bright. I credit it all to Maatratva.",
-    weeks: "Joined at 8 weeks",
-    emoji: "🌸",
-    featured: true,
-  },
-  {
-    name: "Ananya R.",
-    location: "Delhi",
-    rating: 5,
-    text: "As an IVF mother, I was terrified through most of my pregnancy. The meditation and NLP sessions helped me release so much fear. I actually started enjoying my pregnancy instead of fearing it every day.",
-    weeks: "IVF Mother",
-    emoji: "🌺",
-    featured: false,
-  },
-  {
-    name: "Megha S.",
-    location: "Bangalore",
-    rating: 5,
-    text: "The nutrition guidance was a game-changer. I had severe morning sickness and the Ayurvedic protocols helped me so much. My baby was born healthy at a perfect weight. I cannot recommend this enough.",
-    weeks: "High-risk pregnancy",
-    emoji: "💐",
-    featured: false,
-  },
-  {
-    name: "Deepika T.",
-    location: "Pune",
-    rating: 5,
-    text: "The community of mothers you build here is something else entirely. You never feel alone. Everyone supports each other. Dheera is not just a teacher — she is a mother to all of us.",
-    weeks: "Joined at 12 weeks",
-    emoji: "🌷",
-    featured: false,
-  },
+const allReviews = [
+  { name: "Shilpi Kashup", location: "Indore, India", text: "Ever since I took Dhira mam's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being." },
+  { name: "Aayushi Jain", location: "Indore, India", text: "Every chat with Dhira ma'am was so relaxing that I used to forget about anxiety. The lessons on gratitude, forgiveness and love made me kinder. Her caring, smiling nature gives me a motherly feeling. I loved the meditation and Tratak kriya sessions." },
+  { name: "Nikita Kathpal", location: "Westcode, USA", text: "As a first-time mom-to-be, Dhira ji made this journey so exciting. The visualizations, baby talk, meditations and brain development activities truly provide a holistic approach. I am less anxious and more calm after joining these classes." },
+  { name: "Purvi Neema", location: "Mumbai, India", text: "My final months of pregnancy were the best and blessed months after I found Dhira ma'am. I was calm and happy during my labour and had only love and positivity — only because of her. She is the best mentor I can ever get." },
+  { name: "Jaya Bangad", location: "Randipur, India", text: "I feel blessed to have Dheera ma'am as my mentor for Garbh Sanskar. Like Krishna, she answered all my questions just like an elder sister. Her meditation sessions brought me calmness. Her advice was not only for pregnancy but for whole life." },
+  { name: "Riya Gujrati", location: "India", text: "Your visualization sessions make a person design their baby. You give every pregnant lady the strength to feel confident and positive. Me and my family is actually very much grateful for your generous support in my journey." },
+  { name: "Aayushi Gargitke", location: "India", text: "The Garbh Sanskar course provided comprehensive knowledge and practical techniques to nurture a positive environment for my baby. Sessions like meditation, baby visualisation and pregnancy insights are inspiring and very helpful." },
+  { name: "Aarohi", location: "Indore, India", text: "Dhira Mam has completely transformed my yoga practice with patient guidance and deep knowledge. Every class feels like a personalized experience. The things I learnt in prenatal yoga classes were invaluable — and I was blessed with a baby girl." },
+  { name: "Aditi Kothari", location: "Dubai, UAE", text: "Being alone in Dubai during my pregnancy was tough, yet you made me aware of how much this journey can impact. I invested my time in painting, reading and brain-storming activities. Glad to have you as my guiding light." },
+  { name: "Ankita Shikre", location: "India", text: "Ma'am, your experience will always be memorable. You made my pregnancy journey so easy. Whatever you said, I followed and the results were amazing. Whenever I was nervous you always gave me strength. Thank you so much." },
+  { name: "Bhavana Bajaj", location: "Chandrapur, India", text: "The first day we talked I was sure I was at the right place. All your activities — baby talk, meditation, baby visualization — are beautiful for connection with our child. You treat us as family members." },
+  { name: "Gayatri Joshi", location: "Indore, India", text: "Your breathing exercises were very helpful during labour pain. My baby is exactly as I had imagined. You helped me recover so much even though I joined late. Your work is beautiful — keep going." },
+  { name: "Palak Jindal", location: "Indore, India", text: "It was a wonderful journey with you. All your techniques — visualization, positive affirmations, NLP sessions — were really needful. You made us so comfortable that we didn't hesitate to discuss our problems." },
+  { name: "Nisha Patwari", location: "Indore, India", text: "Dheera ma'am's sessions are extremely beneficial for natural delivery. I found the meditation classes very helpful in connecting with my baby. Thank you for educating me on this beautiful journey." },
+  { name: "Shweta Mahajan", location: "Khargon, India", text: "Thank you for making my risky pregnancy journey smooth and relaxing. I had visualised my baby in your sessions and my baby boy exactly looks and behaves the way I wanted. Talking to Dhira ma'am always felt like talking to a family member." },
+  { name: "Varsha Rathi", location: "Raysen, India", text: "In the beginning I was really scared but because of you I enjoyed so much in this journey. Your sessions are very interesting and exciting. You always supported us with your guidance whenever we felt nervous." },
+  { name: "Vedehi Rathi", location: "Jaipur, India", text: "Thank you for all the guidance throughout my pregnancy. All the breathing techniques, exercises, visual imagination and labour pain knowledge — thank you is not enough. You even made my husband feel involved in our pregnancy journey." },
+  { name: "Pragati Jain", location: "Surat, India", text: "I suffered from infection and was admitted to the ICU. You handled the situation so well. After I gave birth to healthy twins, I felt so relieved. Both babies are healthy and exactly as I visualised in your sessions." },
+  { name: "Dr. Minal", location: "Mumbai, India", text: "My baby is very calm and recognises my voice. She still listens to all the mantras I used to recite during pregnancy. Suraksha chakra mantra really helped during my labor. I was very confident during the entire delivery." },
+  { name: "Akshata Vishnu", location: "Hyderabad, India", text: "Both me and Akshata truly thank you from the bottom of our hearts. When we look back we cannot imagine how it would have been without your sessions. Your sessions are a huge source of positive energy filling the toughest days with freshness." },
+  { name: "Parul Kabra", location: "Mandsour, India", text: "I really enjoyed each and every session with you. I always tried not to miss any class because they made me feel relaxed and connected. Thank you for making this special phase of my life even more beautiful and memorable." },
 ];
 
-export default function TestimonialsSection() {
-  const [active, setActive] = useState(0);
+const row1 = allReviews.slice(0, 11);
+const row2 = allReviews.slice(11);
 
-  const prev = () => setActive((p) => (p === 0 ? testimonials.length - 1 : p - 1));
-  const next = () => setActive((p) => (p === testimonials.length - 1 ? 0 : p + 1));
-
-  const featured = testimonials[active];
-
+function ReviewCard({ name, location, text }: { name: string; location: string; text: string }) {
   return (
-    <section
-      className="section-padding relative overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #F4EBE8 0%, #FAF7F4 100%)" }}
+    <div
+      className="shrink-0 w-[300px] md:w-[360px] p-6 rounded-[20px] mx-3 flex flex-col gap-3"
+      style={{
+        background: "white",
+        border: "1px solid rgba(233,216,211,0.7)",
+        boxShadow: "0 4px 20px rgba(161,92,122,0.07)",
+      }}
     >
-      {/* BG decoration */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-3xl"
-          style={{ background: "#A15C7A" }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-60 h-60 rounded-full opacity-15 blur-2xl"
-          style={{ background: "#D4AF37" }}
-        />
+      <div className="flex gap-0.5">
+        {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#A15C7A" color="#A15C7A" />)}
       </div>
+      <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#7C6A6A", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+        &ldquo;{text}&rdquo;
+      </p>
+      <div className="flex items-center gap-3 pt-3" style={{ borderTop: "1px solid rgba(233,216,211,0.6)" }}>
+        <div className="w-8 h-8 rounded-full flex items-center justify-center font-display text-sm font-bold shrink-0"
+          style={{ background: "rgba(161,92,122,0.1)", color: "#A15C7A" }}>
+          {name[0]}
+        </div>
+        <div>
+          <p className="font-body text-sm font-semibold leading-none mb-0.5" style={{ color: "#4B3B3B" }}>{name}</p>
+          <p className="font-body text-xs" style={{ color: "#A89090" }}>{location}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-      <div className="container-wide relative z-10">
+function MarqueeRow({ reviews, direction, speed = 60 }: { reviews: typeof allReviews; direction: "left" | "right"; speed?: number }) {
+  const doubled = [...reviews, ...reviews];
+  return (
+    <div style={{ overflow: "hidden", width: "100%" }}>
+      <motion.div
+        style={{ display: "flex", width: "max-content" }}
+        animate={{ x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] }}
+        transition={{ duration: speed, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+      >
+        {doubled.map((r, i) => (
+          <ReviewCard key={i} name={r.name} location={r.location} text={r.text} />
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+export default function TestimonialsSection() {
+  return (
+    <section className="section-padding overflow-hidden"
+      style={{ background: "linear-gradient(160deg, #F4EBE8 0%, #FAF7F4 100%)" }}>
+      <div className="container-wide">
         <FadeUp className="text-center max-w-2xl mx-auto mb-16">
           <SectionLabel centered>Mother Stories</SectionLabel>
-          <h2
-            className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-6"
-            style={{ color: "#4B3B3B" }}
-          >
-            Journeys That{" "}
-            <span style={{ color: "#A15C7A" }}>
-              Inspire
-            </span>
+          <h2 className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-6" style={{ color: "#4B3B3B" }}>
+            Voices of Our <span style={{ color: "#A15C7A" }}>Mothers</span>
           </h2>
           <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
-            Real mothers, real transformations, real stories of wonder.
+            Real words from real mothers who walked this journey with Maatratva.
           </p>
         </FadeUp>
+      </div>
 
-        {/* Featured testimonial */}
-        <div className="max-w-4xl mx-auto mb-14">
-          <div
-            className="relative rounded-[32px] p-8 md:p-12 overflow-hidden"
-            style={{
-              background: "white",
-              boxShadow: "0 20px 80px rgba(161,92,122,0.12)",
-              border: "1px solid rgba(233,216,211,0.6)",
-            }}
-          >
-            {/* Quote mark */}
-            <div
-              className="absolute top-6 left-8 font-display text-[120px] leading-none select-none pointer-events-none opacity-[0.05]"
-              style={{ color: "#A15C7A" }}
-            >
-              &ldquo;
-            </div>
+      {/* Row 1 — right to left */}
+      <div className="mb-4">
+        <MarqueeRow reviews={row1} direction="left" speed={55} />
+      </div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-6">
-                  {[...Array(featured.rating)].map((_, i) => (
-                    <Star key={i} size={18} fill="#D4AF37" color="#D4AF37" />
-                  ))}
-                </div>
+      {/* Row 2 — left to right */}
+      <MarqueeRow reviews={row2} direction="right" speed={65} />
 
-                <p
-                  className="font-display text-2xl md:text-3xl font-light italic leading-relaxed mb-8"
-                  style={{ color: "#4B3B3B" }}
-                  dangerouslySetInnerHTML={{ __html: `&ldquo;${featured.text}&rdquo;` }}
-                />
-
-                {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center text-2xl shrink-0"
-                    style={{ background: "rgba(161,92,122,0.1)" }}
-                  >
-                    {featured.emoji}
-                  </div>
-                  <div>
-                    <p className="font-body font-semibold" style={{ color: "#4B3B3B" }}>
-                      {featured.name}
-                    </p>
-                    <p className="font-body text-sm" style={{ color: "#7C6A6A" }}>
-                      {featured.location} · {featured.weeks}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-between mt-8 pt-6" style={{ borderTop: "1px solid rgba(233,216,211,0.6)" }}>
-              <div className="flex gap-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActive(i)}
-                    className="rounded-full transition-all duration-300"
-                    style={{
-                      width: i === active ? "24px" : "8px",
-                      height: "8px",
-                      background: i === active ? "#A15C7A" : "rgba(161,92,122,0.2)",
-                    }}
-                  />
-                ))}
-              </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={prev}
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-                  style={{ background: "rgba(161,92,122,0.08)", color: "#A15C7A" }}
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  onClick={next}
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-                  style={{ background: "#A15C7A", color: "white" }}
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
+      {/* Buttons */}
+      <div className="container-wide mt-12">
+        <FadeUp>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/stories"
+              className="btn-primary group inline-flex items-center gap-2 text-base px-8 py-3.5">
+              <Play size={15} fill="white" />
+              Watch Video Testimonials
+            </Link>
+            
           </div>
-        </div>
-
-        {/* Mini testimonial cards */}
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-          {testimonials.map((t, i) => (
-            <StaggerItem key={t.name}>
-              <motion.button
-                className="w-full text-left p-5 rounded-2xl transition-all duration-300"
-                style={{
-                  background: i === active ? "rgba(161,92,122,0.08)" : "white",
-                  border: i === active ? "1px solid rgba(161,92,122,0.25)" : "1px solid rgba(233,216,211,0.6)",
-                }}
-                onClick={() => setActive(i)}
-                whileHover={{ y: -2 }}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-lg">{t.emoji}</span>
-                  <div>
-                    <p className="font-body text-sm font-semibold" style={{ color: "#4B3B3B" }}>
-                      {t.name}
-                    </p>
-                    <p className="font-body text-xs" style={{ color: "#7C6A6A" }}>
-                      {t.location}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-0.5">
-                  {[...Array(t.rating)].map((_, j) => (
-                    <Star key={j} size={10} fill="#D4AF37" color="#D4AF37" />
-                  ))}
-                </div>
-              </motion.button>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* Video testimonial placeholder */}
-        <FadeUp className="max-w-2xl mx-auto mb-12">
-          <div
-            className="relative rounded-[28px] overflow-hidden aspect-video flex items-center justify-center cursor-pointer group"
-            style={{
-              background: "linear-gradient(135deg, #4B3B3B 0%, #7D4460 100%)",
-              boxShadow: "0 20px 60px rgba(75,59,59,0.25)",
-            }}
-          >
-            {/* Background blur overlay */}
-            <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-[#A15C7A] to-[#D4AF37]" />
-
-            <div className="relative z-10 text-center">
-              <motion.div
-                className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
-                style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(10px)" }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Play size={28} fill="white" color="white" className="ml-1" />
-              </motion.div>
-              <p className="font-display text-2xl font-semibold text-white mb-2">
-                Watch Their Stories
-              </p>
-              <p className="font-body text-sm text-white/70">
-                Video testimonials from our mothers
-              </p>
-            </div>
-          </div>
-        </FadeUp>
-
-        <FadeUp className="text-center">
-          <Link href="/stories" className="btn-primary group inline-flex">
-            Read More Stories
-            <ArrowRight
-              size={16}
-              className="group-hover:translate-x-1 transition-transform duration-200"
-            />
-          </Link>
         </FadeUp>
       </div>
     </section>
