@@ -7,13 +7,14 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { FadeLeft, FadeRight } from "@/components/ui/motion";
 
 const highlights = [
-  { icon: "📅", label: "Weekly Live Sessions", desc: "Interactive group sessions every week" },
-  { icon: "👩‍⚕️", label: "Expert Guidance", desc: "Led by certified practitioners" },
-  { icon: "🎵", label: "Garbh Sanskar", desc: "Complete prenatal baby education" },
-  { icon: "🥗", label: "Nutrition", desc: "Trimester-wise Ayurvedic meal plans" },
-  { icon: "🧘", label: "Meditation", desc: "Daily guided practices & breathwork" },
-  { icon: "🤱", label: "Birth Preparation", desc: "Confident, informed birth planning" },
-  { icon: "👭", label: "Community Support", desc: "Mothers circle — you are never alone" },
+  { icon: "🧘", label: "Physical Wellbeing", desc: "Prenatal yoga, exercise and breathwork" },
+  { icon: "🌸", label: "Mindful Motherhood", desc: "Meditation, energy balancing and positive mind practices" },
+  { icon: "🎵", label: "Garbh Sanskar & Womb Designing", desc: "Garbh Sanskar, genetic blueprint, brain and senses development" },
+  { icon: "🥗", label: "Nutrition & Balanced Diet", desc: "Trimester-wise balanced diet plans" },
+  { icon: "💬", label: "Personal Mental Support", desc: "4 weekly live sessions with mentor" },
+  { icon: "👩‍⚕️", label: "Expert Guidance", desc: "Gynaecologists, Ayurveda experts, certified nutritionists and many more" },
+  { icon: "🤱", label: "Birth Preparation", desc: "Confident and easy birth planning preparation" },
+  { icon: "👭", label: "Community Support", desc: "Mother's circle — you are never alone" },
 ];
 
 export default function ProgramSection() {
@@ -93,7 +94,7 @@ export default function ProgramSection() {
               <div>
                 <SectionLabel>Our Program</SectionLabel>
                 <h2
-                  className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-6"
+                  className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-4"
                   style={{ color: "#4B3B3B" }}
                 >
                   Your Complete{" "}
@@ -101,6 +102,15 @@ export default function ProgramSection() {
                   Pregnancy Companion
                 </span>
                 </h2>
+
+                {/* Pointer line — between headline and subhead */}
+                <p
+                  className="font-display text-xl md:text-2xl font-light italic mb-5"
+                  style={{ color: "#A15C7A" }}
+                >
+                  Join us from the comfort of your own space for regular live sessions every week.
+                </p>
+
                 <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
                   Our flagship program is a holistic, structured journey that accompanies you through every stage of pregnancy — from preconception to postpartum. Guided by experts who truly understand the science and soul of motherhood.
                 </p>

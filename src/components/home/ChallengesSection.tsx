@@ -74,7 +74,7 @@ export default function ChallengesSection() {
       <div className="container-wide relative z-10">
         {/* Header */}
         <FadeUp className="text-center max-w-2xl mx-auto mb-20">
-          <SectionLabel centered>The Real Challenges</SectionLabel>
+          <SectionLabel centered>Modern Pregnancy Comes with Modern Challenges</SectionLabel>
           <h2
             className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-6"
             style={{ color: "#FAF7F4" }}

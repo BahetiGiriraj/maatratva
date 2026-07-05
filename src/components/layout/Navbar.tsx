@@ -80,8 +80,8 @@ export default function Navbar() {
         <div className="container-wide">
           <nav className="flex items-center justify-between h-20 md:h-24">
 
-            {/* ── LOGO — image only ── */}
-            <Link href="/" className="shrink-0 group">
+            {/* ── LOGO + tagline ── */}
+            <Link href="/" className="shrink-0 group flex items-center gap-3">
               <Image
                 src="/nav-logo.png"
                 alt="Maatratva"
@@ -90,6 +90,12 @@ export default function Navbar() {
                 priority
                 className="h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
+              <span
+                className="hidden md:block font-display text-base font-light italic whitespace-nowrap"
+                style={{ color: "#A15C7A" }}
+              >
+                A journey from womb to wonder
+              </span>
             </Link>
 
             {/* ── DESKTOP NAV ── */}
