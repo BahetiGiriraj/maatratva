@@ -18,7 +18,7 @@ const leftItems = [
     emoji: "🧘‍♀️",
     label: "",
     title: "Prenatal Yoga & Nourishment",
-    desc: "Gentle movement and Ayurvedic nutrition protocols designed for every trimester.",
+    desc: "Gentle movement and Balanced nutrition protocols designed for every trimester.",
     color: "#A15C7A",
     dot: "#A15C7A",
   },
@@ -34,7 +34,7 @@ const leftItems = [
     emoji: "🧠",
     label: "",
     title: "Mind Programming with NLP",
-    desc: "Powerful neuro-linguistic programming techniques to rewire limiting beliefs and fears.",
+    desc: "Powerful neuro linguistic programming techniques to rewire limiting beliefs and fears.",
     color: "#A15C7A",
     dot: "#A15C7A",
   },
@@ -163,9 +163,9 @@ export default function MaatratvaWaySection() {
             <span style={{ color: "#D4AF37" }}>Wonder</span>
           </h2>
           <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
-            A dual-focus approach that nurtures both mother and baby simultaneously —<br className="hidden md:block" />
+            A dual focus approach that nurtures both mother and baby simultaneously <br className="hidden md:block" />
             because every breath you take, every thought you think, every feeling you feel<br className="hidden md:block" />
-            becomes part of your baby&apos;s world.
+             becomes part of your baby&apos;s world.
           </p>
         </FadeUp>
 

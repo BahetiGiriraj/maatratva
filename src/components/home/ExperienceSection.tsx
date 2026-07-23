@@ -9,7 +9,7 @@ const cards = [
   {
     image: "/card1.png",
     title: "Pregnancy Wellness",
-    description: "Prenatal yoga, Ayurvedic nutrition, and evidence-based guidance for a healthy, joyful pregnancy.",
+    description: "Prenatal yoga, Balanced nutrition, and evidence based guidance for a healthy, joyful pregnancy.",
   },
   {
     image: "/card2.png",
@@ -24,7 +24,7 @@ const cards = [
   {
     image: "/card4.png",
     title: "Womb Design",
-    description: "Creating the perfect physical and emotional environment for your baby's development — a blueprint for lifelong wellbeing.",
+    description: "Creating the perfect physical and emotional environment for your baby's development  a blueprint for lifelong wellbeing.",
   },
 ];
 

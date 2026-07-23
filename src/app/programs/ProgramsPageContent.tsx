@@ -194,49 +194,7 @@ export default function ProgramsPageContent() {
   return (
     <div className="pt-24" style={{ background: "#FAF7F4" }}>
       
-      {/* ── 1. HERO SECTION ── */}
-      <section className="relative overflow-hidden py-20 md:py-28"
-        style={{ background: "linear-gradient(160deg, #F4EBE8 0%, #E9D8D3 100%)" }}>
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div
-            className="absolute top-10 right-10 w-64 h-64 rounded-full blur-3xl opacity-30"
-            style={{ background: "#A15C7A" }}
-            animate={{ scale: [1, 1.2, 1], x: [0, 20, 0] }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-10 left-10 w-96 h-96 rounded-full blur-3xl opacity-20"
-            style={{ background: "#D4AF37" }}
-            animate={{ scale: [1, 1.15, 1], y: [0, -20, 0] }}
-            transition={{ duration: 10, repeat: Infinity, delay: 2 }}
-          />
-        </div>
-        <div className="container-wide relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <FadeUp>
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6"
-                style={{ background: "rgba(161,92,122,0.08)", border: "1px solid rgba(161,92,122,0.15)" }}>
-                <span className="text-lg">✨</span>
-                <span className="font-body text-sm font-medium" style={{ color: "#A15C7A" }}>
-                  Choose Your Pregnancy Journey
-                </span>
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] mb-6"
-                style={{ color: "#4B3B3B" }}>
-                Choose Your <span style={{ color: "#A15C7A" }}>Maatratva</span> Path
-              </h1>
-            </FadeUp>
-            <FadeUp delay={0.2}>
-              <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
-                style={{ color: "#7C6A6A" }}>
-                Every pregnancy is unique. Choose the level of care, guidance and support that matches your journey.
-              </p>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
+    
 
       {/* ── 2. PRICING CARDS ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>

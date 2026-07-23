@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -11,7 +12,7 @@ const highlights = [
   { icon: "🌸", label: "Mindful Motherhood", desc: "Meditation, energy balancing and positive mind practices" },
   { icon: "🎵", label: "Garbh Sanskar & Womb Designing", desc: "Garbh Sanskar, genetic blueprint, brain and senses development" },
   { icon: "🥗", label: "Nutrition & Balanced Diet", desc: "Trimester-wise balanced diet plans" },
-  { icon: "💬", label: "Personal Mental Support", desc: "4 weekly live sessions with mentor" },
+  { icon: "💬", label: "Personal Mentor Support", desc: "4 weekly live sessions with mentor" },
   { icon: "👩‍⚕️", label: "Expert Guidance", desc: "Gynaecologists, Ayurveda experts, certified nutritionists and many more" },
   { icon: "🤱", label: "Birth Preparation", desc: "Confident and easy birth planning preparation" },
   { icon: "👭", label: "Community Support", desc: "Mother's circle — you are never alone" },
@@ -40,24 +41,24 @@ export default function ProgramSection() {
           {/* Left — Visual */}
           <FadeLeft>
             <div className="relative">
-              {/* Main image card */}
+              {/* Main image */}
               <div
                 className="relative rounded-[36px] overflow-hidden aspect-[4/5]"
                 style={{
-                  background: "linear-gradient(160deg, #E9D8D3 0%, #D4B5C8 40%, #A15C7A30 100%)",
                   boxShadow: "0 32px 80px rgba(161,92,122,0.2)",
                 }}
               >
-                {/* Placeholder for program image */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-10 text-center">
-                  <div className="text-6xl mb-6">🌸</div>
-                  <p className="font-display text-2xl font-semibold mb-2" style={{ color: "#4B3B3B" }}>
-                    The Maatratva Program
-                  </p>
-                  <p className="font-body text-sm" style={{ color: "#7C6A6A" }}>
-                    A comprehensive 9-month journey
-                  </p>
-                </div>
+                <Image
+                  src="/program-companion.png"
+                  alt="Your Complete Pregnancy Companion"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+                {/* Subtle bottom overlay */}
+                <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, rgba(75,59,59,0.18), transparent)" }} />
               </div>
 
               {/* Floating stat card */}

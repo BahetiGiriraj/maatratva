@@ -135,16 +135,13 @@ export default function HeroSection() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.44 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link href="/contact" className="btn-primary text-base px-8 py-4 group">
+              <Link href="/programs" className="btn-primary text-base px-8 py-4 group">
                 Begin Your Journey
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
-              <Link href="/contact?type=call" className="btn-secondary text-base px-8 py-4 group">
+              <Link href="" className="btn-secondary text-base px-8 py-4 group">
                 <span className="flex items-center justify-center gap-2">
-                  <span className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(161,92,122,0.1)" }}>
-                    <Play size={10} fill="#A15C7A" color="#A15C7A" className="ml-0.5" />
-                  </span>
-                  Schedule Your Free Call
+                 Book Free Session
                 </span>
               </Link>
             </motion.div>

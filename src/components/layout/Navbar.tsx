@@ -18,7 +18,6 @@ const navLinks = [
     label: "More",
     href: "#",
     children: [
-      { label: "Meet the Team", href: "/team" },
       { label: "FAQ", href: "/#faq" },
       { label: "Privacy Policy", href: "#privacy", isModal: true },
       { label: "Terms of Service", href: "#terms", isModal: true },
@@ -80,22 +79,30 @@ export default function Navbar() {
         <div className="container-wide">
           <nav className="flex items-center justify-between h-20 md:h-24">
 
-            {/* ── LOGO + tagline ── */}
+            {/* ── LOGO + brand text ── */}
             <Link href="/" className="shrink-0 group flex items-center gap-3">
               <Image
                 src="/nav-logo.png"
                 alt="Maatratva"
-                width={220}
-                height={80}
+                width={260}
+                height={96}
                 priority
-                className="h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-24 md:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-              <span
-                className="hidden md:block font-display text-base font-light italic whitespace-nowrap"
-                style={{ color: "#A15C7A" }}
-              >
-                A journey from womb to wonder
-              </span>
+              <div className="flex flex-col leading-none">
+                <span
+                  className="font-display text-2xl md:text-3xl font-semibold tracking-[-0.02em]"
+                  style={{ color: "#A15C7A" }}
+                >
+                  Maatratva
+                </span>
+                <span
+                  className="font-display text-xs md:text-sm font-light italic mt-0.5 whitespace-nowrap"
+                  style={{ color: "#7C6A6A" }}
+                >
+                  A journey from womb to wonder
+                </span>
+              </div>
             </Link>
 
             {/* ── DESKTOP NAV ── */}
@@ -287,7 +294,7 @@ export default function Navbar() {
 
               {/* Drawer CTA */}
               <div className="px-6 py-8 border-t border-[#E9D8D3] space-y-3">
-                <Link href="/contact" className="btn-primary w-full text-center justify-center">
+                <Link href="/" className="btn-primary w-full text-center justify-center">
                   Book Free Session
                 </Link>
                 <a

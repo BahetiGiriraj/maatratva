@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Star, Play, ArrowRight } from "lucide-react";
@@ -65,11 +66,19 @@ function ReviewCard({ name, location, text }: { name: string; location: string; 
 
 function MarqueeRow({ reviews, direction, speed = 60 }: { reviews: typeof allReviews; direction: "left" | "right"; speed?: number }) {
   const doubled = [...reviews, ...reviews];
+  const [paused, setPaused] = useState(false);
+
   return (
-    <div style={{ overflow: "hidden", width: "100%" }}>
+    <div
+      style={{ overflow: "hidden", width: "100%" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      onTouchEnd={() => setPaused(false)}
+    >
       <motion.div
         style={{ display: "flex", width: "max-content" }}
-        animate={{ x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] }}
+        animate={{ x: paused ? undefined : (direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"]) }}
         transition={{ duration: speed, repeat: Infinity, ease: "linear", repeatType: "loop" }}
       >
         {doubled.map((r, i) => (

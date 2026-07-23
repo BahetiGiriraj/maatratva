@@ -9,27 +9,27 @@ import { FadeUp } from "@/components/ui/motion";
 const faqs = [
   {
     q: "Who is the Maatratva program designed for?",
-    a: "Maatratva is designed for women at any stage of their pregnancy journey — whether you are planning to conceive, currently pregnant, or in postpartum recovery. We also support IVF mothers and women with high-risk pregnancies through specialized guidance.",
+    a: "Maatratva is designed for women at any stage of their pregnancy journey who want expert guidance for a healthier and happier pregnancy. We also support IVF mothers and women with high-risk pregnancies through specialized guidance.",
   },
   {
-    q: "What exactly is Garbh Sanskar?",
-    a: "Garbh Sanskar is an ancient Indian science of prenatal education. It involves specific music, mantras, stories, breathing exercises, and positive affirmations that create an enriching environment for your baby's physical, mental, and emotional development in the womb.",
+    q: "Can I join the Maatratva program at any stage of pregnancy?",
+    a: "Yes. While we recommend joining early in pregnancy for maximum benefits, our programs are designed to be valuable at any stage. We meet you wherever you are in your journey and customize our support accordingly.",
   },
   {
     q: "How is Maatratva different from regular pregnancy classes?",
-    a: "Maatratva is not just a class — it is a complete wellness ecosystem. We combine Garbh Sanskar, Ayurvedic nutrition, prenatal yoga, NLP mind programming, meditation, community support, and expert guidance in one holistic journey. We address the whole mother — body, mind, and spirit.",
+    a: "Maatratva is not just a pregnancy class — it is a complete pregnancy wellness ecosystem. We combine Garbh Sanskar, prenatal yoga, nutrition, Ayurveda, NLP, mind programming, meditation, community support, and expert guidance in one holistic journey. We address the whole mother — body, mind, and spirit.",
   },
   {
-    q: "Can I join if I am already in my third trimester?",
-    a: "Yes! While we recommend joining early in pregnancy for maximum benefit, our programs are designed to be valuable at any stage. We meet you wherever you are in your journey and customize support accordingly.",
+    q: "Is the Maatratva program safe during pregnancy?",
+    a: "Yes. The Maatratva program is designed to support a healthy pregnancy through safe, gentle practices guided by certified prenatal experts. All sessions can be adapted to suit each trimester and individual needs.",
   },
   {
-    q: "Are the sessions online or in-person?",
-    a: "We offer both online and in-person sessions. Our live group sessions are conducted online, making them accessible to mothers across India and internationally. Select in-person workshops and consultations are available at our centers.",
+    q: "How are the sessions conducted?",
+    a: "Our group sessions are conducted online through live and recorded classes, making them accessible to mothers across India and internationally. Select in-person workshops and consultations are also available at our centers.",
   },
   {
-    q: "Is there scientific evidence behind what you teach?",
-    a: "Absolutely. Every aspect of our program is grounded in both traditional wisdom and modern scientific research. Our practitioners regularly update their practices based on latest studies in prenatal psychology, epigenetics, and holistic healthcare.",
+    q: "Is your approach backed by scientific evidence?",
+    a: "Absolutely. Every aspect of our program is grounded in both traditional wisdom and modern scientific research. Our practitioners regularly update their practices based on the latest studies in prenatal psychology, epigenetics, and holistic healthcare.",
   },
 ];
 
@@ -56,12 +56,7 @@ export default function FAQSection() {
               <p className="font-body text-base leading-relaxed mb-8" style={{ color: "#7C6A6A" }}>
                 Everything you need to know about Maatratva and how we support mothers.
               </p>
-              <p className="font-body text-sm" style={{ color: "#A89090" }}>
-                Still have questions?{" "}
-                <a href="/contact" className="underline" style={{ color: "#A15C7A" }}>
-                  Get in touch
-                </a>
-              </p>
+              
             </FadeUp>
           </div>
 

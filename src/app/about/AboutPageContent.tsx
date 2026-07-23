@@ -1,137 +1,246 @@
+
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { FadeUp, FadeLeft, FadeRight, StaggerContainer, StaggerItem } from "@/components/ui/motion";
+import {
+  FadeUp,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/motion";
 
 const values = [
-  { emoji: "❤️", title: "Deep Compassion", desc: "We meet every mother exactly where she is — without judgment, with complete presence and care." },
-  { emoji: "✨", title: "Holistic Excellence", desc: "We integrate the best of ancient wisdom and modern science to deliver genuinely transformative care." },
-  { emoji: "🌿", title: "Authentic Wellness", desc: "No shortcuts, no gimmicks. Only genuine, evidence-based practices that truly support mother and baby." },
-  { emoji: "🧠", title: "Empowered Mothers", desc: "We don't just support — we educate and empower mothers to become confident, informed and joyful." },
-  { emoji: "🤝", title: "Community First", desc: "No mother walks alone. We build sisterhood so every woman feels seen, heard and celebrated." },
-  { emoji: "🌱", title: "Continuous Growth", desc: "We evolve constantly, learning from the latest research and from the mothers we serve." },
+  {
+    emoji: "❤️",
+    title: "Deep Compassion",
+    desc: "We meet every mother exactly where she is — without judgment, with complete presence and care.",
+  },
+  {
+    emoji: "✨",
+    title: "Holistic Excellence",
+    desc: "We integrate the best of ancient wisdom and modern science to deliver genuinely transformative care.",
+  },
+  {
+    emoji: "🌿",
+    title: "Authentic Wellness",
+    desc: "No shortcuts, no gimmicks. Only genuine, evidence-based practices that truly support mother and baby.",
+  },
+  {
+    emoji: "🧠",
+    title: "Empowered Mothers",
+    desc: "We don't just support — we educate and empower mothers to become confident, informed and joyful.",
+  },
+  {
+    emoji: "🤝",
+    title: "Community First",
+    desc: "No mother walks alone. We build sisterhood so every woman feels seen, heard and celebrated.",
+  },
+  {
+    emoji: "🌱",
+    title: "Continuous Growth",
+    desc: "We evolve constantly, learning from the latest research and from the mothers we serve.",
+  },
 ];
 
 const milestones = [
-  { year: "2015", event: "Dheera Somani begins her Garbh Sanskar training in Pune" },
-  { year: "2017", event: "First Maatratva workshop — 12 mothers, one room, infinite love" },
-  { year: "2019", event: "NLP certification and integration into prenatal wellness programs" },
-  { year: "2021", event: "Online programs launched — 500+ mothers supported across India" },
-  { year: "2023", event: "Flagship Signature Program launched with full wellness ecosystem" },
-  { year: "2024", event: "2000+ mothers supported. International community launched globally" },
+  {
+    year: "2015",
+    event: "Dheera Somani begins her Garbh Sanskar training in Pune",
+  },
+  {
+    year: "2017",
+    event: "First Maatratva workshop — 12 mothers, one room, infinite love",
+  },
+  {
+    year: "2019",
+    event: "NLP certification and integration into prenatal wellness programs",
+  },
+  {
+    year: "2021",
+    event: "Online programs launched — 500+ mothers supported across India",
+  },
+  {
+    year: "2023",
+    event: "Flagship Signature Program launched with full wellness ecosystem",
+  },
+  {
+    year: "2025",
+    event: "2000+ mothers supported. International community launched globally",
+  },
 ];
 
-const stats = [
-  { value: "2000+", label: "Mothers Guided" },
-  { value: "12+", label: "Years Experience" },
-  { value: "4", label: "Core Programs" },
-  { value: "100%", label: "Trusted Care" },
+const founder = {
+  name: "Dheera Somani",
+  title: "Founder & Lead Practitioner",
+  credentials: [
+    "Garbh Sanskar Practitioner",
+    "Pregnancy Wellness Coach",
+    "Womb Designer",
+    "NLP Certified Expert",
+  ],
+  bio: "With over a decade of experience, Dheera has guided more than 2,000 mothers through transformative pregnancy journeys. Her unique approach integrates ancient Indian wisdom with modern neuroscience and evidence-based wellness practices. She believes deeply that every mother has the capacity for a profound, joyful pregnancy — and she dedicates herself to unlocking that potential.",
+  experience: "12+ Years",
+  mothers: "2000+",
+};
+
+const team = [
+  {
+    name: "Dr. Sheela Badoniya",
+    title: "Psychologist & Healing Therapist",
+  },
+  {
+    name: "Dr. Saraswathi Bukka",
+    title: "High-Risk Pregnancy & Ayurveda Expert",
+  },
+  {
+    name: "Dt. Heena Kaur Bedi",
+    title: "Pregnancy Nutrition Expert",
+  },
+  {
+    name: "Dr. Yashvi Joshi",
+    title: "Lactation & Childbirth Preparation Expert",
+  },
+  {
+    name: "Dr. Shyam Bihari Gautam",
+    title: "Ayurveda Ratna & Vedic Astrology Expert",
+  },
+  {
+    name: "Dr. Paridhi Jain",
+    title: "Physiotherapist (OBS & Gynaec)",
+  },
+  {
+    name: "Dr. Shruti Kakani",
+    title: "Homeopathy Expert (B.H.M.S.)",
+  },
+  {
+    name: "Dr. Ritima Gupta",
+    title: "Dental Health During Pregnancy",
+  },
+  {
+    name: "Shilpa Goyal",
+    title: "Yoga & Wellness Therapy Expert",
+  },
 ];
+
+function ExpertPhoto({ name }: { name: string }) {
+  return (
+    <div
+      aria-label={`${name} photo placeholder`}
+      className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px]"
+      style={{
+        background:
+          "linear-gradient(145deg, #ead7df 0%, #f7efeb 52%, #e7d6c9 100%)",
+      }}
+    >
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="h-20 w-20 rounded-full border border-white/70 bg-white/35" />
+      </div>
+
+      <span
+        className="absolute bottom-0 left-0 inline-flex items-center gap-1.5 rounded-tr-2xl bg-white px-3 py-2 font-body text-sm font-semibold"
+        style={{ color: "#4B3B3B" }}
+      >
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-white">
+          <Check size={13} strokeWidth={3} />
+        </span>
+        Expert
+      </span>
+    </div>
+  );
+}
 
 export default function AboutPageContent() {
   return (
     <div className="pt-24" style={{ background: "#FAF7F4" }}>
-
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden py-28 md:py-36"
-        style={{ background: "linear-gradient(160deg,#4B3B3B 0%,#3A2D2D 100%)" }}>
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
-            style={{ background: "#E9D8D3" }} animate={{ scale:[1,1.2,1] }} transition={{ duration:8, repeat:Infinity }} />
-          <motion.div className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-2xl opacity-8"
-            style={{ background: "#A15C7A" }} animate={{ scale:[1,1.15,1] }} transition={{ duration:6, repeat:Infinity, delay:2 }} />
-        </div>
-        <div className="container-wide relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <FadeLeft>
-              <SectionLabel>Our Story</SectionLabel>
-              <h1 className="font-display text-6xl md:text-7xl font-semibold leading-[1.05] mb-6 text-white">
-                Born from a <span style={{ color: "#E9D8D3" }}>Mother&apos;s</span> Heart
-              </h1>
-              <p className="font-body text-xl leading-relaxed mb-8" style={{ color: "rgba(233,216,211,0.8)" }}>
-                Maatratva was created because we believed pregnancy deserved more than appointments and checkups. It deserved wisdom, warmth, and wonder.
-              </p>
-              <Link href="/contact" className="btn-gold inline-flex group text-base px-8 py-4">
-                Begin Your Journey <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </FadeLeft>
-            <FadeRight>
-              <div className="grid grid-cols-2 gap-4">
-                {stats.map((s) => (
-                  <div key={s.label} className="p-6 rounded-[24px] text-center"
-                    style={{ background: "rgba(233,216,211,0.06)", border: "1px solid rgba(233,216,211,0.12)" }}>
-                    <p className="font-display text-4xl font-bold mb-1" style={{ color: "#E9D8D3" }}>{s.value}</p>
-                    <p className="font-body text-sm" style={{ color: "rgba(233,216,211,0.6)" }}>{s.label}</p>
-                  </div>
-                ))}
-              </div>
-            </FadeRight>
-          </div>
-        </div>
-      </section>
-
       {/* ── MISSION ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>
         <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <FadeLeft>
-              <div className="relative rounded-[36px] aspect-square max-w-lg overflow-hidden"
-                style={{ background: "linear-gradient(160deg,#E9D8D3 0%,#D4B5C8 60%,rgba(161,92,122,0.15) 100%)", boxShadow: "0 24px 80px rgba(161,92,122,0.2)" }}>
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-10">
-                  <div className="text-7xl">🌸</div>
-                  <p className="font-display text-3xl font-semibold text-center" style={{ color: "#4B3B3B" }}>
-                    Our Mission
-                  </p>
-                  <p className="font-display text-lg font-light italic text-center" style={{ color: "#A15C7A" }}>
-                    &ldquo;When a mother thrives, her baby thrives. When her baby thrives, the whole world benefits.&rdquo;
-                  </p>
-                </div>
-              </div>
-            </FadeLeft>
-            <FadeRight className="space-y-6">
-              <SectionLabel>Our Mission</SectionLabel>
-              <h2 className="font-display text-5xl font-semibold leading-[1.1]" style={{ color: "#4B3B3B" }}>
-                To transform how the world experiences{" "}
-                <span style={{ color: "#A15C7A" }}>pregnancy</span>
-              </h2>
-              <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
-                We believe every mother deserves to feel confident, supported and deeply connected to the miraculous journey she is on. Pregnancy is not a medical condition to be managed — it is a sacred, transformative experience to be celebrated.
-              </p>
-              <p className="font-body text-base leading-relaxed" style={{ color: "#7C6A6A" }}>
-                Maatratva bridges the gap between ancient Indian wisdom — Garbh Sanskar, Ayurveda, yoga — and modern evidence-based care, creating a comprehensive wellness ecosystem unlike anything available today.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Link href="/programs" className="btn-primary inline-flex group">
-                  Explore Programs <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link href="/team" className="btn-secondary inline-flex">Meet Our Team</Link>
-              </div>
-            </FadeRight>
-          </div>
+          <FadeUp className="mx-auto max-w-3xl space-y-6 text-center">
+            <SectionLabel centered>Our Mission</SectionLabel>
+
+            <h2
+              className="font-display text-5xl font-semibold leading-[1.1]"
+              style={{ color: "#4B3B3B" }}
+            >
+              To transform how the world experiences{" "}
+              <span style={{ color: "#A15C7A" }}>pregnancy</span>
+            </h2>
+
+            <p
+              className="font-body text-lg leading-relaxed"
+              style={{ color: "#7C6A6A" }}
+            >
+              We believe every mother deserves to feel confident, supported and
+              deeply connected to the miraculous journey she is on. Pregnancy
+              is not a medical condition to be managed — it is a sacred,
+              transformative experience to be celebrated.
+            </p>
+
+            <p
+              className="font-body text-base leading-relaxed"
+              style={{ color: "#7C6A6A" }}
+            >
+              Maatratva bridges the gap between ancient Indian wisdom — Garbh
+              Sanskar, Ayurveda, yoga — and modern evidence-based care,
+              creating a comprehensive wellness ecosystem unlike anything
+              available today.
+            </p>
+
+            <Link href="/programs" className="btn-primary inline-flex group">
+              Explore Programs
+              <ArrowRight
+                size={15}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+          </FadeUp>
         </div>
       </section>
 
       {/* ── VALUES ── */}
       <section className="section-padding" style={{ background: "#F4EBE8" }}>
         <div className="container-wide">
-          <FadeUp className="text-center max-w-2xl mx-auto mb-16">
+          <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
             <SectionLabel centered>What We Stand For</SectionLabel>
-            <h2 className="font-display text-5xl font-semibold" style={{ color: "#4B3B3B" }}>
+
+            <h2
+              className="font-display text-5xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
               Our Core <span style={{ color: "#A15C7A" }}>Values</span>
             </h2>
           </FadeUp>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((v) => (
-              <StaggerItem key={v.title}>
-                <motion.div className="p-8 rounded-[24px] h-full"
-                  style={{ background: "white", border: "1px solid rgba(233,216,211,0.6)" }}
-                  whileHover={{ y: -6 }} transition={{ duration: 0.3 }}>
-                  <div className="text-4xl mb-5">{v.emoji}</div>
-                  <h3 className="font-display text-2xl font-semibold mb-3" style={{ color: "#4B3B3B" }}>{v.title}</h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: "#7C6A6A" }}>{v.desc}</p>
+
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((value) => (
+              <StaggerItem key={value.title}>
+                <motion.div
+                  className="h-full rounded-[24px] p-8"
+                  style={{
+                    background: "white",
+                    border: "1px solid rgba(233,216,211,0.6)",
+                  }}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="mb-5 text-4xl">{value.emoji}</div>
+
+                  <h3
+                    className="mb-3 font-display text-2xl font-semibold"
+                    style={{ color: "#4B3B3B" }}
+                  >
+                    {value.title}
+                  </h3>
+
+                  <p
+                    className="font-body text-sm leading-relaxed"
+                    style={{ color: "#7C6A6A" }}
+                  >
+                    {value.desc}
+                  </p>
                 </motion.div>
               </StaggerItem>
             ))}
@@ -139,31 +248,224 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      {/* ── TIMELINE ── */}
+      {/* ── FOUNDER ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>
         <div className="container-wide">
-          <FadeUp className="text-center max-w-2xl mx-auto mb-16">
+          <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
+            <SectionLabel centered>Meet Our Founder</SectionLabel>
+
+            <h2
+              className="font-display text-5xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
+              The Heart Behind <span style={{ color: "#A15C7A" }}>Maatratva</span>
+            </h2>
+          </FadeUp>
+
+          <FadeUp className="mb-16">
+            <div
+              className="relative overflow-hidden rounded-[36px] p-10 md:p-14"
+              style={{
+                background:
+                  "linear-gradient(135deg,rgba(161,92,122,0.07) 0%,rgba(233,216,211,0.5) 100%)",
+                border: "1.5px solid rgba(161,92,122,0.2)",
+                boxShadow: "0 20px 80px rgba(161,92,122,0.12)",
+              }}
+            >
+              <div className="grid items-center gap-10 md:grid-cols-3">
+                <div className="relative">
+                  <div
+                    className="relative aspect-square w-full overflow-hidden rounded-[28px]"
+                    style={{
+                      boxShadow: "0 20px 60px rgba(161,92,122,0.25)",
+                    }}
+                  >
+                    <Image
+                      src="/dheera-somani.jpg"
+                      alt="Dheera Somani — Founder, Maatratva"
+                      fill
+                      priority
+                      sizes="400px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+
+                  <div
+                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full px-5 py-2"
+                    style={{ background: "#A15C7A", color: "white" }}
+                  >
+                    <span className="font-body text-xs font-semibold">
+                      Founder
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-5 md:col-span-2">
+                  <div>
+                    <h3
+                      className="mb-2 font-display text-5xl font-semibold"
+                      style={{ color: "#4B3B3B" }}
+                    >
+                      {founder.name}
+                    </h3>
+
+                    <p
+                      className="font-body font-medium"
+                      style={{ color: "#A15C7A" }}
+                    >
+                      {founder.title}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {founder.credentials.map((credential) => (
+                      <span
+                        key={credential}
+                        className="rounded-full px-3 py-1.5 font-body text-xs font-medium"
+                        style={{
+                          background: "rgba(161,92,122,0.09)",
+                          color: "#A15C7A",
+                          border: "1px solid rgba(161,92,122,0.15)",
+                        }}
+                      >
+                        {credential}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p
+                    className="font-body text-base leading-relaxed"
+                    style={{ color: "#7C6A6A" }}
+                  >
+                    {founder.bio}
+                  </p>
+
+                  <div className="flex gap-8">
+                    <div>
+                      <p
+                        className="font-display text-3xl font-bold"
+                        style={{ color: "#A15C7A" }}
+                      >
+                        {founder.experience}
+                      </p>
+                      <p
+                        className="font-body text-xs"
+                        style={{ color: "#7C6A6A" }}
+                      >
+                        Experience
+                      </p>
+                    </div>
+
+                    <div>
+                      <p
+                        className="font-display text-3xl font-bold"
+                        style={{ color: "#A15C7A" }}
+                      >
+                        {founder.mothers}
+                      </p>
+                      <p
+                        className="font-body text-xs"
+                        style={{ color: "#7C6A6A" }}
+                      >
+                        Mothers Guided
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* ── EXPERT PRACTITIONERS ── */}
+          <FadeUp className="mb-12 text-center">
+            <h3
+              className="font-display text-4xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
+              Our Expert{" "}
+              <span style={{ color: "#A15C7A" }}>Practitioners</span>
+            </h3>
+          </FadeUp>
+
+          <StaggerContainer className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {team.map((member) => (
+              <StaggerItem key={member.name}>
+                <motion.article
+                  className="group"
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.22 }}
+                >
+                  {/* Replace this placeholder with each expert's image later */}
+                  <ExpertPhoto name={member.name} />
+
+                  <h4
+                    className="mt-4 font-display text-2xl font-semibold leading-tight"
+                    style={{ color: "#231f20" }}
+                  >
+                    {member.name}
+                  </h4>
+
+                  <p
+                    className="mt-2 font-body text-base leading-snug"
+                    style={{ color: "#6f6a6a" }}
+                  >
+                    {member.title}
+                  </p>
+                </motion.article>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── TIMELINE ── */}
+      <section className="section-padding" style={{ background: "#F4EBE8" }}>
+        <div className="container-wide">
+          <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
             <SectionLabel centered>Our Journey</SectionLabel>
-            <h2 className="font-display text-5xl font-semibold" style={{ color: "#4B3B3B" }}>
+
+            <h2
+              className="font-display text-5xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
               From Seed to <span style={{ color: "#A15C7A" }}>Forest</span>
             </h2>
           </FadeUp>
-          <div className="max-w-2xl mx-auto">
-            {milestones.map((m, i) => (
-              <FadeUp key={m.year} delay={i * 0.1}>
-                <div className="flex gap-8 mb-8 last:mb-0">
+
+          <div className="mx-auto max-w-2xl">
+            {milestones.map((milestone, index) => (
+              <FadeUp key={milestone.year} delay={index * 0.1}>
+                <div className="mb-8 flex gap-8 last:mb-0">
                   <div className="flex flex-col items-center">
-                    <div className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 font-body font-bold text-xs text-white"
-                      style={{ background: "#A15C7A" }}>
-                      {m.year.slice(2)}
+                    <div
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-body text-xs font-bold text-white"
+                      style={{ background: "#A15C7A" }}
+                    >
+                      {milestone.year.slice(2)}
                     </div>
-                    {i < milestones.length - 1 && (
-                      <div className="w-px flex-1 mt-2" style={{ background: "rgba(161,92,122,0.2)" }} />
+
+                    {index < milestones.length - 1 && (
+                      <div
+                        className="mt-2 w-px flex-1"
+                        style={{ background: "rgba(161,92,122,0.2)" }}
+                      />
                     )}
                   </div>
+
                   <div className="pb-8">
-                    <p className="font-body text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "#A15C7A" }}>{m.year}</p>
-                    <p className="font-display text-xl font-medium" style={{ color: "#4B3B3B" }}>{m.event}</p>
+                    <p
+                      className="mb-1 font-body text-xs font-semibold uppercase tracking-widest"
+                      style={{ color: "#A15C7A" }}
+                    >
+                      {milestone.year}
+                    </p>
+
+                    <p
+                      className="font-display text-xl font-medium"
+                      style={{ color: "#4B3B3B" }}
+                    >
+                      {milestone.event}
+                    </p>
                   </div>
                 </div>
               </FadeUp>
@@ -171,7 +473,6 @@ export default function AboutPageContent() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

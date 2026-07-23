@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -53,11 +54,16 @@ export default function TeamPageContent() {
               style={{ background: "linear-gradient(135deg,rgba(161,92,122,0.07) 0%,rgba(233,216,211,0.5) 100%)", border: "1.5px solid rgba(161,92,122,0.2)", boxShadow: "0 20px 80px rgba(161,92,122,0.12)" }}>
               <div className="grid md:grid-cols-3 gap-10 items-center">
                 <div className="relative">
-                  <div className="w-full aspect-square rounded-[28px] overflow-hidden flex items-center justify-center"
-                    style={{ background: "linear-gradient(160deg,#E9D8D3 0%,#D4B5C8 60%,rgba(161,92,122,0.15) 100%)", boxShadow: "0 20px 60px rgba(161,92,122,0.25)" }}>
-                    <div className="text-center">
-                      <div className="text-8xl mb-2">{founder.emoji}</div>
-                    </div>
+                  <div className="w-full aspect-square rounded-[28px] overflow-hidden"
+                    style={{ boxShadow: "0 20px 60px rgba(161,92,122,0.25)" }}>
+                    <Image
+                      src="/dheera-somani.jpg"
+                      alt="Dheera Somani — Founder, Maatratva"
+                      fill
+                      className="object-cover object-top"
+                      sizes="400px"
+                      priority
+                    />
                   </div>
                   <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full" style={{ background: "#A15C7A", color: "white" }}>
                     <span className="font-body text-xs font-semibold">Founder</span>
