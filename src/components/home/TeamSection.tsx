@@ -22,22 +22,24 @@ type Expert = {
 export const homeExperts: Expert[] = [
   {
     name: "Dheera Somani",
-    title:
-      "Garbha Sanskar, Pregnancy Wellness Coach, Womb Designer & NLP Certified Expert",
+    title: "Garbha Sanskar, Pregnancy Wellness Coach, Womb Designer & NLP Certified Expert",
     badge: "Founder and Mentor",
     image: "/dheera-somani.jpg",
   },
   {
+    name: "Dt. Heena Kaur Bedi",
+    title: "Pregnancy Nutrition Expert",
+    image: "/team-heena-bedi.jpeg",
+  },
+  {
+    name: "Dr. Shruti Kakani",
+    title: "Homeopathy Expert (B.H.M.S.)",
+    image: "/team-shruti-kakani.jpeg",
+  },
+  {
     name: "Dr. Shyam Bihari Gautam",
     title: "Ayurveda Ratna & Vedic Astrology Expert",
-  },
-  {
-    name: "Dr. Yashvi Joshi",
-    title: "Lactation & Childbirth Preparation Expert",
-  },
-  {
-    name: "Dr. Paridhi Jain",
-    title: "Physiotherapist (OBS & Gynaec)",
+    image: "/team-shyam-gautam.jpeg",
   },
 ];
 

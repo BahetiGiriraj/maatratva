@@ -1,10 +1,9 @@
-
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import {
   FadeUp,
@@ -90,67 +89,58 @@ const team = [
   {
     name: "Dr. Sheela Badoniya",
     title: "Psychologist & Healing Therapist",
+    photo: "/team-sheela-badoniya.jpeg",
+    photoPosition: "center 38%",
   },
   {
     name: "Dr. Saraswathi Bukka",
     title: "High-Risk Pregnancy & Ayurveda Expert",
+    photo: "/team-saraswathi-bukka.jpeg",
+    photoPosition: "center 15%",
   },
   {
-    name: "Dt. Heena Kaur Bedi",
-    title: "Pregnancy Nutrition Expert",
-  },
+  name: "Dt. Heena Kaur Bedi",
+  title: "Pregnancy Nutrition Expert",
+  photo: "/team-heena-bedi.jpeg",
+  photoPosition: "center 15%",
+},
   {
     name: "Dr. Yashvi Joshi",
     title: "Lactation & Childbirth Preparation Expert",
+    photo: "/team-yashvi-joshi.jpeg",
+    photoPosition: "center 42%",
   },
   {
     name: "Dr. Shyam Bihari Gautam",
     title: "Ayurveda Ratna & Vedic Astrology Expert",
+    photo: "/team-shyam-gautam.jpeg",
+    photoPosition: "center center",
   },
   {
-    name: "Dr. Paridhi Jain",
-    title: "Physiotherapist (OBS & Gynaec)",
-  },
+  name: "Dr. Paridhi Jain",
+  title: "Physiotherapist (OBS & Gynaec)",
+  photo: "/team-paridhi-jain.jpeg",
+  photoPosition: "center 18%",
+},
   {
-    name: "Dr. Shruti Kakani",
-    title: "Homeopathy Expert (B.H.M.S.)",
-  },
+  name: "Dr. Shruti Kakani",
+  title: "Homeopathy Expert (B.H.M.S.)",
+  photo: "/team-shruti-kakani.jpeg",
+  photoPosition: "center 25%",
+},
   {
     name: "Dr. Ritima Gupta",
     title: "Dental Health During Pregnancy",
+    photo: "/team-ritima-gupta.jpeg",
+    photoPosition: "center center",
   },
   {
     name: "Shilpa Goyal",
     title: "Yoga & Wellness Therapy Expert",
+    photo: "/team-shilpa-goyal.jpeg",
+    photoPosition: "center center",
   },
 ];
-
-function ExpertPhoto({ name }: { name: string }) {
-  return (
-    <div
-      aria-label={`${name} photo placeholder`}
-      className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px]"
-      style={{
-        background:
-          "linear-gradient(145deg, #ead7df 0%, #f7efeb 52%, #e7d6c9 100%)",
-      }}
-    >
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-20 w-20 rounded-full border border-white/70 bg-white/35" />
-      </div>
-
-      <span
-        className="absolute bottom-0 left-0 inline-flex items-center gap-1.5 rounded-tr-2xl bg-white px-3 py-2 font-body text-sm font-semibold"
-        style={{ color: "#4B3B3B" }}
-      >
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-white">
-          <Check size={13} strokeWidth={3} />
-        </span>
-        Expert
-      </span>
-    </div>
-  );
-}
 
 export default function AboutPageContent() {
   return (
@@ -258,7 +248,8 @@ export default function AboutPageContent() {
               className="font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              The Heart Behind <span style={{ color: "#A15C7A" }}>Maatratva</span>
+              The Heart Behind{" "}
+              <span style={{ color: "#A15C7A" }}>Maatratva</span>
             </h2>
           </FadeUp>
 
@@ -395,8 +386,29 @@ export default function AboutPageContent() {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.22 }}
                 >
-                  {/* Replace this placeholder with each expert's image later */}
-                  <ExpertPhoto name={member.name} />
+                  <div
+                    className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px]"
+                    style={{
+                      boxShadow: "0 8px 32px rgba(161,92,122,0.15)",
+                    }}
+                  >
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      style={{ objectPosition: member.photoPosition }}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    />
+
+                    <div
+                      className="pointer-events-none absolute bottom-0 left-0 right-0 h-16"
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(75,59,59,0.45), transparent)",
+                      }}
+                    />
+                  </div>
 
                   <h4
                     className="mt-4 font-display text-2xl font-semibold leading-tight"

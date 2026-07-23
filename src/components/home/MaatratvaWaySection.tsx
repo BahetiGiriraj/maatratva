@@ -1,249 +1,280 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { FadeUp, FadeLeft, FadeRight } from "@/components/ui/motion";
+import { FadeUp } from "@/components/ui/motion";
 
-const leftItems = [
+const features = [
   {
-    emoji: "🌺",
-    label: "FOR MOTHER",
-    title: "Your Journey of Renewal",
-    desc: "A nurturing path to emotional wellbeing, strength and inner transformation.",
-    color: "#A15C7A",
-    dot: "#A15C7A",
+    emoji: "🤰",
+    title: "Garbha Sanskar",
+    desc: "Music, mantras, stories and positive practices to nurture your baby before birth.",
   },
   {
-    emoji: "🧘‍♀️",
-    label: "",
-    title: "Prenatal Yoga & Nourishment",
-    desc: "Gentle movement and Balanced nutrition protocols designed for every trimester.",
-    color: "#A15C7A",
-    dot: "#A15C7A",
-  },
-  {
-    emoji: "🌸",
-    label: "",
-    title: "Meditation & Inner Harmony",
-    desc: "Daily guided practices to cultivate calm, reduce anxiety and build emotional resilience.",
-    color: "#A15C7A",
-    dot: "#A15C7A",
+    emoji: "🥗",
+    title: "Nutrition, Diet & Ayurveda",
+    desc: "Balanced nutrition and Ayurvedic wellness guidance for every trimester.",
   },
   {
     emoji: "🧠",
-    label: "",
-    title: "Mind Programming with NLP",
-    desc: "Powerful neuro linguistic programming techniques to rewire limiting beliefs and fears.",
-    color: "#A15C7A",
-    dot: "#A15C7A",
-  },
-];
-
-const rightItems = [
-  {
-    emoji: "👶",
-    label: "FOR BABY",
-    title: "A Womb of Wonder",
-    desc: "Creating a loving, secure and stimulating environment for your baby's growth.",
-    color: "#4B3B3B",
-    dot: "#D4AF37",
-  },
-  {
-    emoji: "🎵",
-    label: "",
-    title: "Garbh Sanskar",
-    desc: "Music, mantras, stories and stimulation to nurture your baby's senses before birth.",
-    color: "#4B3B3B",
-    dot: "#D4AF37",
-  },
-  {
-    emoji: "🌱",
-    label: "",
-    title: "Brain & Sensory Development",
-    desc: "Science-backed activities that support your baby's neurological growth in the womb.",
-    color: "#4B3B3B",
-    dot: "#D4AF37",
+    title: "NLP Techniques",
+    desc: "Transform fears and limiting beliefs into confidence, calm and positivity.",
   },
   {
     emoji: "🧬",
-    label: "",
-    title: "Genetic Blueprint",
-    desc: "Understanding and positively influencing your baby's epigenetic expression through lifestyle.",
-    color: "#4B3B3B",
-    dot: "#D4AF37",
+    title: "Genetic Attraction",
+    desc: "Positive lifestyle practices that support your baby's healthy development.",
+  },
+  {
+    emoji: "🧘‍♀️",
+    title: "Prenatal Yoga",
+    desc: "Gentle movement, strength and flexibility designed  for pregnancy.",
+  },
+  {
+    emoji: "🕯️",
+    title: "Guided Meditation",
+    desc: "Calming practices to create emotional balance and a deep bond with your baby.",
+  },
+  {
+    emoji: "🧠",
+    title: "Brain Development",
+    desc: "Science-backed activities that support sensory and neurological development.",
   },
 ];
 
-interface CardProps {
-  emoji: string;
-  label: string;
-  title: string;
-  desc: string;
-  color: string;
-  dot: string;
-  side: "left" | "right";
-  index: number;
+type Feature = (typeof features)[number];
+
+const CENTER = 400;
+const OUTER_RADIUS = 370;
+const INNER_RADIUS = 190;
+
+function polarPoint(radius: number, angle: number) {
+  const radians = (angle * Math.PI) / 180;
+
+  return {
+    x: CENTER + radius * Math.cos(radians),
+    y: CENTER + radius * Math.sin(radians),
+  };
 }
 
-function FeatureCard({ emoji, label, title, desc, color, dot, side, index }: CardProps) {
+function wedgePath(startAngle: number, endAngle: number) {
+  const outerStart = polarPoint(OUTER_RADIUS, startAngle);
+  const outerEnd = polarPoint(OUTER_RADIUS, endAngle);
+  const innerEnd = polarPoint(INNER_RADIUS, endAngle);
+  const innerStart = polarPoint(INNER_RADIUS, startAngle);
+
+  return [
+    `M ${outerStart.x} ${outerStart.y}`,
+    `A ${OUTER_RADIUS} ${OUTER_RADIUS} 0 0 1 ${outerEnd.x} ${outerEnd.y}`,
+    `L ${innerEnd.x} ${innerEnd.y}`,
+    `A ${INNER_RADIUS} ${INNER_RADIUS} 0 0 0 ${innerStart.x} ${innerStart.y}`,
+    "Z",
+  ].join(" ");
+}
+
+function MobileCard({ feature }: { feature: Feature }) {
   return (
-    <motion.div
-      className="flex items-start gap-3 group"
-      initial={{ opacity: 0, x: side === "left" ? -30 : 30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    <motion.article
+      className="rounded-[22px] p-5"
+      style={{
+        background: "#DDF1EF",
+        border: "1px solid rgba(55,177,171,0.14)",
+      }}
+      whileHover={{ y: -4 }}
     >
-      {side === "right" && (
-        /* Dot connector on left of right cards */
-        <div className="flex items-center gap-2 shrink-0 mt-4">
-          <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: dot }} />
-          <div className="w-8 h-px" style={{ background: `${dot}60` }} />
-        </div>
-      )}
+      <div className="flex items-center gap-3">
+        <span className="text-3xl">{feature.emoji}</span>
 
-      {/* Icon circle */}
-      <div
-        className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform duration-300 group-hover:scale-110"
-        style={{
-          background: side === "left" ? "rgba(161,92,122,0.08)" : "rgba(212,175,55,0.08)",
-          border: `1px solid ${side === "left" ? "rgba(161,92,122,0.2)" : "rgba(212,175,55,0.2)"}`,
-        }}
+        <h3
+          className="font-display text-lg font-semibold"
+          style={{ color: "#171717" }}
+        >
+          {feature.title}
+        </h3>
+      </div>
+
+      <p
+        className="mt-3 font-body text-sm leading-relaxed"
+        style={{ color: "#5F6867" }}
       >
-        {emoji}
-      </div>
-
-      {/* Text */}
-      <div className={side === "right" ? "" : "pr-2"}>
-        {label && (
-          <p className="font-body text-xs font-bold tracking-[0.18em] uppercase mb-0.5"
-            style={{ color: side === "left" ? "#A15C7A" : "#D4AF37" }}>
-            {label}
-          </p>
-        )}
-        <h4 className="font-display text-lg font-semibold leading-tight mb-1"
-          style={{ color }}>
-          {title}
-        </h4>
-        <p className="font-body text-xs leading-relaxed" style={{ color: "#7C6A6A" }}>
-          {desc}
-        </p>
-      </div>
-
-      {side === "left" && (
-        /* Dot connector on right of left cards */
-        <div className="flex items-center gap-2 shrink-0 mt-4 ml-auto">
-          <div className="w-8 h-px" style={{ background: `${dot}60` }} />
-          <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: dot }} />
-        </div>
-      )}
-    </motion.div>
+        {feature.desc}
+      </p>
+    </motion.article>
   );
 }
 
 export default function MaatratvaWaySection() {
-  return (
-    <section className="section-padding relative overflow-hidden" style={{ background: "#FAF7F4" }}>
-      {/* Soft bg glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30"
-          style={{ background: "radial-gradient(circle, rgba(161,92,122,0.08) 0%, transparent 70%)" }} />
-      </div>
+  const [activeFeature, setActiveFeature] = useState<number | null>(null);
 
+  return (
+    <section
+      className="relative overflow-hidden section-padding"
+      style={{ background: "#FAF7F4" }}
+    >
       <div className="container-wide relative z-10">
-        {/* Header */}
-        <FadeUp className="text-center max-w-3xl mx-auto mb-16">
+        <FadeUp className="mx-auto mb-10 max-w-3xl text-center">
           <SectionLabel centered>The Maatratva Way</SectionLabel>
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6"
-            style={{ color: "#4B3B3B" }}>
-            Care From{" "}
-            <span style={{ color: "#A15C7A" }}>Womb</span>{" "}
-            to{" "}
+
+          <h2
+            className="mb-5 font-display text-5xl font-semibold leading-[1.05] md:text-6xl"
+            style={{ color: "#4B3B3B" }}
+          >
+            Care From <span style={{ color: "#A15C7A" }}>Womb</span> to{" "}
             <span style={{ color: "#D4AF37" }}>Wonder</span>
           </h2>
-          <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
-            A dual focus approach that nurtures both mother and baby simultaneously <br className="hidden md:block" />
-            because every breath you take, every thought you think, every feeling you feel<br className="hidden md:block" />
-             becomes part of your baby&apos;s world.
+
+          <p
+            className="font-body text-lg leading-relaxed"
+            style={{ color: "#7C6A6A" }}
+          >
+            Carefully designed programs and practices to nurture your body,
+            mind, and your baby&apos;s growth so you feel confident, calm and
+            connected.
           </p>
         </FadeUp>
 
-        {/* 3-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 items-center">
+        {/* Desktop circular wheel */}
+        <FadeUp className="hidden lg:block">
+          <div className="relative mx-auto h-[800px] w-[800px] max-w-full">
+            <svg
+              viewBox="0 0 800 800"
+              className="absolute inset-0 h-full w-full"
+              aria-label="Maatratva wellness programs"
+            >
+              {features.map((feature, index) => {
+                const totalSegments = features.length;
+                const segmentAngle = 360 / totalSegments;
+                const startAngle = -90 + index * segmentAngle + 2;
+                const endAngle = -90 + (index + 1) * segmentAngle - 2;
+                const middleAngle = (startAngle + endAngle) / 2;
+                const labelPoint = polarPoint(285, middleAngle);
+                const isActive = activeFeature === index;
 
-          {/* LEFT — For Mother */}
-          <FadeLeft className="space-y-8">
-            {leftItems.map((item, i) => (
-              <FeatureCard key={item.title} {...item} side="left" index={i} />
-            ))}
-          </FadeLeft>
+                return (
+                  <g
+                    key={feature.title}
+                    onMouseEnter={() => setActiveFeature(index)}
+                    onMouseLeave={() => setActiveFeature(null)}
+                    className="cursor-pointer"
+                  >
+                    <path
+                      d={wedgePath(startAngle, endAngle)}
+                      fill={isActive ? "#CBEAE7" : "#DDF1EF"}
+                      stroke="#FAF7F4"
+                      strokeWidth="8"
+                      className="transition-all duration-300"
+                    />
 
-          {/* CENTRE — Woman image */}
-          <FadeUp className="flex justify-center">
-            <div className="relative flex items-center justify-center">
-              {/* Outer animated ring */}
-              <motion.div
-                className="absolute rounded-full"
-                style={{
-                  width: 380,
-                  height: 380,
-                  border: "1.5px dashed rgba(161,92,122,0.25)",
-                }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    <foreignObject
+                      x={labelPoint.x - 88}
+                      y={labelPoint.y - 62}
+                      width="176"
+                      height="124"
+                      pointerEvents="none"
+                    >
+                      <div className="flex h-full flex-col items-center justify-center px-2 text-center">
+                        <span className="mb-2 text-3xl">{feature.emoji}</span>
+
+                        {isActive ? (
+                          <p
+                            className="font-body text-xs leading-relaxed"
+                            style={{ color: "#4C6663" }}
+                          >
+                            {feature.desc}
+                          </p>
+                        ) : (
+                          <h3
+                            className="font-display text-xl font-semibold leading-tight"
+                            style={{ color: "#171717" }}
+                          >
+                            {feature.title}
+                          </h3>
+                        )}
+                      </div>
+                    </foreignObject>
+                  </g>
+                );
+              })}
+
+              <circle
+                cx="400"
+                cy="400"
+                r="178"
+                fill="white"
+                stroke="#45B7AE"
+                strokeWidth="2"
+                strokeDasharray="5 5"
               />
-              {/* Inner ring mauve */}
-              <div className="absolute rounded-full"
-                style={{
-                  width: 320,
-                  height: 320,
-                  border: "1px solid rgba(161,92,122,0.15)",
-                }} />
-              {/* Inner ring gold */}
-              <div className="absolute rounded-full"
-                style={{
-                  width: 260,
-                  height: 260,
-                  border: "1px solid rgba(212,175,55,0.2)",
-                }} />
+            </svg>
 
-              {/* Glow */}
-              <div className="absolute rounded-full"
-                style={{
-                  width: 300,
-                  height: 300,
-                  background: "radial-gradient(circle, rgba(161,92,122,0.1) 0%, transparent 70%)",
-                  filter: "blur(20px)",
-                }} />
-
-              {/* Image */}
+            {/* Centre image — correctly aligned inside the circle */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 items-center justify-center">
               <motion.div
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                style={{ position: "relative", zIndex: 10 }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <Image
                   src="/way-removebg.png"
-                  alt="Maatratva — A mother's journey"
-                  width={340}
-                  height={440}
-                  className="object-contain drop-shadow-xl"
-                  style={{ maxHeight: 440 }}
+                  alt="Maatratva pregnancy wellness"
+                  width={290}
+                  height={380}
                   priority
+                  className="object-contain drop-shadow-xl"
                 />
               </motion.div>
             </div>
-          </FadeUp>
+          </div>
+        </FadeUp>
 
-          {/* RIGHT — For Baby */}
-          <FadeRight className="space-y-8">
-            {rightItems.map((item, i) => (
-              <FeatureCard key={item.title} {...item} side="right" index={i} />
+        {/* Mobile and tablet layout */}
+        <div className="lg:hidden">
+          <div
+            className="relative mx-auto mb-10 flex h-[340px] max-w-[340px] items-center justify-center overflow-hidden rounded-full"
+            style={{
+              background: "#fff",
+              border: "2px dashed rgba(69,183,174,0.65)",
+            }}
+          >
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Image
+                src="/way-removebg.png"
+                alt="Maatratva pregnancy wellness"
+                width={250}
+                height={330}
+                priority
+                className="object-contain drop-shadow-xl"
+              />
+            </motion.div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {features.map((feature) => (
+              <MobileCard key={feature.title} feature={feature} />
             ))}
-          </FadeRight>
-
+          </div>
         </div>
+
+        <FadeUp className="mt-7 text-center">
+          <p
+            className="font-body text-sm italic"
+            style={{ color: "#A15C7A" }}
+          >
+            Hover over a section to read more.
+          </p>
+        </FadeUp>
       </div>
     </section>
   );

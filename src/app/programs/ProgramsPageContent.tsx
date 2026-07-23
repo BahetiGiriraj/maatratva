@@ -493,58 +493,7 @@ export default function ProgramsPageContent() {
         </div>
       </section>
 
-      {/* ── 5. FINAL CTA SECTION ── */}
-      <section className="relative overflow-hidden py-24 md:py-32"
-        style={{ background: "linear-gradient(160deg, #4B3B3B 0%, #3A2D2D 50%, #7D4460 100%)" }}>
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div
-            className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
-            style={{ background: "#E9D8D3" }}
-            animate={{ scale: [1, 1.3, 1] }}
-            transition={{ duration: 9, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-15"
-            style={{ background: "#D4AF37" }}
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 7, repeat: Infinity, delay: 2 }}
-          />
-        </div>
-
-        <div className="container-wide relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <FadeUp>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-6 text-white">
-                Every Mother Deserves Guidance That{" "}
-                <span style={{ color: "#D4AF37" }}>Grows</span>{" "}
-                With Her Journey
-              </h2>
-            </FadeUp>
-            <FadeUp delay={0.15}>
-              <p className="font-body text-lg md:text-xl leading-relaxed mb-10"
-                style={{ color: "rgba(233,216,211,0.85)" }}>
-                Join thousands of mothers discovering confidence, calmness and connection through the Maatratva experience.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.25}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="#pricing" className="btn-gold">
-                  Choose Your Program
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-body font-medium text-sm text-white transition-all duration-300 hover:bg-white/10"
-                  style={{ border: "1.5px solid rgba(255,255,255,0.5)" }}
-                >
-                  <Phone size={16} />
-                  Schedule Free Consultation
-                </Link>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
+    
     </div>
   );
 }
