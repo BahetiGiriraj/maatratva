@@ -12,6 +12,10 @@ const stats = [
 ];
 
 export default function HeroSection() {
+  const whatsappUrl = `https://wa.me/917694832159?text=${encodeURIComponent(
+    "Hi, want to know more! Got this from your website."
+  )}`;
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#FAF7F4]">
       {/* Background decorative elements */}
@@ -125,7 +129,7 @@ export default function HeroSection() {
               className="font-body text-base md:text-lg leading-relaxed max-w-lg mb-10"
               style={{ color: "#7C6A6A" }}
             >
-              Pregnancy care integrating physical and emotional wellness, Garbh Sanskar, Ayurveda and modern scientific guidance — from planning to pregnancy and beyond.
+              Pregnancy care integrating physical and emotional wellness, Garbh Sanskar, Ayurveda and modern scientific guidance  from planning to pregnancy and beyond.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -139,11 +143,16 @@ export default function HeroSection() {
                 Begin Your Journey
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
-              <Link href="" className="btn-secondary text-base px-8 py-4 group">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary text-base px-8 py-4 group"
+              >
                 <span className="flex items-center justify-center gap-2">
                  Book Free Session
                 </span>
-              </Link>
+              </a>
             </motion.div>
 
             {/* Stats */}

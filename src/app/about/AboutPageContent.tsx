@@ -15,7 +15,7 @@ const values = [
   {
     emoji: "❤️",
     title: "Deep Compassion",
-    desc: "We meet every mother exactly where she is — without judgment, with complete presence and care.",
+    desc: "We meet every mother exactly where she is  without judgment, with complete presence and care.",
   },
   {
     emoji: "✨",
@@ -30,7 +30,7 @@ const values = [
   {
     emoji: "🧠",
     title: "Empowered Mothers",
-    desc: "We don't just support — we educate and empower mothers to become confident, informed and joyful.",
+    desc: "We don't just support we educate and empower mothers to become confident, informed and joyful.",
   },
   {
     emoji: "🤝",
@@ -51,7 +51,7 @@ const milestones = [
   },
   {
     year: "2017",
-    event: "First Maatratva workshop — 12 mothers, one room, infinite love",
+    event: "First Maatratva workshop  12 mothers, one room, infinite love",
   },
   {
     year: "2019",
@@ -59,7 +59,7 @@ const milestones = [
   },
   {
     year: "2021",
-    event: "Online programs launched — 500+ mothers supported across India",
+    event: "Online programs launched  500+ mothers supported across India",
   },
   {
     year: "2023",
@@ -73,14 +73,14 @@ const milestones = [
 
 const founder = {
   name: "Dheera Somani",
-  title: "Founder & Lead Practitioner",
+  title: "Founder & Mentor",
   credentials: [
     "Garbh Sanskar Practitioner",
     "Pregnancy Wellness Coach",
     "Womb Designer",
     "NLP Certified Expert",
   ],
-  bio: "With over a decade of experience, Dheera has guided more than 2,000 mothers through transformative pregnancy journeys. Her unique approach integrates ancient Indian wisdom with modern neuroscience and evidence-based wellness practices. She believes deeply that every mother has the capacity for a profound, joyful pregnancy — and she dedicates herself to unlocking that potential.",
+  bio: "With over a decade of experience, Dheera has guided more than 2,000 mothers through transformative pregnancy journeys. Her unique approach integrates ancient Indian wisdom with modern neuroscience and evidence based wellness practices. She believes deeply that every mother has the capacity for a profound, joyful pregnancy  and she dedicates herself to unlocking that potential.",
   experience: "12+ Years",
   mothers: "2000+",
 };
@@ -165,7 +165,7 @@ export default function AboutPageContent() {
             >
               We believe every mother deserves to feel confident, supported and
               deeply connected to the miraculous journey she is on. Pregnancy
-              is not a medical condition to be managed — it is a sacred,
+              is not a medical condition to be managed  it is a sacred,
               transformative experience to be celebrated.
             </p>
 
@@ -173,8 +173,8 @@ export default function AboutPageContent() {
               className="font-body text-base leading-relaxed"
               style={{ color: "#7C6A6A" }}
             >
-              Maatratva bridges the gap between ancient Indian wisdom — Garbh
-              Sanskar, Ayurveda, yoga — and modern evidence-based care,
+              Maatratva bridges the gap between ancient Indian wisdom  Garbh
+              Sanskar, Ayurveda, yoga  and modern evidence-based care,
               creating a comprehensive wellness ecosystem unlike anything
               available today.
             </p>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LegalModal from "@/components/ui/LegalModal";
 
@@ -32,6 +32,10 @@ export default function Navbar() {
   const [legalModal, setLegalModal] = useState<"privacy" | "terms" | null>(null);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const whatsappUrl = `https://wa.me/917694832159?text=${encodeURIComponent(
+    "Hi, want to know more! Got this from your website."
+  )}`;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -175,14 +179,13 @@ export default function Navbar() {
             {/* ── DESKTOP CTA ── */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="tel:+919999999999"
-                className="flex items-center gap-2 px-4 py-2 font-body text-sm text-[#7C6A6A] hover:text-[#A15C7A] transition-colors duration-200"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-sm px-6 py-2.5"
               >
-                <Phone size={15} />
-              </a>
-              <Link href="/contact" className="btn-primary text-sm px-6 py-2.5">
                 Book Free Session
-              </Link>
+              </a>
             </div>
 
             {/* ── MOBILE TOGGLE ── */}
@@ -294,14 +297,19 @@ export default function Navbar() {
 
               {/* Drawer CTA */}
               <div className="px-6 py-8 border-t border-[#E9D8D3] space-y-3">
-                <Link href="/" className="btn-primary w-full text-center justify-center">
-                  Book Free Session
-                </Link>
                 <a
-                  href="https://wa.me/919999999999"
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary w-full text-center justify-center"
+                  className="btn-primary w-full text-center justify-center flex items-center"
+                >
+                  Book Free Session
+                </a>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary w-full text-center justify-center flex items-center"
                 >
                   WhatsApp Us
                 </a>

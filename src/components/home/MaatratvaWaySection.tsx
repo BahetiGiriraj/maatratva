@@ -30,7 +30,7 @@ const features = [
   {
     emoji: "🧘‍♀️",
     title: "Prenatal Yoga",
-    desc: "Gentle movement, strength and flexibility designed  for pregnancy.",
+    desc: "Gentle movement, strength and flexibility designed for pregnancy.",
   },
   {
     emoji: "🕯️",
@@ -74,39 +74,12 @@ function wedgePath(startAngle: number, endAngle: number) {
   ].join(" ");
 }
 
-function MobileCard({ feature }: { feature: Feature }) {
-  return (
-    <motion.article
-      className="rounded-[22px] p-5"
-      style={{
-        background: "#DDF1EF",
-        border: "1px solid rgba(55,177,171,0.14)",
-      }}
-      whileHover={{ y: -4 }}
-    >
-      <div className="flex items-center gap-3">
-        <span className="text-3xl">{feature.emoji}</span>
-
-        <h3
-          className="font-display text-lg font-semibold"
-          style={{ color: "#171717" }}
-        >
-          {feature.title}
-        </h3>
-      </div>
-
-      <p
-        className="mt-3 font-body text-sm leading-relaxed"
-        style={{ color: "#5F6867" }}
-      >
-        {feature.desc}
-      </p>
-    </motion.article>
-  );
-}
-
 export default function MaatratvaWaySection() {
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
+
+  const handleInteraction = (index: number) => {
+    setActiveFeature((prev) => (prev === index ? null : index));
+  };
 
   return (
     <section
@@ -118,7 +91,7 @@ export default function MaatratvaWaySection() {
           <SectionLabel centered>The Maatratva Way</SectionLabel>
 
           <h2
-            className="mb-5 font-display text-5xl font-semibold leading-[1.05] md:text-6xl"
+            className="mb-5 font-display text-4xl font-semibold leading-[1.05] sm:text-5xl md:text-6xl"
             style={{ color: "#4B3B3B" }}
           >
             Care From <span style={{ color: "#A15C7A" }}>Womb</span> to{" "}
@@ -126,7 +99,7 @@ export default function MaatratvaWaySection() {
           </h2>
 
           <p
-            className="font-body text-lg leading-relaxed"
+            className="font-body text-base sm:text-lg leading-relaxed"
             style={{ color: "#7C6A6A" }}
           >
             Carefully designed programs and practices to nurture your body,
@@ -135,12 +108,12 @@ export default function MaatratvaWaySection() {
           </p>
         </FadeUp>
 
-        {/* Desktop circular wheel */}
-        <FadeUp className="hidden lg:block">
-          <div className="relative mx-auto h-[800px] w-[800px] max-w-full">
+        {/* Scaled Circular Wheel for Desktop, Tablet, and Mobile */}
+        <FadeUp>
+          <div className="relative mx-auto h-[340px] w-[340px] sm:h-[480px] sm:w-[480px] lg:h-[800px] lg:w-[800px] max-w-full">
             <svg
               viewBox="0 0 800 800"
-              className="absolute inset-0 h-full w-full"
+              className="absolute inset-0 h-full w-full select-none"
               aria-label="Maatratva wellness programs"
             >
               {features.map((feature, index) => {
@@ -157,6 +130,7 @@ export default function MaatratvaWaySection() {
                     key={feature.title}
                     onMouseEnter={() => setActiveFeature(index)}
                     onMouseLeave={() => setActiveFeature(null)}
+                    onClick={() => handleInteraction(index)}
                     className="cursor-pointer"
                   >
                     <path
@@ -174,19 +148,21 @@ export default function MaatratvaWaySection() {
                       height="124"
                       pointerEvents="none"
                     >
-                      <div className="flex h-full flex-col items-center justify-center px-2 text-center">
-                        <span className="mb-2 text-3xl">{feature.emoji}</span>
+                      <div className="flex h-full flex-col items-center justify-center px-1 text-center">
+                        <span className="mb-1 text-xl sm:text-2xl lg:text-3xl">
+                          {feature.emoji}
+                        </span>
 
                         {isActive ? (
                           <p
-                            className="font-body text-xs leading-relaxed"
+                            className="font-body text-[10px] sm:text-xs leading-tight sm:leading-relaxed"
                             style={{ color: "#4C6663" }}
                           >
                             {feature.desc}
                           </p>
                         ) : (
                           <h3
-                            className="font-display text-xl font-semibold leading-tight"
+                            className="font-display text-xs sm:text-base lg:text-xl font-semibold leading-tight"
                             style={{ color: "#171717" }}
                           >
                             {feature.title}
@@ -209,8 +185,8 @@ export default function MaatratvaWaySection() {
               />
             </svg>
 
-            {/* Centre image — correctly aligned inside the circle */}
-            <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+            {/* Centre image — Desktop & Laptop view ONLY */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden lg:flex h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 items-center justify-center">
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{
@@ -232,47 +208,12 @@ export default function MaatratvaWaySection() {
           </div>
         </FadeUp>
 
-        {/* Mobile and tablet layout */}
-        <div className="lg:hidden">
-          <div
-            className="relative mx-auto mb-10 flex h-[340px] max-w-[340px] items-center justify-center overflow-hidden rounded-full"
-            style={{
-              background: "#fff",
-              border: "2px dashed rgba(69,183,174,0.65)",
-            }}
-          >
-            <motion.div
-              animate={{ y: [0, -6, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <Image
-                src="/way-removebg.png"
-                alt="Maatratva pregnancy wellness"
-                width={250}
-                height={330}
-                priority
-                className="object-contain drop-shadow-xl"
-              />
-            </motion.div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {features.map((feature) => (
-              <MobileCard key={feature.title} feature={feature} />
-            ))}
-          </div>
-        </div>
-
         <FadeUp className="mt-7 text-center">
           <p
-            className="font-body text-sm italic"
+            className="font-body text-xs sm:text-sm italic"
             style={{ color: "#A15C7A" }}
           >
-            Hover over a section to read more.
+            Hover or tap on a section to read more.
           </p>
         </FadeUp>
       </div>

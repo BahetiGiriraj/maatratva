@@ -49,7 +49,7 @@ export default function ProgramSection() {
                 }}
               >
                 <Image
-                  src="/program-companion.png"
+                  src="/programsection.png"
                   alt="Your Complete Pregnancy Companion"
                   fill
                   className="object-cover object-center"
@@ -155,9 +155,7 @@ export default function ProgramSection() {
                     className="group-hover:translate-x-1 transition-transform duration-200"
                   />
                 </Link>
-                <Link href="/contact" className="btn-secondary">
-                  Book Free Session
-                </Link>
+               
               </div>
             </div>
           </FadeRight>
