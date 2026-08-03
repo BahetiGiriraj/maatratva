@@ -1,160 +1,18 @@
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
-import {
-  FadeUp,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/ui/motion";
+import { FadeUp } from "@/components/ui/motion";
 
-type Expert = {
-  name: string;
-  title: string;
-  badge?: string;
-  image?: string;
-};
-
-export const homeExperts: Expert[] = [
-  {
-    name: "Dheera Somani",
-    title: "Garbha Sanskar, Pregnancy Wellness Coach, Womb Designer & NLP Certified Expert",
-    badge: "Founder and Mentor",
-    image: "/dheera-somani.jpg",
-  },
-  {
-    name: "Dt. Heena Kaur Bedi",
-    title: "Pregnancy Nutrition Expert",
-    image: "/team-heena-bedi.jpeg",
-  },
-  {
-    name: "Dr. Shruti Kakani",
-    title: "Homeopathy Expert (B.H.M.S.)",
-    image: "/team-shruti-kakani.jpeg",
-  },
-  {
-    name: "Dr. Shyam Bihari Gautam",
-    title: "Ayurveda Ratna & Vedic Astrology Expert",
-    image: "/team-shyam-gautam.jpeg",
-  },
+const credentials = [
+  "Garbh Sanskar Practitioner",
+  "Pregnancy Wellness Coach",
+  "Womb Designer",
+  "NLP Certified Expert",
 ];
-
-export const aboutExperts: Expert[] = [
-  {
-    name: "Dr. Sheela Badoniya",
-    title: "Psychologist & Healing Therapist",
-  },
-  {
-    name: "Dr. Saraswathi Bukka",
-    title: "High-Risk Pregnancy & Ayurveda Expert",
-  },
-  {
-    name: "Dt. Heena Kaur Bedi",
-    title: "Pregnancy Nutrition Expert",
-  },
-  {
-    name: "Dr. Shruti Kakani",
-    title: "Homoeopathy Expert (B.H.M.S.)",
-  },
-  {
-    name: "Dr. Ritima Gupta",
-    title: "Dentist",
-  },
-  {
-    name: "Shilpa Goyal",
-    title: "Yoga & Wellness Therapy Expert",
-  },
-];
-
-function ExpertPhoto({ expert }: { expert: Expert }) {
-  const badge = expert.badge ?? "Expert";
-
-  if (expert.image) {
-    return (
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px]">
-        <Image
-          src={expert.image}
-          alt={`${expert.name} — ${badge}`}
-          fill
-          priority
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className="object-cover object-top"
-        />
-
-        <span
-          className="absolute bottom-0 left-0 inline-flex items-center gap-1.5 rounded-tr-2xl bg-white px-3 py-2 font-body text-sm font-semibold"
-          style={{ color: "#4B3B3B" }}
-        >
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-white">
-            <Check size={13} strokeWidth={3} />
-          </span>
-          {badge}
-        </span>
-      </div>
-    );
-  }
-
-  return (
-    <div
-      aria-label={`${expert.name} photo placeholder`}
-      className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px]"
-      style={{
-        background:
-          "linear-gradient(145deg, #ead7df 0%, #f7efeb 52%, #e7d6c9 100%)",
-      }}
-    >
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-20 w-20 rounded-full border border-white/70 bg-white/35" />
-      </div>
-
-      <span
-        className="absolute bottom-0 left-0 inline-flex items-center gap-1.5 rounded-tr-2xl bg-white px-3 py-2 font-body text-sm font-semibold"
-        style={{ color: "#4B3B3B" }}
-      >
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-white">
-          <Check size={13} strokeWidth={3} />
-        </span>
-        {badge}
-      </span>
-    </div>
-  );
-}
-
-export function ExpertCards({ experts }: { experts: Expert[] }) {
-  return (
-    <StaggerContainer className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-      {experts.map((expert) => (
-        <StaggerItem key={expert.name}>
-          <motion.article
-            className="group"
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.22 }}
-          >
-            <ExpertPhoto expert={expert} />
-
-            <h3
-              className="mt-4 font-display text-2xl font-semibold leading-tight"
-              style={{ color: "#231f20" }}
-            >
-              {expert.name}
-            </h3>
-
-            <p
-              className="mt-2 font-body text-base leading-snug"
-              style={{ color: "#6f6a6a" }}
-            >
-              {expert.title}
-            </p>
-          </motion.article>
-        </StaggerItem>
-      ))}
-    </StaggerContainer>
-  );
-}
 
 export default function TeamSection() {
   return (
@@ -167,8 +25,8 @@ export default function TeamSection() {
             className="mb-4 font-display text-5xl font-semibold leading-[1.1] md:text-6xl"
             style={{ color: "#4B3B3B" }}
           >
-            The Hands Behind{" "}
-            <span style={{ color: "#A15C7A" }}>Your Care</span>
+            The Heart Behind{" "}
+            <span style={{ color: "#A15C7A" }}>Maatratva</span>
           </h2>
 
           <p
@@ -181,9 +39,120 @@ export default function TeamSection() {
         </FadeUp>
 
         <FadeUp>
-          <ExpertCards experts={homeExperts} />
+          <motion.article
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.25 }}
+            className="rounded-[32px] border p-6 md:p-10"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(255,255,255,0.72), rgba(247,235,237,0.72))",
+              borderColor: "rgba(161, 92, 122, 0.18)",
+              boxShadow: "0 14px 50px rgba(161, 92, 122, 0.09)",
+            }}
+          >
+            <div className="grid items-center gap-8 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,1.7fr)] lg:gap-12">
+              {/* Photo */}
+              <div className="relative mx-auto w-full max-w-[430px]">
+                <div className="relative aspect-[4/4.15] overflow-hidden rounded-[28px]">
+                  <Image
+                    src="/dheera-somani.jpg"
+                    alt="Dheera Somani — Founder and Mentor"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 35vw"
+                    className="object-cover object-top"
+                  />
+                </div>
 
-          <div className="mt-8 text-center">
+                <span
+                  className="absolute bottom-[-18px] left-1/2 -translate-x-1/2 rounded-full px-6 py-3 font-body text-sm font-semibold text-white shadow-lg"
+                  style={{ background: "#A15C7A" }}
+                >
+                  Founder
+                </span>
+              </div>
+
+              {/* Details */}
+              <div className="pt-5 lg:pt-0">
+                <h3
+                  className="font-display text-4xl font-semibold leading-tight md:text-5xl"
+                  style={{ color: "#4B3B3B" }}
+                >
+                  Dheera Somani
+                </h3>
+
+                <p
+                  className="mt-3 font-body text-lg font-semibold"
+                  style={{ color: "#B16889" }}
+                >
+                  Founder &amp; Mentor
+                </p>
+
+                <div className="mt-7 flex flex-wrap gap-2.5">
+                  {credentials.map((credential) => (
+                    <span
+                      key={credential}
+                      className="rounded-full border px-4 py-2 font-body text-sm font-medium"
+                      style={{
+                        color: "#B16889",
+                        background: "rgba(161, 92, 122, 0.07)",
+                        borderColor: "rgba(161, 92, 122, 0.18)",
+                      }}
+                    >
+                      {credential}
+                    </span>
+                  ))}
+                </div>
+
+                <p
+                  className="mt-7 max-w-4xl font-body text-base leading-relaxed md:text-lg"
+                  style={{ color: "#7C6A6A" }}
+                >
+                  With over a decade of experience, Dheera has guided more than
+                  2,000 mothers through transformative pregnancy journeys. Her
+                  unique approach integrates ancient Indian wisdom with modern
+                  neuroscience and evidence-based wellness practices. She
+                  believes deeply that every mother has the capacity for a
+                  profound, joyful pregnancy and dedicates herself to unlocking
+                  that potential.
+                </p>
+
+                <div className="mt-8 flex items-start gap-12">
+                  <div>
+                    <p
+                      className="font-display text-3xl font-semibold"
+                      style={{ color: "#A15C7A" }}
+                    >
+                      12+ Years
+                    </p>
+                    <p
+                      className="mt-1 font-body text-sm"
+                      style={{ color: "#7C6A6A" }}
+                    >
+                      Experience
+                    </p>
+                  </div>
+
+                  <div>
+                    <p
+                      className="font-display text-3xl font-semibold"
+                      style={{ color: "#A15C7A" }}
+                    >
+                      2000+
+                    </p>
+                    <p
+                      className="mt-1 font-body text-sm"
+                      style={{ color: "#7C6A6A" }}
+                    >
+                      Mothers Guided
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.article>
+
+          <div className="mt-10 text-center">
             <Link
               href="/about"
               className="btn-primary group inline-flex px-6 py-2.5 text-sm"

@@ -41,7 +41,7 @@ export default function Footer() {
 
             {/* Brand & Logo */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="flex flex-col items-start gap-3">
+              <div className="flex flex-col items-start gap-0">
                 <Image
                   src="/nav-logo.png"
                   alt="Maatratva"

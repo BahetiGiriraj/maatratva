@@ -86,12 +86,7 @@ const founder = {
 };
 
 const team = [
-  {
-    name: "Dr. Sheela Badoniya",
-    title: "Psychologist & Healing Therapist",
-    photo: "/team-sheela-badoniya.jpeg",
-    photoPosition: "center 38%",
-  },
+  
   {
     name: "Dr. Saraswathi Bukka",
     title: "High-Risk Pregnancy & Ayurveda Expert",
@@ -120,7 +115,7 @@ const team = [
   name: "Dr. Paridhi Jain",
   title: "Physiotherapist (OBS & Gynaec)",
   photo: "/team-paridhi-jain.jpeg",
-  photoPosition: "center 18%",
+  photoPosition: "center 35%",
 },
   {
   name: "Dr. Shruti Kakani",
@@ -140,6 +135,13 @@ const team = [
     photo: "/team-shilpa-goyal.jpeg",
     photoPosition: "center center",
   },
+  {
+  name: "Dr. Sheela Badoniya",
+  title: "Psychologist & Healing Therapist",
+  photo: "/team-sheela-badoniya.jpeg",
+  photoPosition: "center 38%",
+  photoScale: 0.9,
+},
 ];
 
 export default function AboutPageContent() {
@@ -248,8 +250,8 @@ export default function AboutPageContent() {
               className="font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              The Heart Behind{" "}
-              <span style={{ color: "#A15C7A" }}>Maatratva</span>
+              The Hands Behind {" "}
+              <span style={{ color: "#A15C7A" }}>Your Care</span>
             </h2>
           </FadeUp>
 
@@ -397,7 +399,10 @@ export default function AboutPageContent() {
                       alt={member.name}
                       fill
                       className="object-cover"
-                      style={{ objectPosition: member.photoPosition }}
+                      style={{
+  objectPosition: member.photoPosition,
+  transform: `scale(${member.photoScale ?? 1})`,
+}}
                       sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     />
 

@@ -1,11 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Check, ChevronDown, Phone, Star } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Star } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { FadeUp, FadeLeft, FadeRight, StaggerContainer, StaggerItem } from "@/components/ui/motion";
+import {
+  FadeUp,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/motion";
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -18,15 +23,15 @@ const plans = [
     tagline: "Your first step into mindful pregnancy",
     highlight: false,
     badge: "",
-    emoji: "🌸",
     cta: "Begin with Bloom",
     features: [
-      "Pregnancy yoga & exercise",
-      "Mindfulness activities",
-      "Garbh Sanskar",
-      "4 weekly live sessions with mentor",
-      "1 expert guided session",
-      "Limited bonus access",
+      "Prenatal Yoga & Exercise",
+      "Mindfulness Practices",
+      "Garbhsanskar & Womb Wellbeing",
+      "4 Weekly Live Mentor Sessions",
+      "Personalized Pregnancy Diet Plan",
+      "1 Expert-Guided Session",
+      "1 Month Bonus Access",
     ],
     included: [],
   },
@@ -38,34 +43,41 @@ const plans = [
     tagline: "Deeper care for a transformative trimester",
     highlight: true,
     badge: "Most Popular",
-    emoji: "🌺",
     cta: "Choose Nurture",
     features: [
-      "Personalized diet plan",
-      "4 weekly live sessions with mentor",
-      "3 expert guided sessions",
-      "Birth preparation program (3rd trimester)",
+      "Pregnancy Yoga & Exercise",
+      "Mindfulness Practices",
+      "Garbhsanskar & Womb Wellbeing",
+      "4 Weekly Live Mentor Sessions",
+      "Personalized Diet Plan",
+      "3 Expert-Guided Sessions",
+      "Birth Preparation Program (Only for 3rd Trimester)",
+      "3 Months Bonus Access",
     ],
-    included: ["Everything in Bloom, plus:"],
+    included: [],
   },
   {
     id: "womb-to-wonder",
     name: "Womb to Wonder",
     price: "₹9,999",
     duration: "Full Pregnancy Program",
-    tagline: "The complete journey — conception to birth",
+    tagline: "The complete journey - conception to birth",
     highlight: false,
     badge: "Complete Care",
-    emoji: "✨",
     cta: "Begin Full Journey",
     features: [
-      "Monthly one-on-one mentor call",
-      "4 weekly live sessions with mentor",
-      "9 expert guided sessions",
-      "Birth preparation program",
-      "Maatratva completion certificate",
+      "Pregnancy Yoga & Exercise",
+      "Mindfulness Practices",
+      "Garbhsanskar & Womb Wellbeing",
+      "4 Weekly Live Mentor Sessions",
+      "Personalized Diet Plan",
+      "9 Expert-Guided Sessions",
+      "Full Journey Bonus Access",
+      "Birth Preparation Program",
+      "Maatratva Completion Certificate",
+      "One-on-One Call Support",
     ],
-    included: ["Everything in Bloom & Nurture, plus:"],
+    included: [],
   },
 ];
 
@@ -119,7 +131,14 @@ const curriculumSections = [
       "Doubt solving support",
       "One-on-one guided support",
     ],
-    experts: ["Dietician & Nutritionist", "Ayurveda Expert", "Gynaecologist", "Psychotherapist", "Lactation Expert", "and many more..."],
+    experts: [
+      "Dietician & Nutritionist",
+      "Ayurveda Expert",
+      "Gynaecologist",
+      "Psychotherapist",
+      "Lactation Expert",
+      "and many more...",
+    ],
   },
   {
     id: "bonuses",
@@ -134,12 +153,20 @@ const bonuses = [
   {
     emoji: "📋",
     title: "Pregnancy Wellness Blueprint",
-    items: ["Personalized Diet Plan", "Month-wise Care Guide", "Daily Routine Guide"],
+    items: [
+      "Personalized Diet Plan",
+      "Month-wise Care Guide",
+      "Daily Routine Guide",
+    ],
   },
   {
     emoji: "🎵",
     title: "Audio & Learning Library",
-    items: ["Pregnancy Music & Mantras", "Blissful Sleep Kit", "Stories Library"],
+    items: [
+      "Pregnancy Music & Mantras",
+      "Blissful Sleep Kit",
+      "Stories Library",
+    ],
   },
   {
     emoji: "🧠",
@@ -149,12 +176,20 @@ const bonuses = [
   {
     emoji: "📖",
     title: "Pregnancy Resource Guide",
-    items: ["Common Problems & Solutions", "Baby Development Guide", "Pregnancy Journal"],
+    items: [
+      "Common Problems & Solutions",
+      "Baby Development Guide",
+      "Pregnancy Journal",
+    ],
   },
   {
     emoji: "👨‍👩‍👧",
     title: "Family & Birth Support Toolkit",
-    items: ["Partner Guide", "Birth Preparation", "Breastfeeding Guidance"],
+    items: [
+      "Partner Guide",
+      "Birth Preparation",
+      "Breastfeeding Guidance",
+    ],
   },
 ];
 
@@ -193,162 +228,273 @@ export default function ProgramsPageContent() {
 
   return (
     <div className="pt-24" style={{ background: "#FAF7F4" }}>
-      
-    
-
-      {/* ── 2. PRICING CARDS ── */}
+      {/* ── PRICING CARDS ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>
         <div className="container-wide">
-          <StaggerContainer className="grid lg:grid-cols-3 gap-8">
-            {plans.map((plan, idx) => (
+          <StaggerContainer className="grid gap-8 lg:grid-cols-3">
+            {plans.map((plan) => (
               <StaggerItem key={plan.id}>
                 {plan.highlight ? (
-                  // HIGHLIGHTED CARD (Nurture)
                   <motion.div
-                    className="relative rounded-[28px] p-8 md:p-10 h-full flex flex-col"
+                    className="relative flex h-full flex-col rounded-[28px] p-8 md:p-10"
                     style={{
-                      background: "linear-gradient(135deg, #A15C7A 0%, #7D4460 100%)",
+                      background:
+                        "linear-gradient(135deg, #A15C7A 0%, #7D4460 100%)",
                       boxShadow: "0 20px 60px rgba(161,92,122,0.35)",
                     }}
-                    whileHover={{ y: -8, boxShadow: "0 24px 70px rgba(161,92,122,0.45)" }}
+                    whileHover={{
+                      y: -8,
+                      boxShadow: "0 24px 70px rgba(161,92,122,0.45)",
+                    }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="px-4 py-1.5 rounded-full text-xs font-semibold"
-                        style={{ background: "#D4AF37", color: "#4B3B3B" }}>
+                    <div className="mb-6 flex items-center gap-3">
+                      <div
+                        className="rounded-full px-4 py-1.5 text-xs font-semibold"
+                        style={{ background: "#D4AF37", color: "#4B3B3B" }}
+                      >
                         {plan.badge}
                       </div>
-                      <div className="px-4 py-1.5 rounded-full text-xs font-medium"
-                        style={{ background: "rgba(255,255,255,0.15)", color: "white" }}>
+                      <div
+                        className="rounded-full px-4 py-1.5 text-xs font-medium"
+                        style={{
+                          background: "rgba(255,255,255,0.15)",
+                          color: "white",
+                        }}
+                      >
                         {plan.duration}
                       </div>
                     </div>
-                    <div className="text-5xl mb-4">{plan.emoji}</div>
-                    <h3 className="font-display text-4xl font-semibold mb-2 text-white">{plan.name}</h3>
-                    <p className="font-body text-sm mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>
+
+                    {/* Maatratva logo instead of emoji */}
+                    <div className="h-20 w-auto object-contain brightness-0 invert">
+  <Image
+    src="/nav-logo.png"
+    alt="Maatratva"
+    width={220}
+    height={96}
+    className="h-20 w-auto object-contain"
+  />
+</div>
+
+                    <h3 className="mb-2 font-display text-4xl font-semibold text-white">
+                      {plan.name}
+                    </h3>
+
+                    <p
+                      className="mb-6 font-body text-sm"
+                      style={{ color: "rgba(255,255,255,0.8)" }}
+                    >
                       {plan.tagline}
                     </p>
+
                     <div className="mb-6">
-                      <span className="font-display text-5xl font-bold text-white">{plan.price}</span>
-                      <span className="font-body text-sm ml-2" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      <span className="font-display text-5xl font-bold text-white">
+                        {plan.price}
+                      </span>
+                      <span
+                        className="ml-2 font-body text-sm"
+                        style={{ color: "rgba(255,255,255,0.7)" }}
+                      >
                         / {plan.duration.toLowerCase()}
                       </span>
                     </div>
-                    <div className="space-y-3 mb-8 flex-1">
-                      {plan.included.length > 0 && (
-                        <p className="font-body text-sm font-semibold mb-3"
-                          style={{ color: "rgba(255,255,255,0.9)" }}>
-                          {plan.included[0]}
-                        </p>
-                      )}
-                      {plan.features.map((f) => (
-                        <div key={f} className="flex items-start gap-3">
-                          <Check size={18} className="shrink-0 mt-0.5" style={{ color: "#D4AF37" }} />
-                          <span className="font-body text-sm" style={{ color: "rgba(255,255,255,0.9)" }}>{f}</span>
+
+                    <div className="mb-8 flex-1 space-y-3">
+                      {plan.features.map((feature) => (
+                        <div key={feature} className="flex items-start gap-3">
+                          <Check
+                            size={18}
+                            className="mt-0.5 shrink-0"
+                            style={{ color: "#D4AF37" }}
+                          />
+                          <span
+                            className="font-body text-sm"
+                            style={{ color: "rgba(255,255,255,0.9)" }}
+                          >
+                            {feature}
+                          </span>
                         </div>
                       ))}
                     </div>
-                    <Link href="/contact" className="btn-gold w-full text-center">
-                      {plan.cta}
-                    </Link>
+
+                   
                   </motion.div>
                 ) : (
-                  // REGULAR CARD (Bloom, Womb to Wonder)
                   <motion.div
-                    className="relative rounded-[28px] p-8 md:p-10 h-full flex flex-col"
+                    className="relative flex h-full flex-col rounded-[28px] p-8 md:p-10"
                     style={{
                       background: "white",
                       border: "1px solid rgba(161,92,122,0.15)",
                       boxShadow: "0 8px 40px rgba(161,92,122,0.08)",
                     }}
-                    whileHover={{ y: -8, boxShadow: "0 12px 50px rgba(161,92,122,0.15)" }}
+                    whileHover={{
+                      y: -8,
+                      boxShadow: "0 12px 50px rgba(161,92,122,0.15)",
+                    }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="mb-6 flex items-center gap-3">
                       {plan.badge && (
-                        <div className="px-4 py-1.5 rounded-full text-xs font-semibold"
-                          style={{ background: "#E9D8D3", color: "#A15C7A" }}>
+                        <div
+                          className="rounded-full px-4 py-1.5 text-xs font-semibold"
+                          style={{ background: "#E9D8D3", color: "#A15C7A" }}
+                        >
                           {plan.badge}
                         </div>
                       )}
-                      <div className="px-4 py-1.5 rounded-full text-xs font-medium"
-                        style={{ background: "#F4EBE8", color: "#7C6A6A" }}>
+
+                      <div
+                        className="rounded-full px-4 py-1.5 text-xs font-medium"
+                        style={{ background: "#F4EBE8", color: "#7C6A6A" }}
+                      >
                         {plan.duration}
                       </div>
                     </div>
-                    <div className="text-5xl mb-4">{plan.emoji}</div>
-                    <h3 className="font-display text-4xl font-semibold mb-2" style={{ color: "#4B3B3B" }}>
+
+                    {/* Maatratva logo instead of emoji */}
+                    <div className="mb-5 flex h-24 items-center">
+  <Image
+    src="/nav-logo.png"
+    alt="Maatratva"
+    width={220}
+    height={96}
+    className="h-20 w-auto object-contain"
+  />
+</div>
+
+                    <h3
+                      className="mb-2 font-display text-4xl font-semibold"
+                      style={{ color: "#4B3B3B" }}
+                    >
                       {plan.name}
                     </h3>
-                    <p className="font-body text-sm mb-6" style={{ color: "#7C6A6A" }}>
+
+                    <p
+                      className="mb-6 font-body text-sm"
+                      style={{ color: "#7C6A6A" }}
+                    >
                       {plan.tagline}
                     </p>
+
                     <div className="mb-6">
-                      <span className="font-display text-5xl font-bold" style={{ color: "#A15C7A" }}>
+                      <span
+                        className="font-display text-5xl font-bold"
+                        style={{ color: "#A15C7A" }}
+                      >
                         {plan.price}
                       </span>
-                      <span className="font-body text-sm ml-2" style={{ color: "#7C6A6A" }}>
+                      <span
+                        className="ml-2 font-body text-sm"
+                        style={{ color: "#7C6A6A" }}
+                      >
                         / {plan.duration.toLowerCase()}
                       </span>
                     </div>
-                    <div className="space-y-3 mb-8 flex-1">
-                      {plan.included.length > 0 && (
-                        <p className="font-body text-sm font-semibold mb-3" style={{ color: "#A15C7A" }}>
-                          {plan.included[0]}
-                        </p>
-                      )}
-                      {plan.features.map((f) => (
-                        <div key={f} className="flex items-start gap-3">
-                          <Check size={18} className="shrink-0 mt-0.5" style={{ color: "#A15C7A" }} />
-                          <span className="font-body text-sm" style={{ color: "#4B3B3B" }}>{f}</span>
+
+                    <div className="mb-8 flex-1 space-y-3">
+                      {plan.features.map((feature) => (
+                        <div key={feature} className="flex items-start gap-3">
+                          <Check
+                            size={18}
+                            className="mt-0.5 shrink-0"
+                            style={{ color: "#A15C7A" }}
+                          />
+                          <span
+                            className="font-body text-sm"
+                            style={{ color: "#4B3B3B" }}
+                          >
+                            {feature}
+                          </span>
                         </div>
                       ))}
                     </div>
-                    <Link href="/contact" className="btn-primary w-full text-center">
-                      {plan.cta}
-                    </Link>
+
+                    
                   </motion.div>
                 )}
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+  <Link
+    href="/workshops"
+    className="btn-primary group inline-flex items-center gap-2 px-7 py-3"
+  >
+    Explore Our Workshops
+    <ArrowRight
+      size={16}
+      className="transition-transform duration-200 group-hover:translate-x-1"
+    />
+  </Link>
+
+  <a
+    href="https://wa.me/917694832159?text=Hi%2C%20I%20want%20to%20know%20more%20about%20the%20Maatratva%20programs."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group inline-flex items-center gap-2 rounded-full border border-[#A15C7A] px-7 py-3 font-body text-sm font-semibold text-[#A15C7A] transition-colors hover:bg-[#A15C7A] hover:text-white"
+  >
+    Enquire About Our Programs
+    <ArrowRight
+      size={16}
+      className="transition-transform duration-200 group-hover:translate-x-1"
+    />
+  </a>
+</div>
       </section>
 
-      {/* ── 3. WHAT'S INCLUDED SECTION ── */}
+      {/* ── WHAT'S INCLUDED SECTION ── */}
       <section className="section-padding" style={{ background: "#F4EBE8" }}>
         <div className="container-wide">
-          <FadeUp className="text-center max-w-3xl mx-auto mb-16">
+          <FadeUp className="mx-auto mb-16 max-w-3xl text-center">
             <SectionLabel centered>What&apos;s Inside</SectionLabel>
-            <h2 className="font-display text-5xl md:text-6xl font-semibold mb-4" style={{ color: "#4B3B3B" }}>
-              Everything Your Journey <span style={{ color: "#A15C7A" }}>Includes</span>
+            <h2
+              className="mb-4 font-display text-5xl font-semibold md:text-6xl"
+              style={{ color: "#4B3B3B" }}
+            >
+              Everything Your Journey{" "}
+              <span style={{ color: "#A15C7A" }}>Includes</span>
             </h2>
             <p className="font-body text-lg" style={{ color: "#7C6A6A" }}>
-              Thoughtfully designed sessions, expert guidance and holistic practices to nurture your body, mind and baby.
+              Thoughtfully designed sessions, expert guidance and holistic
+              practices to nurture your body, mind and baby.
             </p>
           </FadeUp>
 
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="mx-auto max-w-3xl space-y-4">
             {curriculumSections.map((section) => (
               <FadeUp key={section.id}>
-                <div className="rounded-[20px] overflow-hidden"
+                <div
+                  className="overflow-hidden rounded-[20px]"
                   style={{
                     background: "white",
                     border: "1px solid rgba(161,92,122,0.15)",
                     boxShadow: "0 4px 24px rgba(161,92,122,0.06)",
-                  }}>
+                  }}
+                >
                   <button
-                    className="w-full flex items-center justify-between p-6 text-left"
-                    onClick={() => setOpenSection(openSection === section.id ? "" : section.id)}
+                    className="flex w-full items-center justify-between p-6 text-left"
+                    onClick={() =>
+                      setOpenSection(
+                        openSection === section.id ? "" : section.id
+                      )
+                    }
                   >
                     <div className="flex items-center gap-4">
                       <span className="text-3xl">{section.emoji}</span>
-                      <h3 className="font-display text-2xl font-semibold" style={{ color: "#4B3B3B" }}>
+                      <h3
+                        className="font-display text-2xl font-semibold"
+                        style={{ color: "#4B3B3B" }}
+                      >
                         {section.title}
                       </h3>
                     </div>
+
                     <motion.div
-                      animate={{ rotate: openSection === section.id ? 180 : 0 }}
+                      animate={{
+                        rotate: openSection === section.id ? 180 : 0,
+                      }}
                       transition={{ duration: 0.3 }}
                     >
                       <ChevronDown size={20} style={{ color: "#A15C7A" }} />
@@ -361,59 +507,104 @@ export default function ProgramsPageContent() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{
+                          duration: 0.35,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
                         style={{ overflow: "hidden" }}
                       >
                         <div className="px-6 pb-6">
-                          <div className="w-full h-px mb-5"
-                            style={{ background: "rgba(161,92,122,0.1)" }} />
+                          <div
+                            className="mb-5 h-px w-full"
+                            style={{ background: "rgba(161,92,122,0.1)" }}
+                          />
 
-                          {/* Regular items */}
                           {section.id !== "bonuses" && (
-                            <div className="space-y-3 mb-5">
+                            <div className="mb-5 space-y-3">
                               {section.items.map((item) => (
-                                <div key={item} className="flex items-start gap-3">
-                                  <div className="w-5 h-5 rounded-full shrink-0 mt-0.5 flex items-center justify-center"
-                                    style={{ background: "rgba(161,92,122,0.1)" }}>
-                                    <Check size={12} style={{ color: "#A15C7A" }} />
+                                <div
+                                  key={item}
+                                  className="flex items-start gap-3"
+                                >
+                                  <div
+                                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                                    style={{
+                                      background: "rgba(161,92,122,0.1)",
+                                    }}
+                                  >
+                                    <Check
+                                      size={12}
+                                      style={{ color: "#A15C7A" }}
+                                    />
                                   </div>
-                                  <span className="font-body text-sm" style={{ color: "#4B3B3B" }}>{item}</span>
+                                  <span
+                                    className="font-body text-sm"
+                                    style={{ color: "#4B3B3B" }}
+                                  >
+                                    {item}
+                                  </span>
                                 </div>
                               ))}
                             </div>
                           )}
 
-                          {/* Expert chips */}
-                          {section.experts && section.experts.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mt-4">
-                              {section.experts.map((exp) => (
-                                <span key={exp}
-                                  className="px-3 py-1.5 rounded-full font-body text-xs font-medium"
-                                  style={{ background: "#F4EBE8", color: "#A15C7A", border: "1px solid rgba(161,92,122,0.2)" }}>
-                                  {exp}
+                          {section.experts.length > 0 && (
+                            <div className="mt-4 flex flex-wrap gap-2">
+                              {section.experts.map((expert) => (
+                                <span
+                                  key={expert}
+                                  className="rounded-full px-3 py-1.5 font-body text-xs font-medium"
+                                  style={{
+                                    background: "#F4EBE8",
+                                    color: "#A15C7A",
+                                    border: "1px solid rgba(161,92,122,0.2)",
+                                  }}
+                                >
+                                  {expert}
                                 </span>
                               ))}
                             </div>
                           )}
 
-                          {/* Bonuses grid */}
                           {section.id === "bonuses" && (
-                            <div className="grid sm:grid-cols-2 gap-4">
+                            <div className="grid gap-4 sm:grid-cols-2">
                               {bonuses.map((bonus) => (
-                                <div key={bonus.title}
-                                  className="p-5 rounded-[16px]"
-                                  style={{ background: "#F4EBE8", border: "1px solid rgba(161,92,122,0.1)" }}>
-                                  <div className="flex items-center gap-3 mb-3">
-                                    <span className="text-2xl">{bonus.emoji}</span>
-                                    <h4 className="font-display text-base font-semibold" style={{ color: "#4B3B3B" }}>
+                                <div
+                                  key={bonus.title}
+                                  className="rounded-[16px] p-5"
+                                  style={{
+                                    background: "#F4EBE8",
+                                    border: "1px solid rgba(161,92,122,0.1)",
+                                  }}
+                                >
+                                  <div className="mb-3 flex items-center gap-3">
+                                    <span className="text-2xl">
+                                      {bonus.emoji}
+                                    </span>
+                                    <h4
+                                      className="font-display text-base font-semibold"
+                                      style={{ color: "#4B3B3B" }}
+                                    >
                                       {bonus.title}
                                     </h4>
                                   </div>
+
                                   <div className="space-y-1.5">
                                     {bonus.items.map((item) => (
-                                      <div key={item} className="flex items-center gap-2">
-                                        <Star size={11} style={{ color: "#D4AF37" }} />
-                                        <span className="font-body text-xs" style={{ color: "#7C6A6A" }}>{item}</span>
+                                      <div
+                                        key={item}
+                                        className="flex items-center gap-2"
+                                      >
+                                        <Star
+                                          size={11}
+                                          style={{ color: "#D4AF37" }}
+                                        />
+                                        <span
+                                          className="font-body text-xs"
+                                          style={{ color: "#7C6A6A" }}
+                                        >
+                                          {item}
+                                        </span>
                                       </div>
                                     ))}
                                   </div>
@@ -432,34 +623,45 @@ export default function ProgramsPageContent() {
         </div>
       </section>
 
-      {/* ── 4. FAQ SECTION ── */}
+      {/* ── FAQ SECTION ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>
         <div className="container-wide">
-          <FadeUp className="text-center max-w-2xl mx-auto mb-16">
+          <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
             <SectionLabel centered>Common Questions</SectionLabel>
-            <h2 className="font-display text-5xl md:text-6xl font-semibold" style={{ color: "#4B3B3B" }}>
+            <h2
+              className="font-display text-5xl font-semibold md:text-6xl"
+              style={{ color: "#4B3B3B" }}
+            >
               You Asked, We <span style={{ color: "#A15C7A" }}>Answered</span>
             </h2>
           </FadeUp>
 
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <FadeUp key={idx} delay={idx * 0.05}>
-                <div className="rounded-[20px] overflow-hidden"
+          <div className="mx-auto max-w-3xl space-y-4">
+            {faqs.map((faq, index) => (
+              <FadeUp key={faq.q} delay={index * 0.05}>
+                <div
+                  className="overflow-hidden rounded-[20px]"
                   style={{
                     background: "white",
                     border: "1px solid rgba(161,92,122,0.15)",
                     boxShadow: "0 4px 24px rgba(161,92,122,0.06)",
-                  }}>
+                  }}
+                >
                   <button
-                    className="w-full flex items-center justify-between p-6 text-left"
-                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                    className="flex w-full items-center justify-between p-6 text-left"
+                    onClick={() =>
+                      setOpenFaq(openFaq === index ? null : index)
+                    }
                   >
-                    <h3 className="font-display text-xl font-semibold pr-4" style={{ color: "#4B3B3B" }}>
+                    <h3
+                      className="pr-4 font-display text-xl font-semibold"
+                      style={{ color: "#4B3B3B" }}
+                    >
                       {faq.q}
                     </h3>
+
                     <motion.div
-                      animate={{ rotate: openFaq === idx ? 180 : 0 }}
+                      animate={{ rotate: openFaq === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                       className="shrink-0"
                     >
@@ -468,18 +670,26 @@ export default function ProgramsPageContent() {
                   </button>
 
                   <AnimatePresence initial={false}>
-                    {openFaq === idx && (
+                    {openFaq === index && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{
+                          duration: 0.35,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
                         style={{ overflow: "hidden" }}
                       >
                         <div className="px-6 pb-6">
-                          <div className="w-full h-px mb-4"
-                            style={{ background: "rgba(161,92,122,0.1)" }} />
-                          <p className="font-body text-sm leading-relaxed" style={{ color: "#7C6A6A" }}>
+                          <div
+                            className="mb-4 h-px w-full"
+                            style={{ background: "rgba(161,92,122,0.1)" }}
+                          />
+                          <p
+                            className="font-body text-sm leading-relaxed"
+                            style={{ color: "#7C6A6A" }}
+                          >
                             {faq.a}
                           </p>
                         </div>
@@ -492,8 +702,6 @@ export default function ProgramsPageContent() {
           </div>
         </div>
       </section>
-
-    
     </div>
   );
 }

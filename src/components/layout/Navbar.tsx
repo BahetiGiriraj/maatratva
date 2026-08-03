@@ -84,7 +84,7 @@ export default function Navbar() {
           <nav className="flex items-center justify-between h-20 md:h-24">
 
             {/* ── LOGO + brand text ── */}
-            <Link href="/" className="shrink-0 group flex items-center gap-3">
+            <Link href="/" className="shrink-0 group flex items-center gap-0">
               <Image
                 src="/nav-logo.png"
                 alt="Maatratva"
@@ -305,14 +305,7 @@ export default function Navbar() {
                 >
                   Book Free Session
                 </a>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary w-full text-center justify-center flex items-center"
-                >
-                  WhatsApp Us
-                </a>
+                
               </div>
             </motion.div>
           </>

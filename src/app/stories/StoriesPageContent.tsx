@@ -29,7 +29,7 @@ const videos = [
   {
     id: "amisha-laddha",
     videoId: "PUqIxnrKxGc",
-    name: "Amisha Laddha",
+    name: "Amisha Chandak",
     location: "Indore, India",
     tag: "Mother Story",
   },
