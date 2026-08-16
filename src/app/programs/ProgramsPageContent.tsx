@@ -204,7 +204,7 @@ const faqs = [
   },
   {
     q: "Are the sessions live or recorded?",
-    a: "Weekly group sessions are live so you can interact, ask questions and feel the community energy. All live sessions are also recorded and added to your library within 24 hours.",
+    a: "Weekly group sessions are live so you can interact, ask questions and feel the community energy . all the live sessions are also recorded and available for limited time period.",
   },
   {
     q: "What if I join late in my pregnancy?",
@@ -214,10 +214,7 @@ const faqs = [
     q: "Is the program available online?",
     a: "Yes — completely online. Join from anywhere in India or abroad, on any device.",
   },
-  {
-    q: "Is there a refund policy?",
-    a: "We offer a 7-day satisfaction guarantee. If you feel the program isn't right for you within the first 7 days, we'll process a full refund — no questions asked.",
-  },
+  
 ];
 
 // ── COMPONENT ────────────────────────────────────────────────────────────────
@@ -442,6 +439,75 @@ export default function ProgramsPageContent() {
     />
   </a>
 </div>
+      </section>
+
+      {/* ── ACTIVITY VIDEOS ── */}
+      <section className="section-padding" style={{ background: "#FAF7F4" }}>
+        <div className="container-wide">
+          <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
+            <SectionLabel centered>See It In Action</SectionLabel>
+            <h2
+              className="mb-4 font-display text-5xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
+              Program <span style={{ color: "#A15C7A" }}>Activities</span>
+            </h2>
+            <p className="font-body text-lg" style={{ color: "#7C6A6A" }}>
+              A glimpse into the practices and experiences that make Maatratva
+              journeys truly transformative.
+            </p>
+          </FadeUp>
+
+          <StaggerContainer className="grid grid-cols-2 gap-6 md:grid-cols-4">
+            {[
+              { id: "nNWFdbmB18c", label: "Physical Activity",    emoji: "🧘‍♀️" },
+              { id: "acKc4A_xk1c", label: "Baby Connection",      emoji: "👶"   },
+              { id: "BLG9LktlNUQ", label: "Brain Activity",       emoji: "🧠"   },
+              { id: "sTIFMIoTgdU", label: "Mindfulness Activity", emoji: "🌸"   },
+            ].map(({ id, label, emoji }) => (
+              <StaggerItem key={id}>
+                <motion.div
+                  className="overflow-hidden rounded-[24px]"
+                  style={{
+                    boxShadow: "0 8px 32px rgba(161,92,122,0.15)",
+                    border: "1px solid rgba(161,92,122,0.12)",
+                  }}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <div className="relative" style={{ aspectRatio: "9/16" }}>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
+                      title={`Maatratva ${label}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full"
+                      style={{ border: "none" }}
+                    />
+                    {/* bottom gradient + label */}
+                    <div
+                      className="pointer-events-none absolute bottom-0 left-0 right-0"
+                      style={{
+                        height: "90px",
+                        background:
+                          "linear-gradient(to top, rgba(0,0,0,0.80) 0%, transparent 100%)",
+                      }}
+                    />
+                    <div className="pointer-events-none absolute bottom-0 left-0 flex items-center gap-2 px-3 pb-3">
+                      <span className="text-base leading-none">{emoji}</span>
+                      <p
+                        className="font-display text-sm font-semibold leading-tight text-white"
+                        style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
+                      >
+                        {label}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
       </section>
 
       {/* ── WHAT'S INCLUDED SECTION ── */}

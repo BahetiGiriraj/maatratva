@@ -1,27 +1,28 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Play } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { useRef } from "react";
 
 const workshopImages = [
-  {
-    src: "/workshops/workshop-1.jpg",
-    alt: "Maatratva workshop session",
-  },
-  {
-    src: "/workshops/workshop-2.jpg",
-    alt: "Mothers participating in a Maatratva workshop",
-  },
-  {
-    src: "/workshops/workshop-3.jpg",
-    alt: "Maatratva wellness workshop",
-  },
-  {
-    src: "/workshops/workshop-4.jpg",
-    alt: "Maatratva community workshop",
-  },
+  { src: "/workshops/workshop-1.jpg", alt: "Maatratva workshop session" },
+  { src: "/workshops/workshop-2.jpg", alt: "Mothers participating in a Maatratva workshop" },
+  { src: "/workshops/workshop-3.jpg", alt: "Maatratva wellness workshop" },
+  { src: "/workshops/workshop-4.jpg", alt: "Maatratva community workshop" },
+  { src: "/workshops/workshop-5.jpg", alt: "Maatratva workshop activity" },
+  { src: "/workshops/workshop-6.jpg", alt: "Maatratva group session" },
+  { src: "/workshops/workshop-7.jpg", alt: "Maatratva prenatal workshop" },
+  { src: "/workshops/workshop-8.jpg", alt: "Maatratva wellness gathering" },
+  { src: "/workshops/workshop-9.jpg", alt: "Maatratva community moment" },
 ];
 
+// Duplicate for seamless infinite loop
+const allImages = [...workshopImages, ...workshopImages];
+
 export default function WorkshopsPage() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
   return (
     <main className="min-h-screen bg-[#FAF7F4] pt-28">
       <section className="section-padding">
@@ -38,66 +39,63 @@ export default function WorkshopsPage() {
             <p className="mb-3 font-body text-sm font-semibold uppercase tracking-[0.18em] text-[#A15C7A]">
               Our Community
             </p>
-
             <h1 className="font-display text-5xl font-semibold leading-tight text-[#4B3B3B] md:text-6xl">
               Moments From Our{" "}
               <span className="text-[#A15C7A]">Workshops</span>
             </h1>
-
             <p className="mt-5 font-body text-lg leading-relaxed text-[#7C6A6A]">
               A glimpse into the nurturing, joyful and transformative
               experiences shared by our Maatratva community.
             </p>
           </div>
+        </div>
 
-          {/* Featured workshop video */}
+        {/* ── INFINITE SCROLL CAROUSEL ── */}
+        <div className="overflow-hidden" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)" }}>
           <div
-            className="mb-12 overflow-hidden rounded-[30px] border p-4 md:p-6"
-            style={{
-              background:
-                "linear-gradient(135deg, #FFF9FA 0%, #F7E6EC 100%)",
-              borderColor: "rgba(161,92,122,0.2)",
-            }}
+            ref={trackRef}
+            className="flex gap-5 workshop-scroll"
+            style={{ width: "max-content" }}
           >
-            <div className="relative aspect-video overflow-hidden rounded-[22px] bg-[#4B3B3B]">
-              <video
-                controls
-                playsInline
-                poster="/workshops/workshop-video-cover.jpg"
-                className="h-full w-full object-cover"
-              >
-                <source
-                  src="/workshops/workshop-highlight.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-
-              <div className="pointer-events-none absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 font-body text-sm font-semibold text-[#A15C7A]">
-                <Play size={14} fill="currentColor" />
-                Workshop Highlights
-              </div>
-            </div>
-          </div>
-
-          {/* Workshop image gallery */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {workshopImages.map((image) => (
+            {allImages.map((image, index) => (
               <div
-                key={image.src}
-                className="group relative aspect-[4/5] overflow-hidden rounded-[24px]"
+                key={index}
+                className="relative shrink-0 overflow-hidden rounded-[20px]"
+                style={{
+                  height: "420px",
+                  width: "auto",
+                  minWidth: "280px",
+                  maxWidth: "480px",
+                  boxShadow: "0 8px 32px rgba(161,92,122,0.15)",
+                  background: "#F4EBE8",
+                }}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  width={480}
+                  height={420}
+                  className="h-full w-auto object-contain"
+                  style={{ display: "block" }}
                 />
               </div>
             ))}
           </div>
         </div>
+
+        {/* Animation keyframes */}
+        <style>{`
+          .workshop-scroll {
+            animation: workshop-marquee 35s linear infinite;
+          }
+          .workshop-scroll:hover {
+            animation-play-state: paused;
+          }
+          @keyframes workshop-marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
       </section>
     </main>
   );
