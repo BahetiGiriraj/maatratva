@@ -427,7 +427,7 @@ export default function ProgramsPageContent() {
   </Link>
 
   <a
-    href="https://wa.me/917694832159?text=Hi%2C%20I%20want%20to%20know%20more%20about%20the%20Maatratva%20programs."
+    href="https://wa.me/917694832159?text=Hello%20Ma'am%2C%20I%20came%20across%20Maatratva%20and%20would%20like%20to%20know%20more%20about%20your%20pregnancy%20care%20and%20guidance%20programs.%20I'm%20interested%20in%20understanding%20how%20Maatratva%20can%20support%20me%20through%20my%20journey.%20Could%20you%20please%20guide%20me%3F"
     target="_blank"
     rel="noopener noreferrer"
     className="group inline-flex items-center gap-2 rounded-full border border-[#A15C7A] px-7 py-3 font-body text-sm font-semibold text-[#A15C7A] transition-colors hover:bg-[#A15C7A] hover:text-white"
