@@ -84,14 +84,15 @@ export default function Navbar() {
           <nav className="flex items-center justify-between h-20 md:h-24">
 
             {/* ── LOGO + brand text ── */}
-            <Link href="/" className="shrink-0 group flex items-center gap-0">
+            <Link href="/" className="shrink-0 group flex items-center gap-0 -ml-2">
               <Image
                 src="/nav-logo.png"
                 alt="Maatratva"
-                width={260}
-                height={96}
+                width={200}
+                height={80}
                 priority
-                className="h-24 md:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                style={{ marginRight: "-12px" }}
               />
               <div className="flex flex-col leading-none">
                 <span

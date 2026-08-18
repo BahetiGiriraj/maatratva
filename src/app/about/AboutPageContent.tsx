@@ -85,15 +85,6 @@ const founder = {
   mothers: "2000+",
 };
 
-const familyPhotos: { src: string; alt: string }[] = [
-  { src: "/family_1.jpg", alt: "Maatratva family moment 1" },
-  { src: "/family_2.jpg", alt: "Maatratva family moment 2" },
-  { src: "/family_3.png", alt: "Maatratva family moment 3" },
-  { src: "/family_4.jpg", alt: "Maatratva family moment 4" },
-  { src: "/family_5.jpg", alt: "Maatratva family moment 5" },
-  { src: "/family_6.jpg", alt: "Maatratva family moment 6" },
-  { src: "/family_7.jpg", alt: "Maatratva family moment 7" },
-];
 
 const team = [
   
@@ -485,79 +476,7 @@ export default function AboutPageContent() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-
-          {/* ── MAATRATVA FAMILY ── */}
-          <FadeUp className="mb-12 mt-20 text-center">
-            <SectionLabel centered>Our Maatratva Family</SectionLabel>
-
-            <h3
-              className="font-display text-4xl font-semibold"
-              style={{ color: "#4B3B3B" }}
-            >
-              Moments of{" "}
-              <span style={{ color: "#A15C7A" }}>Love & Connection</span>
-            </h3>
-
-            <p
-              className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed"
-              style={{ color: "#7C6A6A" }}
-            >
-              Every journey is held with warmth, care and a community that
-              celebrates motherhood together.
-            </p>
-          </FadeUp>
         </div>
-
-        {/* Infinite scroll carousel — full bleed outside container */}
-        <div
-          className="overflow-hidden"
-          style={{
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-          }}
-        >
-          <div
-            className="family-scroll flex gap-5"
-            style={{ width: "max-content" }}
-          >
-            {[...familyPhotos, ...familyPhotos].map((photo, index) => (
-              <div
-                key={index}
-                className="relative shrink-0 overflow-hidden rounded-[20px]"
-                style={{
-                  height: "400px",
-                  width: "auto",
-                  minWidth: "260px",
-                  maxWidth: "460px",
-                  boxShadow: "0 8px 32px rgba(161,92,122,0.15)",
-                  background: "#F4EBE8",
-                }}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={460}
-                  height={400}
-                  className="h-full w-auto object-contain"
-                  style={{ display: "block" }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <style>{`
-          .family-scroll {
-            animation: family-marquee 32s linear infinite;
-          }
-          .family-scroll:hover {
-            animation-play-state: paused;
-          }
-          @keyframes family-marquee {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
       </section>
 
       {/* ── TIMELINE ── */}

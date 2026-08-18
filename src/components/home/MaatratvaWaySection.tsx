@@ -85,9 +85,9 @@ function wedgePath(startAngle: number, endAngle: number) {
   ].join(" ");
 }
 
-// same teal for all wedges
+// same light pink for all wedges, matching the site theme
 function wedgeColor(_group: string, active: boolean) {
-  return active ? "#CBEAE7" : "#DDF1EF";
+  return active ? "#F2C4D4" : "#FAE0E8";
 }
 
 export default function MaatratvaWaySection() {
@@ -208,7 +208,7 @@ export default function MaatratvaWaySection() {
                 cy="400"
                 r="178"
                 fill="white"
-                stroke="#45B7AE"
+                stroke="rgba(161,92,122,0.35)"
                 strokeWidth="2"
                 strokeDasharray="5 5"
               />

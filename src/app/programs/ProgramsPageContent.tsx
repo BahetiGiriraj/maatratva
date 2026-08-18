@@ -475,14 +475,27 @@ export default function ProgramsPageContent() {
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <div className="relative" style={{ aspectRatio: "9/16" }}>
+                  {/*
+                    Clip the YouTube top bar (date + logo) by:
+                    - making the outer div overflow:hidden with a fixed height
+                    - positioning the iframe taller and shifted up so the bar is hidden
+                  */}
+                  <div
+                    className="relative overflow-hidden"
+                    style={{ aspectRatio: "9/16" }}
+                  >
+                    {/* iframe is 55px taller and pulled up 55px to hide the top bar */}
                     <iframe
                       src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
                       title={`Maatratva ${label}`}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
-                      className="absolute inset-0 h-full w-full"
-                      style={{ border: "none" }}
+                      className="absolute left-0 w-full"
+                      style={{
+                        border: "none",
+                        top: "-55px",
+                        height: "calc(100% + 55px)",
+                      }}
                     />
                     {/* bottom gradient + label */}
                     <div

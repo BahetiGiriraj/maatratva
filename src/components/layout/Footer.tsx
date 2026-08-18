@@ -17,7 +17,7 @@ const quickLinks = [
 
 const socials = [
   {
-    href: "https://instagram.com/maatratva", label: "Instagram",
+    href: "https://www.instagram.com/maatratva?igsi=MW1tamZnbzF2cTI2dA==", label: "Instagram",
     svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
   },
   {
@@ -95,8 +95,8 @@ export default function Footer() {
               </h4>
               <ul className="space-y-4">
                 <li>
-                  <a href="mailto:hello@maatratva.com" className="flex items-start gap-3 font-body text-sm group hover:text-[#A15C7A] transition-colors duration-200" style={{ color: "#7C6A6A" }}>
-                    <Mail size={15} className="mt-0.5 shrink-0" /><span>hello@maatratva.com</span>
+                  <a href="mailto:Maatratva.wonder@gmail.com" className="flex items-start gap-3 font-body text-sm group hover:text-[#A15C7A] transition-colors duration-200" style={{ color: "#7C6A6A" }}>
+                    <Mail size={15} className="mt-0.5 shrink-0" /><span>Maatratva.wonder@gmail.com</span>
                   </a>
                 </li>
                 <li>
