@@ -41,7 +41,7 @@ export default function ExperienceSection() {
             style={{ color: "#4B3B3B" }}
           >
             Care for Mother.{" "}
-            <span style={{ color: "#A15C7A" }}>Connection</span>{" "}
+            <span style={{ color: "#6E1A34" }}>Connection</span>{" "}
             for Baby.
           </h2>
           <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
@@ -59,7 +59,7 @@ export default function ExperienceSection() {
                   aspectRatio: "3/4",
                   boxShadow: "0 8px 32px rgba(75,59,59,0.12)",
                 }}
-                whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(161,92,122,0.22)" }}
+                whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(110,26,52,0.22)" }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
                 {/* Background image */}
@@ -105,7 +105,7 @@ export default function ExperienceSection() {
                   {/* Thin mauve accent */}
                   <div
                     className="mt-4 h-0.5 w-10 rounded-full transition-all duration-500 group-hover:w-full"
-                    style={{ background: "#A15C7A" }}
+                    style={{ background: "#6E1A34" }}
                   />
                 </div>
               </motion.div>

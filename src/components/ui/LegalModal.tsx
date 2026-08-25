@@ -20,8 +20,8 @@ const content = {
       { title: "How We Use Your Information", body: "We use the information we collect to provide and improve our services, respond to your enquiries, send wellness guidance relevant to your stage, and personalise your Maatratva experience." },
       { title: "Information Sharing", body: "We do not sell, trade, or transfer your personally identifiable information to outside parties. Your personal health information is held in strict confidence and used only to serve your wellness journey." },
       { title: "Data Security", body: "Your data is stored securely using Firebase infrastructure with encryption at rest and in transit. We regularly review and update our security practices." },
-      { title: "Your Rights", body: "You have the right to access, update, correct or delete your personal information at any time. To exercise these rights, contact us at +91 76948 32159." },
-      { title: "Contact Us", body: "Questions about this Privacy Policy? Reach us at Maatratva.wonder@gmail.com or +91 76948 32159. We respond within 5 business days." },
+      { title: "Your Rights", body: "You have the right to access, update, correct or delete your personal information at any time. To exercise these rights, contact us at +91 88151 82545." },
+      { title: "Contact Us", body: "Questions about this Privacy Policy? Reach us at Maatratva.wonder@gmail.com or +91 88151 82545. We respond within 5 business days." },
     ],
   },
   terms: {
@@ -34,7 +34,7 @@ const content = {
       { title: "User Responsibilities", body: "You agree to use our services in good faith, provide accurate information, maintain confidentiality of your credentials, and treat all community members with respect and compassion." },
       { title: "Intellectual Property", body: "All content, materials, programs, recordings and methodologies provided by Maatratva are our intellectual property and protected by applicable laws. Reproduction or distribution without written permission is prohibited." },
       { title: "Limitation of Liability", body: "Maatratva provides wellness guidance and education. We are not liable for specific medical or health outcomes. Our programs are not a substitute for qualified medical treatment or emergency care." },
-      { title: "Contact", body: "For questions about these Terms, contact us at Maatratva.wonder@gmail.com or +91 76948 32159." },
+      { title: "Contact", body: "For questions about these Terms, contact us at Maatratva.wonder@gmail.com or +91 88151 82545." },
     ],
   },
 };
@@ -98,7 +98,7 @@ export default function LegalModal({ type, onClose }: LegalModalProps) {
               <button
                 onClick={onClose}
                 className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110 ml-4 mt-1"
-                style={{ background: "rgba(161,92,122,0.1)", color: "#A15C7A" }}
+                style={{ background: "rgba(110,26,52,0.1)", color: "#6E1A34" }}
                 aria-label="Close"
               >
                 <X size={16} />

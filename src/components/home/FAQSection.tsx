@@ -49,7 +49,7 @@ export default function FAQSection() {
                 style={{ color: "#4B3B3B" }}
               >
                 Questions{" "}
-                <span className="font-display font-light italic" style={{ color: "#A15C7A" }}>
+                <span className="font-display font-light italic" style={{ color: "#6E1A34" }}>
                   Answered
                 </span>
               </h2>
@@ -67,9 +67,9 @@ export default function FAQSection() {
                 key={i}
                 className="rounded-2xl overflow-hidden cursor-pointer"
                 style={{
-                  background: openIndex === i ? "rgba(161,92,122,0.06)" : "white",
+                  background: openIndex === i ? "rgba(110,26,52,0.06)" : "white",
                   border: openIndex === i
-                    ? "1px solid rgba(161,92,122,0.2)"
+                    ? "1px solid rgba(110,26,52,0.2)"
                     : "1px solid rgba(233,216,211,0.6)",
                 }}
                 whileHover={{ scale: 1.005 }}
@@ -89,8 +89,8 @@ export default function FAQSection() {
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200"
                     style={{
-                      background: openIndex === i ? "#A15C7A" : "rgba(161,92,122,0.1)",
-                      color: openIndex === i ? "white" : "#A15C7A",
+                      background: openIndex === i ? "#6E1A34" : "rgba(110,26,52,0.1)",
+                      color: openIndex === i ? "white" : "#6E1A34",
                     }}
                   >
                     {openIndex === i ? <Minus size={14} /> : <Plus size={14} />}
@@ -108,7 +108,7 @@ export default function FAQSection() {
                       <div className="px-6 pb-5">
                         <div
                           className="h-px mb-4"
-                          style={{ background: "rgba(161,92,122,0.12)" }}
+                          style={{ background: "rgba(110,26,52,0.12)" }}
                         />
                         <p
                           className="font-body text-sm leading-relaxed"

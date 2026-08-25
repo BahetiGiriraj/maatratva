@@ -41,18 +41,18 @@ function ReviewCard({ name, location, text }: { name: string; location: string; 
       style={{
         background: "white",
         border: "1px solid rgba(233,216,211,0.7)",
-        boxShadow: "0 4px 20px rgba(161,92,122,0.07)",
+        boxShadow: "0 4px 20px rgba(110,26,52,0.07)",
       }}
     >
       <div className="flex gap-0.5">
-        {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#A15C7A" color="#A15C7A" />)}
+        {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#6E1A34" color="#6E1A34" />)}
       </div>
       <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#7C6A6A", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
         &ldquo;{text}&rdquo;
       </p>
       <div className="flex items-center gap-3 pt-3" style={{ borderTop: "1px solid rgba(233,216,211,0.6)" }}>
         <div className="w-8 h-8 rounded-full flex items-center justify-center font-display text-sm font-bold shrink-0"
-          style={{ background: "rgba(161,92,122,0.1)", color: "#A15C7A" }}>
+          style={{ background: "rgba(110,26,52,0.1)", color: "#6E1A34" }}>
           {name[0]}
         </div>
         <div>
@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
         <FadeUp className="text-center max-w-2xl mx-auto mb-16">
           <SectionLabel centered>Mother Stories</SectionLabel>
           <h2 className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-6" style={{ color: "#4B3B3B" }}>
-            Voices of Our <span style={{ color: "#A15C7A" }}>Mothers</span>
+            Voices of Our <span style={{ color: "#6E1A34" }}>Mothers</span>
           </h2>
           <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
             Real words from real mothers who walked this journey with Maatratva.

@@ -8,14 +8,14 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { FadeLeft, FadeRight } from "@/components/ui/motion";
 
 const highlights = [
-  { icon: "🧘", label: "Physical Wellbeing", desc: "Prenatal yoga, exercise and breathwork" },
-  { icon: "🌸", label: "Mindful Motherhood", desc: "Meditation, energy balancing and positive mind practices" },
-  { icon: "🎵", label: "Garbh Sanskar & Womb Designing", desc: "Garbh Sanskar, genetic blueprint, brain and senses development" },
-  { icon: "🥗", label: "Nutrition & Balanced Diet", desc: "Trimester-wise balanced diet plans" },
-  { icon: "💬", label: "Personal Mentor Support", desc: "4 weekly live sessions with mentor" },
-  { icon: "👩‍⚕️", label: "Expert Guidance", desc: "Gynaecologists, Ayurveda experts, certified nutritionists and many more" },
-  { icon: "🤱", label: "Birth Preparation", desc: "Confident and easy birth planning preparation" },
-  { icon: "👭", label: "Community Support", desc: "Mother's circle — you are never alone" },
+  { icon: "🧘", label: "Physical Wellbeing", desc: "Prenatal yoga, safe movements & breathing for strength and flexibility." },
+  { icon: "👶", label: "Garbh Sanskar & Womb Designing", desc: "Genetic blueprint, brain & senses development to nurture your baby." },
+  { icon: "🌸", label: "Mindful Motherhood", desc: "Meditation, energy balancing & positive mind practices." },
+  { icon: "🥗", label: "Nutrition & Balanced Diet", desc: "Trimester-wise balanced diet plan." },
+  { icon: "💬", label: "Personal Mentor Support", desc: "Weekly live sessions & doubt-clearing with your mentor." },
+  { icon: "👩‍⚕️", label: "Expert Guidance", desc: "Gynecologists, Ayurveda experts, nutritionists & more." },
+  { icon: "🤱", label: "Birth Preparation", desc: "Confident & easy birth planning and preparation." },
+  { icon: "👭", label: "Community Support", desc: "Connect, share & grow with a circle of supportive mothers." },
 ];
 
 export default function ProgramSection() {
@@ -28,7 +28,7 @@ export default function ProgramSection() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute -top-20 -left-20 w-72 h-72 rounded-full opacity-30"
-          style={{ background: "radial-gradient(circle, rgba(161,92,122,0.12) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(110,26,52,0.12) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 right-0 w-96 h-96 opacity-20"
@@ -37,6 +37,11 @@ export default function ProgramSection() {
       </div>
 
       <div className="container-wide relative z-10">
+        {/* Section label — centered above both columns */}
+        <div className="text-center mb-12">
+          <SectionLabel centered>The Maatratva Way</SectionLabel>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — Visual */}
           <FadeLeft>
@@ -45,7 +50,7 @@ export default function ProgramSection() {
               <div
                 className="relative rounded-[36px] overflow-hidden aspect-[4/5]"
                 style={{
-                  boxShadow: "0 32px 80px rgba(161,92,122,0.2)",
+                  boxShadow: "0 32px 80px rgba(110,26,52,0.2)",
                 }}
               >
                 <Image
@@ -67,7 +72,7 @@ export default function ProgramSection() {
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <p className="font-display text-4xl font-bold leading-none mb-1" style={{ color: "#A15C7A" }}>
+                <p className="font-display text-4xl font-bold leading-none mb-1" style={{ color: "#6E1A34" }}>
                   7+
                 </p>
                 <p className="font-body text-xs" style={{ color: "#7C6A6A" }}>
@@ -81,7 +86,7 @@ export default function ProgramSection() {
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               >
-                <div className="w-2.5 h-2.5 rounded-full animate-pulse-soft" style={{ background: "#A15C7A" }} />
+                <div className="w-2.5 h-2.5 rounded-full animate-pulse-soft" style={{ background: "#6E1A34" }} />
                 <span className="font-body text-sm font-medium" style={{ color: "#4B3B3B" }}>
                   New Batch Starting Soon
                 </span>
@@ -93,13 +98,12 @@ export default function ProgramSection() {
           <FadeRight>
             <div className="space-y-8">
               <div>
-                <SectionLabel>Our Program</SectionLabel>
                 <h2
                   className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-4"
                   style={{ color: "#4B3B3B" }}
                 >
                   Your Complete{" "}
-                  <span style={{ color: "#A15C7A" }}>
+                  <span style={{ color: "#6E1A34" }}>
                   Pregnancy Companion
                 </span>
                 </h2>
@@ -107,38 +111,41 @@ export default function ProgramSection() {
                 {/* Pointer line — between headline and subhead */}
                 <p
                   className="font-display text-xl md:text-2xl font-light italic mb-5"
-                  style={{ color: "#A15C7A" }}
+                  style={{ color: "#6E1A34" }}
                 >
                   Join us from the comfort of your own space for regular live sessions every week.
                 </p>
 
                 <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
-                  Our flagship program is a holistic, structured journey that accompanies you through every stage of pregnancy — from preconception to postpartum. Guided by experts who truly understand the science and soul of motherhood.
+                  Our flagship program is a holistic, structured journey that accompanies you through every stage of pregnancy  from preconception to postpartum. Guided by experts who truly understand the science and soul of motherhood.
                 </p>
               </div>
 
               {/* Highlights grid */}
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 gap-2.5">
                 {highlights.map((h) => (
                   <motion.div
                     key={h.label}
-                    className="flex items-start gap-3 p-4 rounded-2xl group cursor-pointer"
+                    className="flex items-start gap-2.5 p-3 rounded-xl group cursor-pointer"
                     style={{
                       background: "rgba(255,255,255,0.7)",
                       border: "1px solid rgba(233,216,211,0.6)",
                     }}
                     whileHover={{
-                      background: "rgba(161,92,122,0.06)",
-                      borderColor: "rgba(161,92,122,0.2)",
+                      background: "rgba(110,26,52,0.05)",
+                      borderColor: "rgba(110,26,52,0.18)",
                     }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span className="text-xl shrink-0 mt-0.5">{h.icon}</span>
+                    <span className="text-base shrink-0 mt-0.5">{h.icon}</span>
                     <div>
-                      <p className="font-body text-sm font-semibold" style={{ color: "#4B3B3B" }}>
+                      <p
+                        className="font-body text-sm font-semibold mb-0.5"
+                        style={{ color: "#4B3B3B" }}
+                      >
                         {h.label}
                       </p>
-                      <p className="font-body text-xs mt-0.5" style={{ color: "#7C6A6A" }}>
+                      <p className="font-body text-xs leading-snug" style={{ color: "#7C6A6A" }}>
                         {h.desc}
                       </p>
                     </div>

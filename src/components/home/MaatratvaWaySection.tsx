@@ -113,7 +113,7 @@ export default function MaatratvaWaySection() {
             className="mb-5 font-display text-4xl font-semibold leading-[1.05] sm:text-5xl md:text-6xl"
             style={{ color: "#4B3B3B" }}
           >
-            Care From <span style={{ color: "#A15C7A" }}>Womb</span> to{" "}
+            Care From <span style={{ color: "#6E1A34" }}>Womb</span> to{" "}
             <span style={{ color: "#D4AF37" }}>Wonder</span>
           </h2>
 
@@ -208,7 +208,7 @@ export default function MaatratvaWaySection() {
                 cy="400"
                 r="178"
                 fill="white"
-                stroke="rgba(161,92,122,0.35)"
+                stroke="rgba(110,26,52,0.35)"
                 strokeWidth="2"
                 strokeDasharray="5 5"
               />
@@ -217,7 +217,7 @@ export default function MaatratvaWaySection() {
               <text
                 fontSize="15"
                 fontWeight="700"
-                fill="#A15C7A"
+                fill="#6E1A34"
                 fontFamily="sans-serif"
                 letterSpacing="2"
               >
@@ -230,7 +230,7 @@ export default function MaatratvaWaySection() {
               <line
                 x1="400" y1="235"
                 x2="400" y2="565"
-                stroke="rgba(161,92,122,0.2)"
+                stroke="rgba(110,26,52,0.2)"
                 strokeWidth="1"
                 strokeDasharray="4 3"
               />
@@ -271,7 +271,7 @@ export default function MaatratvaWaySection() {
         <FadeUp className="mt-7 text-center">
           <p
             className="font-body text-xs italic sm:text-sm"
-            style={{ color: "#A15C7A" }}
+            style={{ color: "#6E1A34" }}
           >
             Hover or tap on a section to read more.
           </p>

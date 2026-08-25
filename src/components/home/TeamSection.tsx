@@ -8,9 +8,9 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { FadeUp } from "@/components/ui/motion";
 
 const credentials = [
-  "Garbh Sanskar Practitioner",
-  "Pregnancy Wellness Coach",
-  "Womb Designer",
+   "Pregnancy Wellness Coach",
+  "Garbh Sanskar Practitioner & Womb Designer",
+ 
   "NLP Certified Expert",
 ];
 
@@ -26,7 +26,7 @@ export default function TeamSection() {
             style={{ color: "#4B3B3B" }}
           >
             The Heart Behind{" "}
-            <span style={{ color: "#A15C7A" }}>Maatratva</span>
+            <span style={{ color: "#6E1A34" }}>Maatratva</span>
           </h2>
 
           <p
@@ -46,8 +46,8 @@ export default function TeamSection() {
             style={{
               background:
                 "linear-gradient(135deg, rgba(255,255,255,0.72), rgba(247,235,237,0.72))",
-              borderColor: "rgba(161, 92, 122, 0.18)",
-              boxShadow: "0 14px 50px rgba(161, 92, 122, 0.09)",
+              borderColor: "rgba(110, 26, 52, 0.18)",
+              boxShadow: "0 14px 50px rgba(110, 26, 52, 0.09)",
             }}
           >
             <div className="grid items-center gap-8 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,1.7fr)] lg:gap-12">
@@ -66,7 +66,7 @@ export default function TeamSection() {
 
                 <span
                   className="absolute bottom-[-18px] left-1/2 -translate-x-1/2 rounded-full px-6 py-3 font-body text-sm font-semibold text-white shadow-lg"
-                  style={{ background: "#A15C7A" }}
+                  style={{ background: "#6E1A34" }}
                 >
                   Founder
                 </span>
@@ -95,8 +95,8 @@ export default function TeamSection() {
                       className="rounded-full border px-4 py-2 font-body text-sm font-medium"
                       style={{
                         color: "#B16889",
-                        background: "rgba(161, 92, 122, 0.07)",
-                        borderColor: "rgba(161, 92, 122, 0.18)",
+                        background: "rgba(110, 26, 52, 0.07)",
+                        borderColor: "rgba(110, 26, 52, 0.18)",
                       }}
                     >
                       {credential}
@@ -121,9 +121,9 @@ export default function TeamSection() {
                   <div>
                     <p
                       className="font-display text-3xl font-semibold"
-                      style={{ color: "#A15C7A" }}
+                      style={{ color: "#6E1A34" }}
                     >
-                      12+ Years
+                      10+ Years
                     </p>
                     <p
                       className="mt-1 font-body text-sm"
@@ -136,7 +136,7 @@ export default function TeamSection() {
                   <div>
                     <p
                       className="font-display text-3xl font-semibold"
-                      style={{ color: "#A15C7A" }}
+                      style={{ color: "#6E1A34" }}
                     >
                       2000+
                     </p>

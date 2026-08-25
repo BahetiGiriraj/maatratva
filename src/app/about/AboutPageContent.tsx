@@ -47,7 +47,7 @@ const values = [
 const milestones = [
   {
     year: "2015",
-    event: "Dheera Somani begins her Garbh Sanskar training in Pune",
+    event: "Dheera Somani begins her Garbh Sanskar training in Bangalore",
   },
   {
     year: "2017",
@@ -75,18 +75,36 @@ const founder = {
   name: "Dheera Somani",
   title: "Founder & Mentor",
   credentials: [
-    "Garbh Sanskar Practitioner",
     "Pregnancy Wellness Coach",
-    "Womb Designer",
-    "NLP Certified Expert",
+  "Garbh Sanskar Practitioner & Womb Designer",
+
+  "NLP Certified Expert",
   ],
   bio: "With over a decade of experience, Dheera has guided more than 2,000 mothers through transformative pregnancy journeys. Her unique approach integrates ancient Indian wisdom with modern neuroscience and evidence based wellness practices. She believes deeply that every mother has the capacity for a profound, joyful pregnancy  and she dedicates herself to unlocking that potential.",
-  experience: "12+ Years",
+  experience: "10+ Years",
   mothers: "2000+",
 };
 
 
 const team = [
+  {
+    name: "Dr. Shyam Bihari Gautam",
+    title: "Ayurveda Ratna & Vedic Astrology Expert",
+    photo: "/team-shyam-gautam.jpeg",
+    photoPosition: "center center",
+  },
+  {
+  name: "Dr. Paridhi Jain",
+  title: "Physiotherapist (OBS & Gynaec)",
+  photo: "/team-paridhi-jain.jpeg",
+  photoPosition: "center 35%",
+},
+{
+    name: "Dr. Yashvi Joshi",
+    title: "Lactation & Childbirth Preparation Expert",
+    photo: "/team-yashvi-joshi.jpeg",
+    photoPosition: "center 42%",
+  },
   
   {
     name: "Dr. Saraswathi Bukka",
@@ -100,24 +118,8 @@ const team = [
   photo: "/team-heena-bedi.jpeg",
   photoPosition: "center 15%",
 },
-  {
-    name: "Dr. Yashvi Joshi",
-    title: "Lactation & Childbirth Preparation Expert",
-    photo: "/team-yashvi-joshi.jpeg",
-    photoPosition: "center 42%",
-  },
-  {
-    name: "Dr. Shyam Bihari Gautam",
-    title: "Ayurveda Ratna & Vedic Astrology Expert",
-    photo: "/team-shyam-gautam.jpeg",
-    photoPosition: "center center",
-  },
-  {
-  name: "Dr. Paridhi Jain",
-  title: "Physiotherapist (OBS & Gynaec)",
-  photo: "/team-paridhi-jain.jpeg",
-  photoPosition: "center 35%",
-},
+  
+  
   {
   name: "Dr. Shruti Kakani",
   title: "Homeopathy Expert (B.H.M.S.)",
@@ -126,7 +128,7 @@ const team = [
 },
   {
     name: "Dr. Ritima Gupta",
-    title: "Dental Health During Pregnancy",
+    title: "Dental Health Expert",
     photo: "/team-ritima-gupta.jpeg",
     photoPosition: "center center",
   },
@@ -159,7 +161,7 @@ export default function AboutPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               To transform how the world experiences{" "}
-              <span style={{ color: "#A15C7A" }}>pregnancy</span>
+              <span style={{ color: "#6E1A34" }}>pregnancy</span>
             </h2>
 
             <p
@@ -203,7 +205,7 @@ export default function AboutPageContent() {
               className="font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              Our Core <span style={{ color: "#A15C7A" }}>Values</span>
+              Our Core <span style={{ color: "#6E1A34" }}>Values</span>
             </h2>
           </FadeUp>
 
@@ -252,7 +254,7 @@ export default function AboutPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               The Hands Behind{" "}
-              <span style={{ color: "#A15C7A" }}>Your Care</span>
+              <span style={{ color: "#6E1A34" }}>Your Care</span>
             </h2>
           </FadeUp>
 
@@ -261,9 +263,9 @@ export default function AboutPageContent() {
               className="relative overflow-hidden rounded-[36px] p-10 md:p-14"
               style={{
                 background:
-                  "linear-gradient(135deg,rgba(161,92,122,0.07) 0%,rgba(233,216,211,0.5) 100%)",
-                border: "1.5px solid rgba(161,92,122,0.2)",
-                boxShadow: "0 20px 80px rgba(161,92,122,0.12)",
+                  "linear-gradient(135deg,rgba(110,26,52,0.07) 0%,rgba(233,216,211,0.5) 100%)",
+                border: "1.5px solid rgba(110,26,52,0.2)",
+                boxShadow: "0 20px 80px rgba(110,26,52,0.12)",
               }}
             >
               <div className="grid items-center gap-10 md:grid-cols-3">
@@ -271,7 +273,7 @@ export default function AboutPageContent() {
                   <div
                     className="relative aspect-square w-full overflow-hidden rounded-[28px]"
                     style={{
-                      boxShadow: "0 20px 60px rgba(161,92,122,0.25)",
+                      boxShadow: "0 20px 60px rgba(110,26,52,0.25)",
                     }}
                   >
                     <Image
@@ -286,7 +288,7 @@ export default function AboutPageContent() {
 
                   <div
                     className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full px-5 py-2"
-                    style={{ background: "#A15C7A", color: "white" }}
+                    style={{ background: "#6E1A34", color: "white" }}
                   >
                     <span className="font-body text-xs font-semibold">
                       Founder
@@ -305,7 +307,7 @@ export default function AboutPageContent() {
 
                     <p
                       className="font-body font-medium"
-                      style={{ color: "#A15C7A" }}
+                      style={{ color: "#6E1A34" }}
                     >
                       {founder.title}
                     </p>
@@ -317,9 +319,9 @@ export default function AboutPageContent() {
                         key={credential}
                         className="rounded-full px-3 py-1.5 font-body text-xs font-medium"
                         style={{
-                          background: "rgba(161,92,122,0.09)",
-                          color: "#A15C7A",
-                          border: "1px solid rgba(161,92,122,0.15)",
+                          background: "rgba(110,26,52,0.09)",
+                          color: "#6E1A34",
+                          border: "1px solid rgba(110,26,52,0.15)",
                         }}
                       >
                         {credential}
@@ -329,7 +331,7 @@ export default function AboutPageContent() {
 
                   <div
                     className="space-y-4 border-l-2 pl-5"
-                    style={{ borderColor: "rgba(161,92,122,0.35)" }}
+                    style={{ borderColor: "rgba(110,26,52,0.35)" }}
                   >
                     <p
                       className="font-body text-base leading-relaxed"
@@ -363,7 +365,7 @@ export default function AboutPageContent() {
 
                     <p
                       className="font-display text-xl italic leading-relaxed"
-                      style={{ color: "#A15C7A" }}
+                      style={{ color: "#6E1A34" }}
                     >
                       Because motherhood is not simply about giving birth, it is
                       about nurturing life with awareness, love and intention.
@@ -381,7 +383,7 @@ export default function AboutPageContent() {
                     <div>
                       <p
                         className="font-display text-3xl font-bold"
-                        style={{ color: "#A15C7A" }}
+                        style={{ color: "#6E1A34" }}
                       >
                         {founder.experience}
                       </p>
@@ -396,7 +398,7 @@ export default function AboutPageContent() {
                     <div>
                       <p
                         className="font-display text-3xl font-bold"
-                        style={{ color: "#A15C7A" }}
+                        style={{ color: "#6E1A34" }}
                       >
                         {founder.mothers}
                       </p>
@@ -420,7 +422,7 @@ export default function AboutPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               Our Expert{" "}
-              <span style={{ color: "#A15C7A" }}>Practitioners</span>
+              <span style={{ color: "#6E1A34" }}>Practitioners</span>
             </h3>
           </FadeUp>
 
@@ -435,7 +437,7 @@ export default function AboutPageContent() {
                   <div
                     className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px]"
                     style={{
-                      boxShadow: "0 8px 32px rgba(161,92,122,0.15)",
+                      boxShadow: "0 8px 32px rgba(110,26,52,0.15)",
                     }}
                   >
                     <Image
@@ -489,7 +491,7 @@ export default function AboutPageContent() {
               className="font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              From Seed to <span style={{ color: "#A15C7A" }}>Forest</span>
+              From Seed to <span style={{ color: "#6E1A34" }}>Forest</span>
             </h2>
           </FadeUp>
 
@@ -500,7 +502,7 @@ export default function AboutPageContent() {
                   <div className="flex flex-col items-center">
                     <div
                       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-body text-xs font-bold text-white"
-                      style={{ background: "#A15C7A" }}
+                      style={{ background: "#6E1A34" }}
                     >
                       {milestone.year.slice(2)}
                     </div>
@@ -508,7 +510,7 @@ export default function AboutPageContent() {
                     {index < milestones.length - 1 && (
                       <div
                         className="mt-2 w-px flex-1"
-                        style={{ background: "rgba(161,92,122,0.2)" }}
+                        style={{ background: "rgba(110,26,52,0.2)" }}
                       />
                     )}
                   </div>
@@ -516,7 +518,7 @@ export default function AboutPageContent() {
                   <div className="pb-8">
                     <p
                       className="mb-1 font-body text-xs font-semibold uppercase tracking-widest"
-                      style={{ color: "#A15C7A" }}
+                      style={{ color: "#6E1A34" }}
                     >
                       {milestone.year}
                     </p>

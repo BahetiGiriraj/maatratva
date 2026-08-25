@@ -33,7 +33,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const whatsappUrl = `https://wa.me/917694832159?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/918815182545?text=${encodeURIComponent(
     "Hello Ma'am, I came across Maatratva and would like to know more about your pregnancy care and guidance programs. I'm interested in understanding how Maatratva can support me through my journey. Could you please guide me?"
   )}`;
 
@@ -76,7 +76,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-[rgba(250,247,244,0.92)] backdrop-blur-xl shadow-[0_2px_32px_rgba(161,92,122,0.08)] border-b border-[#E9D8D3]/60"
+            ? "bg-[rgba(250,247,244,0.92)] backdrop-blur-xl shadow-[0_2px_32px_rgba(110,26,52,0.08)] border-b border-[#E9D8D3]/60"
             : "bg-transparent"
         )}
       >
@@ -97,15 +97,15 @@ export default function Navbar() {
               <div className="flex flex-col leading-none">
                 <span
                   className="font-display text-2xl md:text-3xl font-semibold tracking-[-0.02em]"
-                  style={{ color: "#A15C7A" }}
+                  style={{ color: "#6E1A34" }}
                 >
-                  Maatratva
+                  Maatratva<sup className="text-xs font-normal align-super" style={{ color: "#6E1A34" }}>™</sup>
                 </span>
                 <span
-                  className="font-display text-xs md:text-sm font-light italic mt-0.5 whitespace-nowrap"
-                  style={{ color: "#7C6A6A" }}
+                  className="font-display text-sm md:text-sm font-bold italic mt-0.5 whitespace-nowrap"
+                  style={{ color: "#B47C6B" }}
                 >
-                  A journey from womb to wonder
+                  A Journey From Womb to Wonder
                 </span>
               </div>
             </Link>
@@ -117,7 +117,7 @@ export default function Navbar() {
                   <div key={link.label} className="relative" ref={dropdownRef}>
                     <button
                       onClick={() => setDropdownOpen((p) => !p)}
-                      className="flex items-center gap-1 px-4 py-2 rounded-full font-body text-sm font-medium text-[#7C6A6A] hover:text-[#A15C7A] hover:bg-[#E9D8D3]/40 transition-all duration-200"
+                      className="flex items-center gap-1 px-4 py-2 rounded-full font-body text-sm font-medium text-[#7C6A6A] hover:text-[#6E1A34] hover:bg-[#E9D8D3]/40 transition-all duration-200"
                     >
                       {link.label}
                       <ChevronDown
@@ -142,7 +142,7 @@ export default function Navbar() {
                                   setDropdownOpen(false);
                                   setLegalModal(child.href === "#privacy" ? "privacy" : "terms");
                                 }}
-                                className="flex items-center w-full text-left px-5 py-3 font-body text-sm text-[#7C6A6A] hover:text-[#A15C7A] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
+                                className="flex items-center w-full text-left px-5 py-3 font-body text-sm text-[#7C6A6A] hover:text-[#6E1A34] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
                               >
                                 {child.label}
                               </button>
@@ -150,7 +150,7 @@ export default function Navbar() {
                               <Link
                                 key={child.href}
                                 href={child.href}
-                                className="flex items-center px-5 py-3 font-body text-sm text-[#7C6A6A] hover:text-[#A15C7A] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
+                                className="flex items-center px-5 py-3 font-body text-sm text-[#7C6A6A] hover:text-[#6E1A34] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
                               >
                                 {child.label}
                               </Link>
@@ -167,8 +167,8 @@ export default function Navbar() {
                     className={cn(
                       "px-4 py-2 rounded-full font-body text-sm font-medium transition-all duration-200",
                       pathname === link.href
-                        ? "text-[#A15C7A] bg-[#E9D8D3]/50"
-                        : "text-[#7C6A6A] hover:text-[#A15C7A] hover:bg-[#E9D8D3]/40"
+                        ? "text-[#6E1A34] bg-[#E9D8D3]/50"
+                        : "text-[#7C6A6A] hover:text-[#6E1A34] hover:bg-[#E9D8D3]/40"
                     )}
                   >
                     {link.label}
@@ -183,7 +183,19 @@ export default function Navbar() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-sm px-6 py-2.5"
+                className="inline-flex items-center justify-center gap-2 text-sm px-6 py-2.5 rounded-full font-medium tracking-wide text-white transition-all duration-300"
+                style={{
+                  backgroundColor: "#6E1A34",
+                  boxShadow: "0 4px 20px rgba(110,26,52,0.35)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#5A1529";
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#6E1A34";
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                }}
               >
                 Book Free Session
               </a>
@@ -196,7 +208,7 @@ export default function Navbar() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
               {mobileOpen
-                ? <X size={22} style={{ color: "#A15C7A" }} />
+                ? <X size={22} style={{ color: "#6E1A34" }} />
                 : <Menu size={22} style={{ color: "#4B3B3B" }} />
               }
             </button>
@@ -258,7 +270,7 @@ export default function Navbar() {
                               setMobileOpen(false);
                               setLegalModal(child.href === "#privacy" ? "privacy" : "terms");
                             }}
-                            className="flex items-center w-full text-left px-3 py-3 rounded-xl font-body text-sm text-[#7C6A6A] hover:text-[#A15C7A] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
+                            className="flex items-center w-full text-left px-3 py-3 rounded-xl font-body text-sm text-[#7C6A6A] hover:text-[#6E1A34] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
                           >
                             {child.label}
                           </button>
@@ -266,7 +278,7 @@ export default function Navbar() {
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="flex items-center px-3 py-3 rounded-xl font-body text-sm text-[#7C6A6A] hover:text-[#A15C7A] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
+                            className="flex items-center px-3 py-3 rounded-xl font-body text-sm text-[#7C6A6A] hover:text-[#6E1A34] hover:bg-[#E9D8D3]/40 transition-colors duration-200"
                           >
                             {child.label}
                           </Link>
@@ -285,8 +297,8 @@ export default function Navbar() {
                         className={cn(
                           "flex items-center px-3 py-3.5 rounded-xl font-body text-base font-medium transition-all duration-200",
                           pathname === link.href
-                            ? "text-[#A15C7A] bg-[#E9D8D3]/60"
-                            : "text-[#4B3B3B] hover:text-[#A15C7A] hover:bg-[#E9D8D3]/40"
+                            ? "text-[#6E1A34] bg-[#E9D8D3]/60"
+                            : "text-[#4B3B3B] hover:text-[#6E1A34] hover:bg-[#E9D8D3]/40"
                         )}
                       >
                         {link.label}
@@ -302,7 +314,8 @@ export default function Navbar() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary w-full text-center justify-center flex items-center"
+                  className="w-full text-center justify-center flex items-center rounded-full py-3.5 font-medium tracking-wide text-white transition-all duration-300"
+                  style={{ backgroundColor: "#6E1A34", boxShadow: "0 4px 20px rgba(110,26,52,0.35)" }}
                 >
                   Book Free Session
                 </a>

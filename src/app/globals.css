@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-mauve: #A15C7A;
-  --color-mauve-light: #C17A97;
-  --color-mauve-dark: #7D4460;
+  --color-mauve: #6E1A34;
+  --color-mauve-light: #8C2444;
+  --color-mauve-dark: #5A1529;
   --color-blush: #E9D8D3;
   --color-blush-light: #F4EBE8;
   --color-gold: #D4AF37;
@@ -18,9 +18,9 @@
   --radius-2xl: 2rem;
   --radius-3xl: 3rem;
 
-  --shadow-soft: 0 4px 24px rgba(161, 92, 122, 0.08);
+  --shadow-soft: 0 4px 24px rgba(110, 26, 52, 0.08);
   --shadow-card: 0 8px 40px rgba(75, 59, 59, 0.10);
-  --shadow-hover: 0 16px 60px rgba(161, 92, 122, 0.18);
+  --shadow-hover: 0 16px 60px rgba(110, 26, 52, 0.18);
 }
 
 @layer base {
@@ -80,6 +80,12 @@
 }
 
 @layer utilities {
+  .font-price {
+    font-family: 'DM Sans', system-ui, sans-serif !important;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
   .font-display {
     font-family: 'Cormorant Garamond', serif !important;
   }
@@ -96,7 +102,7 @@
   }
 
   .text-gradient-warm {
-    background: linear-gradient(135deg, #A15C7A 0%, #D4AF37 50%, #A15C7A 100%);
+    background: linear-gradient(135deg, #6E1A34 0%, #D4AF37 50%, #6E1A34 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -126,7 +132,7 @@
   .card-blush {
     background: var(--color-blush-light);
     border-radius: var(--radius-2xl);
-    border: 1px solid rgba(161, 92, 122, 0.1);
+    border: 1px solid rgba(110, 26, 52, 0.1);
   }
 
   .btn-primary {
@@ -145,13 +151,13 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(161, 92, 122, 0.3);
+    box-shadow: 0 4px 20px rgba(110, 26, 52, 0.3);
     text-decoration: none;
   }
 
   .btn-primary:hover {
     background: var(--color-mauve-dark);
-    box-shadow: 0 8px 30px rgba(161, 92, 122, 0.45);
+    box-shadow: 0 8px 30px rgba(110, 26, 52, 0.45);
     transform: translateY(-2px);
   }
 

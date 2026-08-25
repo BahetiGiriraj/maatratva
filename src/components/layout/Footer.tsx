@@ -29,7 +29,7 @@ const socials = [
 export default function Footer() {
   const [legalModal, setLegalModal] = useState<"privacy" | "terms" | null>(null);
 
-  const whatsappUrl = `https://wa.me/917694832159?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/918815182545?text=${encodeURIComponent(
     "Hello Ma'am, I came across Maatratva and would like to know more about your pregnancy care and guidance programs. I'm interested in understanding how Maatratva can support me through my journey. Could you please guide me?"
   )}`;
 
@@ -50,11 +50,11 @@ export default function Footer() {
                   className="h-28 md:h-32 w-auto object-contain -ml-2"
                 />
                 <div>
-                  <span className="font-display text-3xl font-semibold" style={{ color: "#A15C7A" }}>
-                    Maatratva
+                  <span className="font-display text-3xl font-semibold" style={{ color: "#6E1A34" }}>
+                    Maatratva<sup className="text-xs font-normal align-super" style={{ color: "#6E1A34" }}>™</sup>
                   </span>
-                  <p className="font-body text-[0.65rem] tracking-[0.22em] uppercase mt-1 font-semibold" style={{ color: "#D4AF37" }}>
-                    From Womb to Wonder
+                  <p className="font-display text-sm font-bold italic mt-0.5" style={{ color: "#B47C6B" }}>
+                    A Journey From Womb to Wonder
                   </p>
                 </div>
               </div>
@@ -64,8 +64,8 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 {socials.map(({ svg, href, label }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                    className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[#A15C7A] hover:text-white"
-                    style={{ background: "#E9D8D3", color: "#A15C7A" }}>
+                    className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[#6E1A34] hover:text-white"
+                    style={{ background: "#E9D8D3", color: "#6E1A34" }}>
                     {svg}
                   </a>
                 ))}
@@ -74,13 +74,13 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div className="space-y-5">
-              <h4 className="font-body text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "#A15C7A" }}>
+              <h4 className="font-body text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "#6E1A34" }}>
                 Quick Links
               </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="font-body text-sm transition-colors duration-200 hover:text-[#A15C7A]" style={{ color: "#7C6A6A" }}>
+                    <Link href={link.href} className="font-body text-sm transition-colors duration-200 hover:text-[#6E1A34]" style={{ color: "#7C6A6A" }}>
                       {link.label}
                     </Link>
                   </li>
@@ -90,18 +90,18 @@ export default function Footer() {
 
             {/* Contact */}
             <div className="space-y-5">
-              <h4 className="font-body text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "#A15C7A" }}>
+              <h4 className="font-body text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "#6E1A34" }}>
                 Get in Touch
               </h4>
               <ul className="space-y-4">
                 <li>
-                  <a href="mailto:Maatratva.wonder@gmail.com" className="flex items-start gap-3 font-body text-sm group hover:text-[#A15C7A] transition-colors duration-200" style={{ color: "#7C6A6A" }}>
+                  <a href="mailto:Maatratva.wonder@gmail.com" className="flex items-start gap-3 font-body text-sm group hover:text-[#6E1A34] transition-colors duration-200" style={{ color: "#7C6A6A" }}>
                     <Mail size={15} className="mt-0.5 shrink-0" /><span>Maatratva.wonder@gmail.com</span>
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+917694832159" className="flex items-start gap-3 font-body text-sm group hover:text-[#A15C7A] transition-colors duration-200" style={{ color: "#7C6A6A" }}>
-                    <Phone size={15} className="mt-0.5 shrink-0" /><span>+91 76948 32159</span>
+                  <a href="tel:+918815182545" className="flex items-start gap-3 font-body text-sm group hover:text-[#6E1A34] transition-colors duration-200" style={{ color: "#7C6A6A" }}>
+                    <Phone size={15} className="mt-0.5 shrink-0" /><span>+91 88151 82545</span>
                   </a>
                 </li>
                 <li>
@@ -128,12 +128,12 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-6">
               <button onClick={() => setLegalModal("privacy")}
-                className="font-body text-xs transition-colors duration-200 hover:text-[#A15C7A] cursor-pointer bg-transparent border-none"
+                className="font-body text-xs transition-colors duration-200 hover:text-[#6E1A34] cursor-pointer bg-transparent border-none"
                 style={{ color: "#7C6A6A" }}>
                 Privacy Policy
               </button>
               <button onClick={() => setLegalModal("terms")}
-                className="font-body text-xs transition-colors duration-200 hover:text-[#A15C7A] cursor-pointer bg-transparent border-none"
+                className="font-body text-xs transition-colors duration-200 hover:text-[#6E1A34] cursor-pointer bg-transparent border-none"
                 style={{ color: "#7C6A6A" }}>
                 Terms of Service
               </button>

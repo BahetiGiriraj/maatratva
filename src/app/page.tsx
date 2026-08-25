@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import ChallengesSection from "@/components/home/ChallengesSection";
-import MaatratvaWaySection from "@/components/home/MaatratvaWaySection";
 import ProgramSection from "@/components/home/ProgramSection";
 import TeamSection from "@/components/home/TeamSection";
+import WorkshopPreviewSection from "@/components/home/WorkshopPreviewSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import FAQSection from "@/components/home/FAQSection";
 
@@ -20,9 +20,9 @@ export default function HomePage() {
       <HeroSection />
       <ExperienceSection />
       <ChallengesSection />
-      <MaatratvaWaySection />
       <ProgramSection />
       <TeamSection />
+      <WorkshopPreviewSection />
       <TestimonialsSection />
       <FAQSection />
     </>

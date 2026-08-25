@@ -29,19 +29,19 @@ export default function WorkshopsPage() {
         <div className="container-wide">
           <Link
             href="/programs"
-            className="mb-10 inline-flex items-center gap-2 font-body text-sm font-semibold text-[#A15C7A]"
+            className="mb-10 inline-flex items-center gap-2 font-body text-sm font-semibold text-[#6E1A34]"
           >
             <ArrowLeft size={16} />
             Back to Programs
           </Link>
 
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-3 font-body text-sm font-semibold uppercase tracking-[0.18em] text-[#A15C7A]">
+            <p className="mb-3 font-body text-sm font-semibold uppercase tracking-[0.18em] text-[#6E1A34]">
               Our Community
             </p>
             <h1 className="font-display text-5xl font-semibold leading-tight text-[#4B3B3B] md:text-6xl">
               Moments From Our{" "}
-              <span className="text-[#A15C7A]">Workshops</span>
+              <span className="text-[#6E1A34]">Workshops</span>
             </h1>
             <p className="mt-5 font-body text-lg leading-relaxed text-[#7C6A6A]">
               A glimpse into the nurturing, joyful and transformative
@@ -66,7 +66,7 @@ export default function WorkshopsPage() {
                   width: "auto",
                   minWidth: "280px",
                   maxWidth: "480px",
-                  boxShadow: "0 8px 32px rgba(161,92,122,0.15)",
+                  boxShadow: "0 8px 32px rgba(110,26,52,0.15)",
                   background: "#F4EBE8",
                 }}
               >
