@@ -40,9 +40,9 @@ export default function ExperienceSection() {
             className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-6"
             style={{ color: "#4B3B3B" }}
           >
-            Care for Mother.{" "}
+            Care for Mother,{" "}
             <span style={{ color: "#6E1A34" }}>Connection</span>{" "}
-            for Baby.
+            for Baby
           </h2>
           <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
             Supporting mothers with knowledge, connection and mindful preparation for the most transformative journey of their lives.

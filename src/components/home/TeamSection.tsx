@@ -64,12 +64,6 @@ export default function TeamSection() {
                   />
                 </div>
 
-                <span
-                  className="absolute bottom-[-18px] left-1/2 -translate-x-1/2 rounded-full px-6 py-3 font-body text-sm font-semibold text-white shadow-lg"
-                  style={{ background: "#6E1A34" }}
-                >
-                  Founder
-                </span>
               </div>
 
               {/* Details */}

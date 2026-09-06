@@ -286,14 +286,7 @@ export default function AboutPageContent() {
                     />
                   </div>
 
-                  <div
-                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full px-5 py-2"
-                    style={{ background: "#6E1A34", color: "white" }}
-                  >
-                    <span className="font-body text-xs font-semibold">
-                      Founder
-                    </span>
-                  </div>
+                  
                 </div>
 
                 <div className="space-y-5 md:col-span-2">
@@ -422,7 +415,7 @@ export default function AboutPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               Our Expert{" "}
-              <span style={{ color: "#6E1A34" }}>Practitioners</span>
+              <span style={{ color: "#6E1A34" }}>Team</span>
             </h3>
           </FadeUp>
 

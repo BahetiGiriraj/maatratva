@@ -21,7 +21,7 @@ const highlights = [
 export default function ProgramSection() {
   return (
     <section
-      className="section-padding relative overflow-hidden"
+      className="section-padding pt-4 relative overflow-hidden"
       style={{ background: "#F4EBE8" }}
     >
       {/* BG decoration */}
@@ -140,12 +140,12 @@ export default function ProgramSection() {
                     <span className="text-base shrink-0 mt-0.5">{h.icon}</span>
                     <div>
                       <p
-                        className="font-body text-sm font-semibold mb-0.5"
-                        style={{ color: "#4B3B3B" }}
+                        className="font-body text-sm font-extrabold mb-0.5"
+                        style={{ color: "#20100E" }}
                       >
                         {h.label}
                       </p>
-                      <p className="font-body text-xs leading-snug" style={{ color: "#7C6A6A" }}>
+                      <p className="font-body text-xs font-medium leading-snug" style={{ color: "#4B3B3B" }}>
                         {h.desc}
                       </p>
                     </div>

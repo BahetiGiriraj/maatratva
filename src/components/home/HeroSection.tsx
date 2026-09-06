@@ -121,7 +121,7 @@ export default function HeroSection() {
             >
               <span style={{ color: C.deepText }}>Nurturing </span><span style={{ color: C.rose }}>Mother,</span>
               <br />
-              <span style={{ color: C.deepText }}>Growing </span><span style={{ color: C.rose }}>Baby.</span>
+              <span style={{ color: C.deepText }}>Growing </span><span style={{ color: C.rose }}>Baby</span>
             </motion.h1>
 
             {/* Gold divider ornament */}
@@ -182,7 +182,7 @@ export default function HeroSection() {
                   (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
                 }}
               >
-                Explore Womb to Wonder
+                Explore Program
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <a

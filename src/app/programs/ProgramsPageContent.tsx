@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Star } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import {
@@ -41,8 +40,8 @@ const plans = [
     price: "₹5,499",
     duration: "1 Trimester Program",
     tagline: "Deeper care for a transformative trimester",
-    highlight: true,
-    badge: "Most Popular",
+    highlight: false,
+    badge: "",
     cta: "Choose Nurture",
     features: [
       "Pregnancy Yoga & Exercise",
@@ -62,8 +61,8 @@ const plans = [
     price: "₹9,999",
     duration: "Full Pregnancy Program",
     tagline: "The complete journey - conception to birth",
-    highlight: false,
-    badge: "Complete Care",
+    highlight: true,
+    badge: "Most Popular",
     cta: "Begin Full Journey",
     features: [
       "Pregnancy Yoga & Exercise",
@@ -225,6 +224,26 @@ export default function ProgramsPageContent() {
 
   return (
     <div className="pt-24" style={{ background: "#FAF7F4" }}>
+      {/* ── PAGE HEADING ── */}
+      <section className="pt-16 pb-4" style={{ background: "#FAF7F4" }}>
+        <div className="container-wide text-center max-w-3xl mx-auto">
+          <SectionLabel centered>Our Programs</SectionLabel>
+          <h1
+            className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mt-4 mb-5"
+            style={{ color: "#4B3B3B" }}
+          >
+            Begin Your{" "}
+            <span style={{ color: "#6E1A34" }}>Maatratva</span> Journey
+          </h1>
+          <p
+            className="font-display text-xl md:text-2xl font-light italic"
+            style={{ color: "#B47C6B" }}
+          >
+            From mindful beginnings to a confident birth, choose the program that fits your journey.
+          </p>
+        </div>
+      </section>
+
       {/* ── PRICING CARDS ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>
         <div className="container-wide">
@@ -263,16 +282,16 @@ export default function ProgramsPageContent() {
                       </div>
                     </div>
 
-                    {/* Maatratva logo instead of emoji */}
-                    <div className="h-20 w-auto object-contain brightness-0 invert">
-  <Image
-    src="/nav-logo.png"
-    alt="Maatratva"
-    width={220}
-    height={96}
-    className="h-20 w-auto object-contain"
-  />
-</div>
+                    {/* Maatratva logo — white on dark bg */}
+                    <div className="mb-2 -ml-3">
+                      <Image
+                        src="/nav-logo.png"
+                        alt="Maatratva"
+                        width={180}
+                        height={72}
+                        className="h-16 w-auto object-contain brightness-0 invert"
+                      />
+                    </div>
 
                     <h3 className="mb-2 font-display text-4xl font-semibold text-white">
                       {plan.name}
@@ -321,9 +340,9 @@ export default function ProgramsPageContent() {
                   <motion.div
                     className="relative flex h-full flex-col rounded-[28px] p-8 md:p-10"
                     style={{
-                      background: "white",
-                      border: "1px solid rgba(110,26,52,0.15)",
-                      boxShadow: "0 8px 40px rgba(110,26,52,0.08)",
+                      background: plan.id === "nurture" ? "#FDF0ED" : "white",
+                      border: plan.id === "nurture" ? "1px solid rgba(110,26,52,0.22)" : "1px solid rgba(110,26,52,0.15)",
+                      boxShadow: plan.id === "nurture" ? "0 12px 48px rgba(110,26,52,0.13)" : "0 8px 40px rgba(110,26,52,0.08)",
                     }}
                     whileHover={{
                       y: -8,
@@ -349,16 +368,16 @@ export default function ProgramsPageContent() {
                       </div>
                     </div>
 
-                    {/* Maatratva logo instead of emoji */}
-                    <div className="mb-5 flex h-24 items-center">
-  <Image
-    src="/nav-logo.png"
-    alt="Maatratva"
-    width={220}
-    height={96}
-    className="h-20 w-auto object-contain"
-  />
-</div>
+                    {/* Maatratva logo */}
+                    <div className="mb-2 -ml-3">
+                      <Image
+                        src="/nav-logo.png"
+                        alt="Maatratva"
+                        width={180}
+                        height={72}
+                        className="h-16 w-auto object-contain"
+                      />
+                    </div>
 
                     <h3
                       className="mb-2 font-display text-4xl font-semibold"
@@ -415,24 +434,13 @@ export default function ProgramsPageContent() {
           </StaggerContainer>
         </div>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-  <Link
-    href="/workshops"
-    className="btn-primary group inline-flex items-center gap-2 px-7 py-3"
-  >
-    Explore Our Workshops
-    <ArrowRight
-      size={16}
-      className="transition-transform duration-200 group-hover:translate-x-1"
-    />
-  </Link>
-
   <a
     href="https://wa.me/918815182545?text=Hello%20Ma'am%2C%20I%20came%20across%20Maatratva%20and%20would%20like%20to%20know%20more%20about%20your%20pregnancy%20care%20and%20guidance%20programs.%20I'm%20interested%20in%20understanding%20how%20Maatratva%20can%20support%20me%20through%20my%20journey.%20Could%20you%20please%20guide%20me%3F"
     target="_blank"
     rel="noopener noreferrer"
     className="group inline-flex items-center gap-2 rounded-full border border-[#6E1A34] px-7 py-3 font-body text-sm font-semibold text-[#6E1A34] transition-colors hover:bg-[#6E1A34] hover:text-white"
   >
-    Enquire About Our Programs
+    Enquire About Maatratva
     <ArrowRight
       size={16}
       className="transition-transform duration-200 group-hover:translate-x-1"

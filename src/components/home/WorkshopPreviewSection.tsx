@@ -25,13 +25,13 @@ export default function WorkshopPreviewSection() {
     <section className="section-padding overflow-hidden" style={{ background: "#F4EBE8" }}>
       <div className="container-wide">
         <FadeUp className="mx-auto mb-12 max-w-2xl text-center">
-          <SectionLabel centered>Our Workshops</SectionLabel>
+          <SectionLabel centered>Our Community</SectionLabel>
           <h2
             className="mb-4 font-display text-5xl font-semibold"
             style={{ color: "#4B3B3B" }}
           >
             Moments From Our{" "}
-            <span style={{ color: "#6E1A34" }}>Community</span>
+            <span style={{ color: "#6E1A34" }}>Workshops</span>
           </h2>
           <p
             className="font-body text-lg leading-relaxed"
