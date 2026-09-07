@@ -6,9 +6,9 @@ import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import LegalModal from "@/components/ui/LegalModal";
 
-const BG    = "#6E1A34";
-const DARK  = "#5A1529";
-const GOLD  = "#C9A04D";
+const BG    = "#642244";
+const DARK  = "#4A1733";
+const GOLD  = "#CA9C6A";
 const WHITE = "#FFFFFF";
 const WHITE_DIM = "rgba(255,255,255,0.65)";
 

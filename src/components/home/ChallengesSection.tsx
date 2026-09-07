@@ -14,7 +14,7 @@ const challenges = [
 
 export default function ChallengesSection() {
   return (
-    <section className="section-padding pb-4 relative overflow-hidden" style={{ background: "#F4EBE8" }}>
+    <section className="pt-16 pb-8 relative overflow-hidden" style={{ background: "#F4EBE8" }}>
       {/* Decorative blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full blur-3xl opacity-30"

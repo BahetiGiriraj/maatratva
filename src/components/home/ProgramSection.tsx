@@ -21,7 +21,7 @@ const highlights = [
 export default function ProgramSection() {
   return (
     <section
-      className="section-padding pt-4 relative overflow-hidden"
+      className="pt-8 pb-16 relative overflow-hidden"
       style={{ background: "#F4EBE8" }}
     >
       {/* BG decoration */}

@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import LegalModal from "@/components/ui/LegalModal";
 
 // Brand tokens
-const BG   = "#6E1A34";
-const GOLD = "#C9A04D";
+const BG   = "#642244";
+const GOLD = "#CA9C6A";
 const WHITE = "#FFFFFF";
 const WHITE_DIM = "rgba(255,255,255,0.70)";
 const WHITE_HOVER_BG = "rgba(255,255,255,0.10)";
@@ -76,11 +76,11 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
           background: scrolled
-            ? `rgba(110,26,52,0.97)`
+            ? `rgba(100,34,68,0.97)`
             : BG,
           backdropFilter: scrolled ? "blur(16px)" : "none",
           boxShadow: scrolled ? "0 4px 32px rgba(0,0,0,0.25)" : "none",
-          borderBottom: `1px solid rgba(201,160,77,0.25)`,
+          borderBottom: `1px solid rgba(202,156,106,0.25)`,
         }}
       >
         {/* Gold shimmer line at very top */}
@@ -135,7 +135,7 @@ export default function Navbar() {
                           transition={{ duration: 0.18 }}
                           className="absolute top-full right-0 mt-2 w-52 rounded-2xl overflow-hidden"
                           style={{
-                            background: "#5A1529",
+                            background: "#4A1733",
                             border: `1px solid rgba(201,160,77,0.3)`,
                             boxShadow: "0 12px 40px rgba(0,0,0,0.3)",
                           }}
@@ -250,7 +250,7 @@ export default function Navbar() {
               initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="fixed top-0 right-0 bottom-0 z-50 w-[85vw] max-w-sm flex flex-col"
-              style={{ background: BG, borderLeft: `1px solid rgba(201,160,77,0.25)` }}
+              style={{ background: BG, borderLeft: `1px solid rgba(202,156,106,0.25)` }}
             >
               {/* Gold top accent */}
               <div className="h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }} />
