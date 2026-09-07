@@ -21,14 +21,14 @@ const highlights = [
 export default function ProgramSection() {
   return (
     <section
-      className="pt-8 pb-16 relative overflow-hidden"
+      className="pt-12 pb-16 relative overflow-hidden"
       style={{ background: "#F4EBE8" }}
     >
       {/* BG decoration */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute -top-20 -left-20 w-72 h-72 rounded-full opacity-30"
-          style={{ background: "radial-gradient(circle, rgba(110,26,52,0.12) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(100,34,68,0.12) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 right-0 w-96 h-96 opacity-20"
@@ -50,7 +50,7 @@ export default function ProgramSection() {
               <div
                 className="relative rounded-[36px] overflow-hidden aspect-[4/5]"
                 style={{
-                  boxShadow: "0 32px 80px rgba(110,26,52,0.2)",
+                  boxShadow: "0 32px 80px rgba(100,34,68,0.2)",
                 }}
               >
                 <Image
@@ -72,7 +72,7 @@ export default function ProgramSection() {
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <p className="font-display text-4xl font-bold leading-none mb-1" style={{ color: "#6E1A34" }}>
+                <p className="font-display text-4xl font-bold leading-none mb-1" style={{ color: "#642244" }}>
                   7+
                 </p>
                 <p className="font-body text-xs" style={{ color: "#7C6A6A" }}>
@@ -86,7 +86,7 @@ export default function ProgramSection() {
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               >
-                <div className="w-2.5 h-2.5 rounded-full animate-pulse-soft" style={{ background: "#6E1A34" }} />
+                <div className="w-2.5 h-2.5 rounded-full animate-pulse-soft" style={{ background: "#642244" }} />
                 <span className="font-body text-sm font-medium" style={{ color: "#4B3B3B" }}>
                   New Batch Starting Soon
                 </span>
@@ -103,7 +103,7 @@ export default function ProgramSection() {
                   style={{ color: "#4B3B3B" }}
                 >
                   Your Complete{" "}
-                  <span style={{ color: "#6E1A34" }}>
+                  <span style={{ color: "#642244" }}>
                   Pregnancy Companion
                 </span>
                 </h2>
@@ -111,7 +111,7 @@ export default function ProgramSection() {
                 {/* Pointer line — between headline and subhead */}
                 <p
                   className="font-display text-xl md:text-2xl font-light italic mb-5"
-                  style={{ color: "#6E1A34" }}
+                  style={{ color: "#642244" }}
                 >
                   Join us from the comfort of your own space for regular live sessions every week.
                 </p>
@@ -132,8 +132,8 @@ export default function ProgramSection() {
                       border: "1px solid rgba(233,216,211,0.6)",
                     }}
                     whileHover={{
-                      background: "rgba(110,26,52,0.05)",
-                      borderColor: "rgba(110,26,52,0.18)",
+                      background: "rgba(100,34,68,0.05)",
+                      borderColor: "rgba(100,34,68,0.18)",
                     }}
                     transition={{ duration: 0.2 }}
                   >

@@ -98,7 +98,7 @@ export default function LegalModal({ type, onClose }: LegalModalProps) {
               <button
                 onClick={onClose}
                 className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110 ml-4 mt-1"
-                style={{ background: "rgba(110,26,52,0.1)", color: "#6E1A34" }}
+                style={{ background: "rgba(100,34,68,0.1)", color: "#642244" }}
                 aria-label="Close"
               >
                 <X size={16} />

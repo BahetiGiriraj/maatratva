@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Star, Play, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, Play, ArrowRight, X } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { FadeUp } from "@/components/ui/motion";
+
+type VideoStory = { videoId: string; name: string; location: string };
 
 const allReviews = [
   { name: "Shilpi Kashup", location: "Indore, India", text: "Ever since I took Dhira mam's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being." },
@@ -41,18 +43,18 @@ function ReviewCard({ name, location, text }: { name: string; location: string; 
       style={{
         background: "white",
         border: "1px solid rgba(233,216,211,0.7)",
-        boxShadow: "0 4px 20px rgba(110,26,52,0.07)",
+        boxShadow: "0 4px 20px rgba(100,34,68,0.07)",
       }}
     >
       <div className="flex gap-0.5">
-        {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#6E1A34" color="#6E1A34" />)}
+        {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#642244" color="#642244" />)}
       </div>
       <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#7C6A6A", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
         &ldquo;{text}&rdquo;
       </p>
       <div className="flex items-center gap-3 pt-3" style={{ borderTop: "1px solid rgba(233,216,211,0.6)" }}>
         <div className="w-8 h-8 rounded-full flex items-center justify-center font-display text-sm font-bold shrink-0"
-          style={{ background: "rgba(110,26,52,0.1)", color: "#6E1A34" }}>
+          style={{ background: "rgba(100,34,68,0.1)", color: "#642244" }}>
           {name[0]}
         </div>
         <div>
@@ -90,14 +92,17 @@ function MarqueeRow({ reviews, direction, speed = 60 }: { reviews: typeof allRev
 }
 
 export default function TestimonialsSection() {
+  const [playing, setPlaying] = useState<VideoStory | null>(null);
+
   return (
+    <>
     <section className="section-padding overflow-hidden"
       style={{ background: "linear-gradient(160deg, #F4EBE8 0%, #FAF7F4 100%)" }}>
       <div className="container-wide">
         <FadeUp className="text-center max-w-2xl mx-auto mb-16">
           <SectionLabel centered>Mother Stories</SectionLabel>
           <h2 className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-6" style={{ color: "#4B3B3B" }}>
-            Voices of Our <span style={{ color: "#6E1A34" }}>Mothers</span>
+            Voices of Our <span style={{ color: "#642244" }}>Mothers</span>
           </h2>
           <p className="font-body text-lg leading-relaxed" style={{ color: "#7C6A6A" }}>
             Real words from real mothers who walked this journey with Maatratva.
@@ -113,19 +118,134 @@ export default function TestimonialsSection() {
       {/* Row 2 — left to right */}
       <MarqueeRow reviews={row2} direction="right" speed={65} />
 
-      {/* Buttons */}
-      <div className="container-wide mt-12">
-        <FadeUp>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/stories"
-              className="btn-primary group inline-flex items-center gap-2 text-base px-8 py-3.5">
-              <Play size={15} fill="white" />
-              Watch Video Testimonials
-            </Link>
+      {/* ── VIDEO STORIES ── */}
+      <div className="container-wide mt-14">
+        <FadeUp className="text-center mb-8">
+          <p className="font-display text-2xl md:text-3xl font-semibold" style={{ color: "#4B3B3B" }}>
+            Hear It In Their{" "}
+            <span style={{ color: "#642244" }}>Own Words</span>
+          </p>
+          <p className="font-display text-base font-light italic mt-1" style={{ color: "#A54860" }}>
+            Real mothers, real stories.
+          </p>
+        </FadeUp>
+
+        <div className="grid grid-cols-3 gap-5 max-w-3xl mx-auto">
+          {[
+            { videoId: "P7-iCMfOOCk", name: "Shraddha Surendra", location: "Dubai, UAE"     },
+            { videoId: "PUqIxnrKxGc", name: "Amisha Chandak",    location: "Indore, India"  },
+            { videoId: "OCLb23Co8BI", name: "Palak Mahajan",      location: "Khargon, India" },
             
-          </div>
+          ].map((v) => (
+            <motion.button
+              key={v.videoId}
+              type="button"
+              onClick={() => setPlaying(v)}
+              className="group w-full cursor-pointer overflow-hidden rounded-[18px] text-left"
+              style={{
+                background: "white",
+                border: "1px solid #E8C6C6",
+                boxShadow: "0 6px 24px rgba(100,34,68,0.10)",
+              }}
+              whileHover={{ y: -5, boxShadow: "0 14px 40px rgba(100,34,68,0.18)" }}
+              transition={{ duration: 0.22 }}
+              aria-label={`Play ${v.name}'s story`}
+            >
+              {/* Thumbnail — 9:16 */}
+              <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", background: "#2D1F2B" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+                  alt={v.name}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,8,14,0.85) 0%, transparent 60%)" }} />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110"
+                    style={{ background: "rgba(255,255,255,0.18)", backdropFilter: "blur(10px)", border: "1.5px solid rgba(255,255,255,0.5)" }}
+                  >
+                    <Play size={18} fill="white" color="white" className="ml-1" />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <p className="font-display text-base font-semibold text-white leading-tight">{v.name}</p>
+                  <p className="font-body text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>{v.location}</p>
+                </div>
+              </div>
+              {/* Footer */}
+              <div className="flex items-center justify-between px-3 py-2.5">
+                <span className="rounded-full px-2.5 py-0.5 font-body text-xs font-semibold" style={{ background: "rgba(100,34,68,0.08)", color: "#642244" }}>
+                  Mother Story
+                </span>
+                <span className="flex items-center gap-1 font-body text-xs" style={{ color: "#A89090" }}>
+                  Watch <ArrowRight size={10} />
+                </span>
+              </div>
+            </motion.button>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <FadeUp className="mt-10 text-center">
+          <Link
+            href="/stories"
+            className="inline-flex items-center gap-2 rounded-full font-body text-sm font-semibold px-8 py-3.5 text-white transition-all duration-300 group"
+            style={{ backgroundColor: "#642244", boxShadow: "0 4px 20px rgba(100,34,68,0.30)" }}
+          >
+            Explore All Mother Stories
+            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
+          </Link>
         </FadeUp>
       </div>
     </section>
+
+      {/* ── VIDEO MODAL ── */}
+      <AnimatePresence>
+        {playing && (
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-[100]"
+              style={{ background: "rgba(20,8,14,0.88)", backdropFilter: "blur(8px)" }}
+              onClick={() => setPlaying(null)}
+            />
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0, scale: 0.94, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 30 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed inset-x-4 top-1/2 z-[101] mx-auto max-w-sm -translate-y-1/2"
+            >
+              <button
+                type="button"
+                onClick={() => setPlaying(null)}
+                className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center rounded-full"
+                style={{ background: "rgba(255,255,255,0.15)", color: "white" }}
+              >
+                <X size={18} />
+              </button>
+              <div className="overflow-hidden rounded-[20px] shadow-2xl" style={{ aspectRatio: "9/16" }}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${playing.videoId}?autoplay=1&rel=0`}
+                  title={playing.name}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="h-full w-full"
+                  style={{ border: "none" }}
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-display text-xl font-semibold text-white">{playing.name}</p>
+                <p className="mt-1 font-body text-sm" style={{ color: "rgba(233,216,211,0.7)" }}>{playing.location}</p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

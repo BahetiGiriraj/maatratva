@@ -18,7 +18,7 @@ export default function ChallengesSection() {
       {/* Decorative blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full blur-3xl opacity-30"
-          style={{ background: "rgba(110,26,52,0.12)" }} />
+          style={{ background: "rgba(100,34,68,0.12)" }} />
         <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full blur-3xl opacity-20"
           style={{ background: "rgba(233,216,211,0.8)" }} />
       </div>
@@ -31,7 +31,7 @@ export default function ChallengesSection() {
           <h2 className="font-display text-5xl md:text-6xl font-semibold leading-[1.1] mb-4"
             style={{ color: "#4B3B3B" }}>
             Why pregnancy needs more{" "}
-            <span style={{ color: "#6E1A34" }}>support</span>{" "}
+            <span style={{ color: "#642244" }}>support</span>{" "}
             now than ever
           </h2>
           <p className="font-body text-lg" style={{ color: "#7C6A6A" }}>
@@ -48,22 +48,22 @@ export default function ChallengesSection() {
                 style={{
                   background: "white",
                   border: "1px solid rgba(233,216,211,0.7)",
-                  boxShadow: "0 4px 20px rgba(110,26,52,0.06)",
+                  boxShadow: "0 4px 20px rgba(100,34,68,0.06)",
                 }}
-                whileHover={{ y: -8, boxShadow: "0 20px 48px rgba(110,26,52,0.16)" }}
+                whileHover={{ y: -8, boxShadow: "0 20px 48px rgba(100,34,68,0.16)" }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
                 {/* Top mauve bar — slides in on hover */}
                 <div
                   className="h-1 w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-                  style={{ background: "linear-gradient(90deg, #6E1A34, #E9D8D3)" }}
+                  style={{ background: "linear-gradient(90deg, #642244, #E9D8D3)" }}
                 />
 
                 <div className="p-5 flex flex-col flex-1 gap-4">
                   {/* Icon */}
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center text-xl transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: "rgba(110,26,52,0.08)" }}
+                    style={{ background: "rgba(100,34,68,0.08)" }}
                   >
                     {item.icon}
                   </div>
@@ -88,9 +88,9 @@ export default function ChallengesSection() {
         {/* Quote */}
         <FadeUp className="text-center mt-14">
           <div className="inline-flex flex-col items-center gap-2 px-10 py-6 rounded-[20px]"
-            style={{ background: "white", border: "1px solid rgba(110,26,52,0.12)", boxShadow: "0 4px 20px rgba(110,26,52,0.07)" }}>
+            style={{ background: "white", border: "1px solid rgba(100,34,68,0.12)", boxShadow: "0 4px 20px rgba(100,34,68,0.07)" }}>
             <p className="font-display text-2xl md:text-3xl font-light italic"
-              style={{ color: "#6E1A34" }}>
+              style={{ color: "#642244" }}>
               &ldquo;Every challenge is an invitation for deeper care.&rdquo;
             </p>
             <p className="font-body text-sm" style={{ color: "#A89090" }}>

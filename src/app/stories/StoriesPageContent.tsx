@@ -206,12 +206,12 @@ function VideoCard({
         onClick={() => onPlay(video)}
         className="group relative mx-auto w-full max-w-[230px] cursor-pointer overflow-hidden rounded-[20px] text-left"
         style={{
-          boxShadow: "0 8px 32px rgba(110,26,52,0.1)",
+          boxShadow: "0 8px 32px rgba(100,34,68,0.1)",
           border: "1px solid rgba(233,216,211,0.6)",
         }}
         whileHover={{
           y: -6,
-          boxShadow: "0 20px 60px rgba(110,26,52,0.2)",
+          boxShadow: "0 20px 60px rgba(100,34,68,0.2)",
         }}
         transition={{ duration: 0.3 }}
         aria-label={`Play ${video.name}'s testimonial`}
@@ -262,8 +262,8 @@ function VideoCard({
           <span
             className="rounded-full px-2.5 py-1 font-body text-xs font-medium"
             style={{
-              background: "rgba(110,26,52,0.08)",
-              color: "#6E1A34",
+              background: "rgba(100,34,68,0.08)",
+              color: "#642244",
             }}
           >
             {video.tag}
@@ -293,14 +293,14 @@ function ReviewCard({ review }: { review: Review }) {
         }}
         whileHover={{
           y: -5,
-          boxShadow: "0 18px 44px rgba(110,26,52,0.12)",
+          boxShadow: "0 18px 44px rgba(100,34,68,0.12)",
         }}
         transition={{ duration: 0.25 }}
       >
         <Quote
           size={32}
           className="mb-5"
-          style={{ color: "#6E1A34", opacity: 0.55 }}
+          style={{ color: "#642244", opacity: 0.55 }}
         />
 
         <p
@@ -347,7 +347,7 @@ export default function StoriesPageContent() {
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <motion.div
             className="absolute -right-32 -top-32 h-96 w-96 rounded-full opacity-20 blur-3xl"
-            style={{ background: "#6E1A34" }}
+            style={{ background: "#642244" }}
             animate={{ scale: [1, 1.15, 1] }}
             transition={{ duration: 8, repeat: Infinity }}
           />
@@ -362,7 +362,7 @@ export default function StoriesPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               Stories That{" "}
-              <span style={{ color: "#6E1A34" }}>Inspire</span>
+              <span style={{ color: "#642244" }}>Inspire</span>
             </h1>
 
             <p
@@ -386,7 +386,7 @@ export default function StoriesPageContent() {
               className="font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              Hear It From <span style={{ color: "#6E1A34" }}>Our Mothers</span>
+              Hear It From <span style={{ color: "#642244" }}>Our Mothers</span>
             </h2>
           </FadeUp>
 
@@ -413,7 +413,7 @@ export default function StoriesPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               Their Journeys,{" "}
-              <span style={{ color: "#6E1A34" }}>In Their Words</span>
+              <span style={{ color: "#642244" }}>In Their Words</span>
             </h2>
           </FadeUp>
 
@@ -442,7 +442,7 @@ export default function StoriesPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               Moments of{" "}
-              <span style={{ color: "#6E1A34" }}>Love & Connection</span>
+              <span style={{ color: "#642244" }}>Love & Connection</span>
             </h2>
             <p
               className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed"
@@ -490,7 +490,7 @@ export default function StoriesPageContent() {
                   width: "auto",
                   minWidth: "260px",
                   maxWidth: "460px",
-                  boxShadow: "0 8px 32px rgba(110,26,52,0.15)",
+                  boxShadow: "0 8px 32px rgba(100,34,68,0.15)",
                   background: "#F4EBE8",
                 }}
               >

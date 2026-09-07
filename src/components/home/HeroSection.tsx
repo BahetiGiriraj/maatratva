@@ -13,7 +13,7 @@ const stats = [
 
 // Brand palette (Maatratva official)
 const C = {
-  burgundy:    "#6E1A34",   // Primary Burgundy — CTA buttons, top strip
+  burgundy:    "#642244",   // Primary Burgundy — CTA buttons, top strip
   rose:        "#A54860",   // Primary Rose — "Mother," "Baby." headline words, tagline, stats
   gold:        "#C9A04D",   // Champagne Gold — ornament dots, divider, rings
   ivory:       "#FDF6F3",   // Warm Ivory — main background
@@ -61,30 +61,8 @@ export default function HeroSection() {
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
-        {/* Decorative circle rings */}
-        <div
-          className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[520px] h-[520px] rounded-full border opacity-10 hidden xl:block"
-          style={{ borderColor: C.rose }}
-        />
-        <div
-          className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[420px] h-[420px] rounded-full border opacity-8 hidden xl:block"
-          style={{ borderColor: C.gold }}
-        />
-        {/* Gold ornament dots */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full"
-            style={{
-              background: C.gold,
-              opacity: 0.4,
-              top: `${20 + i * 12}%`,
-              right: `${8 + (i % 3) * 4}%`,
-            }}
-            animate={{ y: [0, -8, 0], opacity: [0.4, 0.7, 0.4] }}
-            transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-          />
-        ))}
+        {/* Decorative circle rings — removed */}
+        {/* Gold ornament dots — removed */}
       </div>
 
       <div className="container-wide relative z-10 pt-32 pb-20">
@@ -144,7 +122,7 @@ export default function HeroSection() {
               className="font-display text-xl md:text-2xl font-light italic mb-5"
               style={{ color: C.rose }}
             >
-              A journey of care, connection and growth.
+              A journey of care, connection and growth
             </motion.p>
 
             {/* Description */}
@@ -174,7 +152,7 @@ export default function HeroSection() {
                   boxShadow: `0 4px 20px ${C.burgundy}40`,
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#5A1529";
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#4A1733";
                   (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
@@ -182,7 +160,7 @@ export default function HeroSection() {
                   (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
                 }}
               >
-                Explore Program
+                Explore Our Program
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <a
@@ -301,11 +279,7 @@ export default function HeroSection() {
               </p>
             </motion.div>
 
-            {/* Gold accent ring */}
-            <div
-              className="absolute inset-0 w-[440px] h-[540px] rounded-[50px] pointer-events-none"
-              style={{ border: `1px dashed ${C.gold}50`, margin: "-10px" }}
-            />
+            {/* Gold accent ring — removed */}
           </motion.div>
         </div>
       </div>

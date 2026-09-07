@@ -31,7 +31,7 @@ export default function WorkshopPreviewSection() {
             style={{ color: "#4B3B3B" }}
           >
             Moments From Our{" "}
-            <span style={{ color: "#6E1A34" }}>Workshops</span>
+            <span style={{ color: "#642244" }}>Workshops</span>
           </h2>
           <p
             className="font-body text-lg leading-relaxed"
@@ -64,7 +64,7 @@ export default function WorkshopPreviewSection() {
                 width: "auto",
                 minWidth: "260px",
                 maxWidth: "460px",
-                boxShadow: "0 8px 32px rgba(110,26,52,0.13)",
+                boxShadow: "0 8px 32px rgba(100,34,68,0.13)",
                 background: "#FAF7F4",
               }}
             >

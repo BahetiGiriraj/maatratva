@@ -26,7 +26,7 @@ export default function TeamSection() {
             style={{ color: "#4B3B3B" }}
           >
             The Heart Behind{" "}
-            <span style={{ color: "#6E1A34" }}>Maatratva</span>
+            <span style={{ color: "#642244" }}>Maatratva</span>
           </h2>
 
           <p
@@ -88,9 +88,9 @@ export default function TeamSection() {
                       key={credential}
                       className="rounded-full border px-4 py-2 font-body text-sm font-medium"
                       style={{
-                        color: "#B16889",
-                        background: "rgba(110, 26, 52, 0.07)",
-                        borderColor: "rgba(110, 26, 52, 0.18)",
+                        color: "#4B3B3B",
+                        background: "rgba(100, 34, 68, 0.07)",
+                        borderColor: "rgba(100, 34, 68, 0.22)",
                       }}
                     >
                       {credential}
@@ -115,7 +115,7 @@ export default function TeamSection() {
                   <div>
                     <p
                       className="font-display text-3xl font-semibold"
-                      style={{ color: "#6E1A34" }}
+                      style={{ color: "#642244" }}
                     >
                       10+ Years
                     </p>
@@ -130,7 +130,7 @@ export default function TeamSection() {
                   <div>
                     <p
                       className="font-display text-3xl font-semibold"
-                      style={{ color: "#6E1A34" }}
+                      style={{ color: "#642244" }}
                     >
                       2000+
                     </p>

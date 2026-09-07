@@ -161,7 +161,7 @@ export default function AboutPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               To transform how the world experiences{" "}
-              <span style={{ color: "#6E1A34" }}>pregnancy</span>
+              <span style={{ color: "#642244" }}>pregnancy</span>
             </h2>
 
             <p
@@ -205,7 +205,7 @@ export default function AboutPageContent() {
               className="font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              Our Core <span style={{ color: "#6E1A34" }}>Values</span>
+              Our Core <span style={{ color: "#642244" }}>Values</span>
             </h2>
           </FadeUp>
 
@@ -254,7 +254,7 @@ export default function AboutPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               The Hands Behind{" "}
-              <span style={{ color: "#6E1A34" }}>Your Care</span>
+              <span style={{ color: "#642244" }}>Your Care</span>
             </h2>
           </FadeUp>
 
@@ -263,9 +263,9 @@ export default function AboutPageContent() {
               className="relative overflow-hidden rounded-[36px] p-10 md:p-14"
               style={{
                 background:
-                  "linear-gradient(135deg,rgba(110,26,52,0.07) 0%,rgba(233,216,211,0.5) 100%)",
-                border: "1.5px solid rgba(110,26,52,0.2)",
-                boxShadow: "0 20px 80px rgba(110,26,52,0.12)",
+                  "linear-gradient(135deg,rgba(100,34,68,0.07) 0%,rgba(233,216,211,0.5) 100%)",
+                border: "1.5px solid rgba(100,34,68,0.2)",
+                boxShadow: "0 20px 80px rgba(100,34,68,0.12)",
               }}
             >
               <div className="grid items-center gap-10 md:grid-cols-3">
@@ -273,7 +273,7 @@ export default function AboutPageContent() {
                   <div
                     className="relative aspect-square w-full overflow-hidden rounded-[28px]"
                     style={{
-                      boxShadow: "0 20px 60px rgba(110,26,52,0.25)",
+                      boxShadow: "0 20px 60px rgba(100,34,68,0.25)",
                     }}
                   >
                     <Image
@@ -300,7 +300,7 @@ export default function AboutPageContent() {
 
                     <p
                       className="font-body font-medium"
-                      style={{ color: "#6E1A34" }}
+                      style={{ color: "#642244" }}
                     >
                       {founder.title}
                     </p>
@@ -312,9 +312,9 @@ export default function AboutPageContent() {
                         key={credential}
                         className="rounded-full px-3 py-1.5 font-body text-xs font-medium"
                         style={{
-                          background: "rgba(110,26,52,0.09)",
-                          color: "#6E1A34",
-                          border: "1px solid rgba(110,26,52,0.15)",
+                          background: "rgba(100,34,68,0.09)",
+                          color: "#642244",
+                          border: "1px solid rgba(100,34,68,0.15)",
                         }}
                       >
                         {credential}
@@ -324,7 +324,7 @@ export default function AboutPageContent() {
 
                   <div
                     className="space-y-4 border-l-2 pl-5"
-                    style={{ borderColor: "rgba(110,26,52,0.35)" }}
+                    style={{ borderColor: "rgba(100,34,68,0.35)" }}
                   >
                     <p
                       className="font-body text-base leading-relaxed"
@@ -358,7 +358,7 @@ export default function AboutPageContent() {
 
                     <p
                       className="font-display text-xl italic leading-relaxed"
-                      style={{ color: "#6E1A34" }}
+                      style={{ color: "#642244" }}
                     >
                       Because motherhood is not simply about giving birth, it is
                       about nurturing life with awareness, love and intention.
@@ -376,7 +376,7 @@ export default function AboutPageContent() {
                     <div>
                       <p
                         className="font-display text-3xl font-bold"
-                        style={{ color: "#6E1A34" }}
+                        style={{ color: "#642244" }}
                       >
                         {founder.experience}
                       </p>
@@ -391,7 +391,7 @@ export default function AboutPageContent() {
                     <div>
                       <p
                         className="font-display text-3xl font-bold"
-                        style={{ color: "#6E1A34" }}
+                        style={{ color: "#642244" }}
                       >
                         {founder.mothers}
                       </p>
@@ -415,7 +415,7 @@ export default function AboutPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               Our Expert{" "}
-              <span style={{ color: "#6E1A34" }}>Team</span>
+              <span style={{ color: "#642244" }}>Team</span>
             </h3>
           </FadeUp>
 
@@ -430,7 +430,7 @@ export default function AboutPageContent() {
                   <div
                     className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px]"
                     style={{
-                      boxShadow: "0 8px 32px rgba(110,26,52,0.15)",
+                      boxShadow: "0 8px 32px rgba(100,34,68,0.15)",
                     }}
                   >
                     <Image
@@ -484,7 +484,7 @@ export default function AboutPageContent() {
               className="font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              From Seed to <span style={{ color: "#6E1A34" }}>Forest</span>
+              From Seed to <span style={{ color: "#642244" }}>Forest</span>
             </h2>
           </FadeUp>
 
@@ -495,7 +495,7 @@ export default function AboutPageContent() {
                   <div className="flex flex-col items-center">
                     <div
                       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-body text-xs font-bold text-white"
-                      style={{ background: "#6E1A34" }}
+                      style={{ background: "#642244" }}
                     >
                       {milestone.year.slice(2)}
                     </div>
@@ -503,7 +503,7 @@ export default function AboutPageContent() {
                     {index < milestones.length - 1 && (
                       <div
                         className="mt-2 w-px flex-1"
-                        style={{ background: "rgba(110,26,52,0.2)" }}
+                        style={{ background: "rgba(100,34,68,0.2)" }}
                       />
                     )}
                   </div>
@@ -511,7 +511,7 @@ export default function AboutPageContent() {
                   <div className="pb-8">
                     <p
                       className="mb-1 font-body text-xs font-semibold uppercase tracking-widest"
-                      style={{ color: "#6E1A34" }}
+                      style={{ color: "#642244" }}
                     >
                       {milestone.year}
                     </p>

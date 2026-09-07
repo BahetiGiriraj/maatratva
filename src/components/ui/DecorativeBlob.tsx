@@ -12,7 +12,7 @@ interface DecorativeBlobProps {
 }
 
 const colorMap = {
-  mauve: "bg-[#6E1A34]/10",
+  mauve: "bg-[#642244]/10",
   blush: "bg-[#E9D8D3]/60",
   gold: "bg-[#D4AF37]/10",
   ivory: "bg-[#FAF7F4]/80",

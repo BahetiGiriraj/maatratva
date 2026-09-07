@@ -94,17 +94,17 @@ export default function Navbar() {
               <Image
                 src="/nav-logo.png"
                 alt="Maatratva"
-                width={200}
-                height={80}
+                width={240}
+                height={96}
                 priority
-                className="h-18 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 brightness-0 invert"
+                className="h-22 md:h-26 w-auto object-contain transition-transform duration-300 group-hover:scale-105 brightness-0 invert"
                 style={{ marginRight: "-10px" }}
               />
               <div className="flex flex-col leading-none">
-                <span className="font-display text-2xl md:text-[1.7rem] font-semibold tracking-[-0.02em]" style={{ color: WHITE }}>
-                  Maatratva<sup className="text-[0.6rem] font-normal align-super" style={{ color: GOLD }}>™</sup>
+                <span className="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em]" style={{ color: WHITE }}>
+                  Maatratva<sup className="text-[0.65rem] font-normal align-super" style={{ color: GOLD }}>™</sup>
                 </span>
-                <span className="font-display text-sm md:text-base font-bold italic mt-0.5 whitespace-nowrap" style={{ color: GOLD }}>
+                <span className="font-display text-sm md:text-lg font-bold italic whitespace-nowrap" style={{ color: GOLD }}>
                   A Journey From Womb to Wonder
                 </span>
               </div>

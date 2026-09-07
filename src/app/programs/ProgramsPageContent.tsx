@@ -27,7 +27,7 @@ const plans = [
       "Prenatal Yoga & Exercise",
       "Mindfulness Practices",
       "Garbhsanskar & Womb Wellbeing",
-      "4 Weekly Live Mentor Sessions",
+      "Weekly Live Mentor Sessions",
       "Pregnancy Diet Plan",
       "1 Expert-Guided Session",
       "1 Month Bonus Access",
@@ -47,7 +47,7 @@ const plans = [
       "Pregnancy Yoga & Exercise",
       "Mindfulness Practices",
       "Garbhsanskar & Womb Wellbeing",
-      "4 Weekly Live Mentor Sessions",
+      "Weekly Live Mentor Sessions",
       "Personalized Diet Plan",
       "3 Expert-Guided Sessions",
       "Birth Preparation Program (Only for 3rd Trimester)",
@@ -68,7 +68,7 @@ const plans = [
       "Pregnancy Yoga & Exercise",
       "Mindfulness Practices",
       "Garbhsanskar & Womb Wellbeing",
-      "4 Weekly Live Mentor Sessions",
+      "Weekly Live Mentor Sessions",
       "Personalized Diet Plan",
       "9 Expert-Guided Sessions",
       "Full Journey Bonus Access",
@@ -90,7 +90,7 @@ const curriculumSections = [
       "Strength building with props",
       "Breathwork and deep relaxation",
       "Pelvic floor strengthening (Kegel exercises)",
-      "Mind-body connection (face yoga, near yoga etc.)",
+      "Mind-body connection (face yoga, neuro yoga etc.)",
     ],
     experts: [],
   },
@@ -233,7 +233,7 @@ export default function ProgramsPageContent() {
             style={{ color: "#4B3B3B" }}
           >
             Begin Your{" "}
-            <span style={{ color: "#6E1A34" }}>Maatratva</span> Journey
+            <span style={{ color: "#642244" }}>Maatratva</span> Journey
           </h1>
           <p
             className="font-display text-xl md:text-2xl font-light italic"
@@ -255,12 +255,12 @@ export default function ProgramsPageContent() {
                     className="relative flex h-full flex-col rounded-[28px] p-8 md:p-10"
                     style={{
                       background:
-                        "linear-gradient(135deg, #6E1A34 0%, #5A1529 100%)",
-                      boxShadow: "0 20px 60px rgba(110,26,52,0.35)",
+                        "linear-gradient(135deg, #642244 0%, #4A1733 100%)",
+                      boxShadow: "0 20px 60px rgba(100,34,68,0.35)",
                     }}
                     whileHover={{
                       y: -8,
-                      boxShadow: "0 24px 70px rgba(110,26,52,0.45)",
+                      boxShadow: "0 24px 70px rgba(100,34,68,0.45)",
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -305,7 +305,7 @@ export default function ProgramsPageContent() {
                     </p>
 
                     <div className="mb-6">
-                      <span className="font-display text-5xl font-bold text-white">
+                      <span className="font-price text-5xl font-bold text-white">
                         {plan.price}
                       </span>
                       <span
@@ -341,12 +341,12 @@ export default function ProgramsPageContent() {
                     className="relative flex h-full flex-col rounded-[28px] p-8 md:p-10"
                     style={{
                       background: plan.id === "nurture" ? "#FDF0ED" : "white",
-                      border: plan.id === "nurture" ? "1px solid rgba(110,26,52,0.22)" : "1px solid rgba(110,26,52,0.15)",
-                      boxShadow: plan.id === "nurture" ? "0 12px 48px rgba(110,26,52,0.13)" : "0 8px 40px rgba(110,26,52,0.08)",
+                      border: plan.id === "nurture" ? "1px solid rgba(100,34,68,0.22)" : "1px solid rgba(100,34,68,0.15)",
+                      boxShadow: plan.id === "nurture" ? "0 12px 48px rgba(100,34,68,0.13)" : "0 8px 40px rgba(100,34,68,0.08)",
                     }}
                     whileHover={{
                       y: -8,
-                      boxShadow: "0 12px 50px rgba(110,26,52,0.15)",
+                      boxShadow: "0 12px 50px rgba(100,34,68,0.15)",
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -354,7 +354,7 @@ export default function ProgramsPageContent() {
                       {plan.badge && (
                         <div
                           className="rounded-full px-4 py-1.5 text-xs font-semibold"
-                          style={{ background: "#E9D8D3", color: "#6E1A34" }}
+                          style={{ background: "#E9D8D3", color: "#642244" }}
                         >
                           {plan.badge}
                         </div>
@@ -395,8 +395,8 @@ export default function ProgramsPageContent() {
 
                     <div className="mb-6">
                       <span
-                        className="font-display text-5xl font-bold"
-                        style={{ color: "#6E1A34" }}
+                        className="font-price text-5xl font-bold"
+                        style={{ color: "#642244" }}
                       >
                         {plan.price}
                       </span>
@@ -414,7 +414,7 @@ export default function ProgramsPageContent() {
                           <Check
                             size={18}
                             className="mt-0.5 shrink-0"
-                            style={{ color: "#6E1A34" }}
+                            style={{ color: "#642244" }}
                           />
                           <span
                             className="font-body text-sm"
@@ -438,7 +438,7 @@ export default function ProgramsPageContent() {
     href="https://wa.me/918815182545?text=Hello%20Ma'am%2C%20I%20came%20across%20Maatratva%20and%20would%20like%20to%20know%20more%20about%20your%20pregnancy%20care%20and%20guidance%20programs.%20I'm%20interested%20in%20understanding%20how%20Maatratva%20can%20support%20me%20through%20my%20journey.%20Could%20you%20please%20guide%20me%3F"
     target="_blank"
     rel="noopener noreferrer"
-    className="group inline-flex items-center gap-2 rounded-full border border-[#6E1A34] px-7 py-3 font-body text-sm font-semibold text-[#6E1A34] transition-colors hover:bg-[#6E1A34] hover:text-white"
+    className="group inline-flex items-center gap-2 rounded-full border border-[#642244] px-7 py-3 font-body text-sm font-semibold text-[#642244] transition-colors hover:bg-[#642244] hover:text-white"
   >
     Enquire About Maatratva
     <ArrowRight
@@ -458,7 +458,7 @@ export default function ProgramsPageContent() {
               className="mb-4 font-display text-5xl font-semibold"
               style={{ color: "#4B3B3B" }}
             >
-              Program <span style={{ color: "#6E1A34" }}>Activities</span>
+              Program <span style={{ color: "#642244" }}>Activities</span>
             </h2>
             <p className="font-body text-lg" style={{ color: "#7C6A6A" }}>
               A glimpse into the practices and experiences that make Maatratva
@@ -477,8 +477,8 @@ export default function ProgramsPageContent() {
                 <motion.div
                   className="overflow-hidden rounded-[24px]"
                   style={{
-                    boxShadow: "0 8px 32px rgba(110,26,52,0.15)",
-                    border: "1px solid rgba(110,26,52,0.12)",
+                    boxShadow: "0 8px 32px rgba(100,34,68,0.15)",
+                    border: "1px solid rgba(100,34,68,0.12)",
                   }}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25 }}
@@ -541,7 +541,7 @@ export default function ProgramsPageContent() {
               style={{ color: "#4B3B3B" }}
             >
               Everything Your Journey{" "}
-              <span style={{ color: "#6E1A34" }}>Includes</span>
+              <span style={{ color: "#642244" }}>Includes</span>
             </h2>
             <p className="font-body text-lg" style={{ color: "#7C6A6A" }}>
               Thoughtfully designed sessions, expert guidance and holistic
@@ -556,8 +556,8 @@ export default function ProgramsPageContent() {
                   className="overflow-hidden rounded-[20px]"
                   style={{
                     background: "white",
-                    border: "1px solid rgba(110,26,52,0.15)",
-                    boxShadow: "0 4px 24px rgba(110,26,52,0.06)",
+                    border: "1px solid rgba(100,34,68,0.15)",
+                    boxShadow: "0 4px 24px rgba(100,34,68,0.06)",
                   }}
                 >
                   <button
@@ -584,7 +584,7 @@ export default function ProgramsPageContent() {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <ChevronDown size={20} style={{ color: "#6E1A34" }} />
+                      <ChevronDown size={20} style={{ color: "#642244" }} />
                     </motion.div>
                   </button>
 
@@ -603,7 +603,7 @@ export default function ProgramsPageContent() {
                         <div className="px-6 pb-6">
                           <div
                             className="mb-5 h-px w-full"
-                            style={{ background: "rgba(110,26,52,0.1)" }}
+                            style={{ background: "rgba(100,34,68,0.1)" }}
                           />
 
                           {section.id !== "bonuses" && (
@@ -616,12 +616,12 @@ export default function ProgramsPageContent() {
                                   <div
                                     className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
                                     style={{
-                                      background: "rgba(110,26,52,0.1)",
+                                      background: "rgba(100,34,68,0.1)",
                                     }}
                                   >
                                     <Check
                                       size={12}
-                                      style={{ color: "#6E1A34" }}
+                                      style={{ color: "#642244" }}
                                     />
                                   </div>
                                   <span
@@ -643,8 +643,8 @@ export default function ProgramsPageContent() {
                                   className="rounded-full px-3 py-1.5 font-body text-xs font-medium"
                                   style={{
                                     background: "#F4EBE8",
-                                    color: "#6E1A34",
-                                    border: "1px solid rgba(110,26,52,0.2)",
+                                    color: "#642244",
+                                    border: "1px solid rgba(100,34,68,0.2)",
                                   }}
                                 >
                                   {expert}
@@ -661,7 +661,7 @@ export default function ProgramsPageContent() {
                                   className="rounded-[16px] p-5"
                                   style={{
                                     background: "#F4EBE8",
-                                    border: "1px solid rgba(110,26,52,0.1)",
+                                    border: "1px solid rgba(100,34,68,0.1)",
                                   }}
                                 >
                                   <div className="mb-3 flex items-center gap-3">
@@ -719,7 +719,7 @@ export default function ProgramsPageContent() {
               className="font-display text-5xl font-semibold md:text-6xl"
               style={{ color: "#4B3B3B" }}
             >
-              You Asked, We <span style={{ color: "#6E1A34" }}>Answered</span>
+              You Asked, We <span style={{ color: "#642244" }}>Answered</span>
             </h2>
           </FadeUp>
 
@@ -730,8 +730,8 @@ export default function ProgramsPageContent() {
                   className="overflow-hidden rounded-[20px]"
                   style={{
                     background: "white",
-                    border: "1px solid rgba(110,26,52,0.15)",
-                    boxShadow: "0 4px 24px rgba(110,26,52,0.06)",
+                    border: "1px solid rgba(100,34,68,0.15)",
+                    boxShadow: "0 4px 24px rgba(100,34,68,0.06)",
                   }}
                 >
                   <button
@@ -752,7 +752,7 @@ export default function ProgramsPageContent() {
                       transition={{ duration: 0.3 }}
                       className="shrink-0"
                     >
-                      <ChevronDown size={20} style={{ color: "#6E1A34" }} />
+                      <ChevronDown size={20} style={{ color: "#642244" }} />
                     </motion.div>
                   </button>
 
@@ -771,7 +771,7 @@ export default function ProgramsPageContent() {
                         <div className="px-6 pb-6">
                           <div
                             className="mb-4 h-px w-full"
-                            style={{ background: "rgba(110,26,52,0.1)" }}
+                            style={{ background: "rgba(100,34,68,0.1)" }}
                           />
                           <p
                             className="font-body text-sm leading-relaxed"

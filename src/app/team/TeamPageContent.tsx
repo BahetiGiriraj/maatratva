@@ -37,7 +37,7 @@ export default function TeamPageContent() {
           <FadeUp>
             <SectionLabel centered>Our Team</SectionLabel>
             <h1 className="font-display text-6xl md:text-7xl font-semibold leading-[1.05] mb-6" style={{ color: "#4B3B3B" }}>
-              The People Who <span style={{ color: "#6E1A34" }}>Care</span>
+              The People Who <span style={{ color: "#642244" }}>Care</span>
             </h1>
             <p className="font-body text-xl leading-relaxed" style={{ color: "#7C6A6A" }}>
               A handpicked team of certified experts united by one purpose — to support every mother with genuine expertise and deep compassion.
@@ -51,11 +51,11 @@ export default function TeamPageContent() {
         <div className="container-wide">
           <FadeUp className="mb-16">
             <div className="relative rounded-[36px] overflow-hidden p-10 md:p-14"
-              style={{ background: "linear-gradient(135deg,rgba(110,26,52,0.07) 0%,rgba(233,216,211,0.5) 100%)", border: "1.5px solid rgba(110,26,52,0.2)", boxShadow: "0 20px 80px rgba(110,26,52,0.12)" }}>
+              style={{ background: "linear-gradient(135deg,rgba(100,34,68,0.07) 0%,rgba(233,216,211,0.5) 100%)", border: "1.5px solid rgba(100,34,68,0.2)", boxShadow: "0 20px 80px rgba(100,34,68,0.12)" }}>
               <div className="grid md:grid-cols-3 gap-10 items-center">
                 <div className="relative">
                   <div className="w-full aspect-square rounded-[28px] overflow-hidden"
-                    style={{ boxShadow: "0 20px 60px rgba(110,26,52,0.25)" }}>
+                    style={{ boxShadow: "0 20px 60px rgba(100,34,68,0.25)" }}>
                     <Image
                       src="/dheera-somani.jpg"
                       alt="Dheera Somani — Founder, Maatratva"
@@ -65,29 +65,29 @@ export default function TeamPageContent() {
                       priority
                     />
                   </div>
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full" style={{ background: "#6E1A34", color: "white" }}>
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full" style={{ background: "#642244", color: "white" }}>
                     <span className="font-body text-xs font-semibold">Founder</span>
                   </div>
                 </div>
                 <div className="md:col-span-2 space-y-5">
                   <div>
                     <h2 className="font-display text-5xl font-semibold mb-2" style={{ color: "#4B3B3B" }}>{founder.name}</h2>
-                    <p className="font-body font-medium" style={{ color: "#6E1A34" }}>{founder.title}</p>
+                    <p className="font-body font-medium" style={{ color: "#642244" }}>{founder.title}</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {founder.credentials.map((c) => (
                       <span key={c} className="px-3 py-1.5 rounded-full font-body text-xs font-medium"
-                        style={{ background: "rgba(110,26,52,0.09)", color: "#6E1A34", border: "1px solid rgba(110,26,52,0.15)" }}>{c}</span>
+                        style={{ background: "rgba(100,34,68,0.09)", color: "#642244", border: "1px solid rgba(100,34,68,0.15)" }}>{c}</span>
                     ))}
                   </div>
                   <p className="font-body text-base leading-relaxed" style={{ color: "#7C6A6A" }}>{founder.bio}</p>
                   <div className="flex gap-8">
                     <div>
-                      <p className="font-display text-3xl font-bold" style={{ color: "#6E1A34" }}>{founder.experience}</p>
+                      <p className="font-display text-3xl font-bold" style={{ color: "#642244" }}>{founder.experience}</p>
                       <p className="font-body text-xs" style={{ color: "#7C6A6A" }}>Experience</p>
                     </div>
                     <div>
-                      <p className="font-display text-3xl font-bold" style={{ color: "#6E1A34" }}>{founder.mothers}</p>
+                      <p className="font-display text-3xl font-bold" style={{ color: "#642244" }}>{founder.mothers}</p>
                       <p className="font-body text-xs" style={{ color: "#7C6A6A" }}>Mothers Guided</p>
                     </div>
                   </div>
@@ -99,7 +99,7 @@ export default function TeamPageContent() {
           {/* Expert grid */}
           <FadeUp className="mb-10">
             <h2 className="font-display text-4xl font-semibold text-center mb-12" style={{ color: "#4B3B3B" }}>
-              Our Expert <span style={{ color: "#6E1A34" }}>Practitioners</span>
+              Our Expert <span style={{ color: "#642244" }}>Practitioners</span>
             </h2>
           </FadeUp>
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -107,27 +107,27 @@ export default function TeamPageContent() {
               <StaggerItem key={m.name}>
                 <motion.div className="p-8 rounded-[24px] h-full flex flex-col"
                   style={{ background: "white", border: "1px solid rgba(233,216,211,0.6)", boxShadow: "0 4px 24px rgba(75,59,59,0.06)" }}
-                  whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(110,26,52,0.14)" }} transition={{ duration: 0.35 }}>
+                  whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(100,34,68,0.14)" }} transition={{ duration: 0.35 }}>
                   <div className="w-20 h-20 rounded-full flex items-center justify-center text-3xl mb-6 mx-auto"
-                    style={{ background: "rgba(110,26,52,0.08)", border: "1px solid rgba(110,26,52,0.15)" }}>
+                    style={{ background: "rgba(100,34,68,0.08)", border: "1px solid rgba(100,34,68,0.15)" }}>
                     {m.emoji}
                   </div>
                   <h3 className="font-display text-2xl font-semibold text-center mb-1" style={{ color: "#4B3B3B" }}>{m.name}</h3>
-                  <p className="font-body text-sm text-center font-medium mb-4" style={{ color: "#6E1A34" }}>{m.title}</p>
+                  <p className="font-body text-sm text-center font-medium mb-4" style={{ color: "#642244" }}>{m.title}</p>
                   <div className="flex flex-wrap gap-1.5 justify-center mb-5">
                     {m.credentials.map((c) => (
                       <span key={c} className="px-2.5 py-1 rounded-full font-body text-xs"
-                        style={{ background: "rgba(110,26,52,0.07)", color: "#6E1A34" }}>{c}</span>
+                        style={{ background: "rgba(100,34,68,0.07)", color: "#642244" }}>{c}</span>
                     ))}
                   </div>
                   <p className="font-body text-sm leading-relaxed text-center flex-1" style={{ color: "#7C6A6A" }}>{m.bio}</p>
                   <div className="flex justify-center gap-8 mt-5 pt-5" style={{ borderTop: "1px solid rgba(233,216,211,0.6)" }}>
                     <div className="text-center">
-                      <p className="font-display text-xl font-bold" style={{ color: "#6E1A34" }}>{m.exp}</p>
+                      <p className="font-display text-xl font-bold" style={{ color: "#642244" }}>{m.exp}</p>
                       <p className="font-body text-xs" style={{ color: "#A89090" }}>Experience</p>
                     </div>
                     <div className="text-center">
-                      <p className="font-display text-xl font-bold" style={{ color: "#6E1A34" }}>{m.mothers}</p>
+                      <p className="font-display text-xl font-bold" style={{ color: "#642244" }}>{m.mothers}</p>
                       <p className="font-body text-xs" style={{ color: "#A89090" }}>Mothers</p>
                     </div>
                   </div>

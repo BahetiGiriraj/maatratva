@@ -34,7 +34,7 @@ export default function VideoTestimonialsSection() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, rgba(110,26,52,0.12) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(100,34,68,0.12) 0%, transparent 70%)" }}
         />
         <div
           className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-20"
@@ -51,7 +51,7 @@ export default function VideoTestimonialsSection() {
             style={{ color: "#20100E" }}
           >
             Mothers Who{" "}
-            <span style={{ color: "#6E1A34" }}>Transformed</span>
+            <span style={{ color: "#642244" }}>Transformed</span>
           </h2>
           <p
             className="font-display text-xl font-light italic"
@@ -70,9 +70,9 @@ export default function VideoTestimonialsSection() {
                 style={{
                   background: "white",
                   border: "1px solid #E8C6C6",
-                  boxShadow: "0 8px 40px rgba(110,26,52,0.10)",
+                  boxShadow: "0 8px 40px rgba(100,34,68,0.10)",
                 }}
-                whileHover={{ y: -6, boxShadow: "0 16px 50px rgba(110,26,52,0.18)" }}
+                whileHover={{ y: -6, boxShadow: "0 16px 50px rgba(100,34,68,0.18)" }}
                 transition={{ duration: 0.25 }}
               >
                 {/* Video — 9:16 short */}
@@ -93,12 +93,12 @@ export default function VideoTestimonialsSection() {
                   <span
                     className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-3"
                     style={{
-                      background: "rgba(110,26,52,0.08)",
-                      color: "#6E1A34",
-                      border: "1px solid rgba(110,26,52,0.15)",
+                      background: "rgba(100,34,68,0.08)",
+                      color: "#642244",
+                      border: "1px solid rgba(100,34,68,0.15)",
                     }}
                   >
-                    <Play size={10} fill="#6E1A34" />
+                    <Play size={10} fill="#642244" />
                     {v.label}
                   </span>
                   <p className="font-display text-xl font-semibold leading-tight" style={{ color: "#20100E" }}>
@@ -119,8 +119,8 @@ export default function VideoTestimonialsSection() {
             href="/stories"
             className="inline-flex items-center gap-2 rounded-full font-body text-sm font-semibold px-8 py-3.5 text-white transition-all duration-300 group"
             style={{
-              backgroundColor: "#6E1A34",
-              boxShadow: "0 4px 20px rgba(110,26,52,0.30)",
+              backgroundColor: "#642244",
+              boxShadow: "0 4px 20px rgba(100,34,68,0.30)",
             }}
           >
             Explore All Mother Stories
