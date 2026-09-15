@@ -85,8 +85,8 @@ export default function HeroSection() {
                   <Star key={i} size={10} fill={C.gold} color={C.gold} />
                 ))}
               </div>
-              <span className="font-body text-xs font-medium tracking-wide" style={{ color: C.rose }}>
-                Holistic Pregnancy Journey • Trusted by Mothers
+              <span className="font-body text-xs font-normal tracking-wide" style={{ color: C.rose }}>
+                Holistic Pregnancy Journey. Trusted by Mothers
               </span>
             </motion.div>
 
@@ -197,12 +197,12 @@ export default function HeroSection() {
               {stats.map(({ value, label }) => (
                 <div key={label} className="flex flex-col gap-1">
                   <span
-                    className="font-display text-3xl md:text-4xl font-bold leading-none"
-                    style={{ color: C.burgundy }}
+                    className="font-price text-base md:text-lg font-bold leading-none"
+                    style={{ color: "#9D5469" }}
                   >
                     {value}
                   </span>
-                  <span className="font-body text-xs tracking-wide" style={{ color: C.deepText }}>
+                  <span className="font-body text-[10px] tracking-wide" style={{ color: C.deepText }}>
                     {label}
                   </span>
                 </div>
