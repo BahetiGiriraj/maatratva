@@ -402,38 +402,8 @@ export default function StoriesPageContent() {
         </div>
       </section>
 
-      {/* ── WRITTEN REVIEWS ── */}
-      <section className="section-padding" style={{ background: "#F4EBE8" }}>
-        <div className="container-wide">
-          <FadeUp className="mx-auto mb-14 max-w-2xl text-center">
-            <SectionLabel centered>Words From Our Mothers</SectionLabel>
-
-            <h2
-              className="font-display text-5xl font-semibold"
-              style={{ color: "#4B3B3B" }}
-            >
-              Their Journeys,{" "}
-              <span style={{ color: "#642244" }}>In Their Words</span>
-            </h2>
-          </FadeUp>
-
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {allReviews.map((review) => (
-              <ReviewCard
-                key={`${review.name}-${review.location}`}
-                review={review}
-              />
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-            
-         
-                    
-
       {/* ── OUR MAATRATVA FAMILY ── */}
-      <section className="section-padding" style={{ background: "#FAF7F4" }}>
+      <section className="section-padding" style={{background: "#F4EBE8" }}>
         <div className="container-wide">
           <FadeUp className="mx-auto mb-12 max-w-2xl text-center">
             <SectionLabel centered>Our Maatratva Family</SectionLabel>
@@ -467,20 +437,28 @@ export default function StoriesPageContent() {
             style={{ width: "max-content" }}
           >
             {[
-              { src: "/family_1.jpg", alt: "Maatratva family moment 1" },
-              { src: "/family_2.jpg", alt: "Maatratva family moment 2" },
-              { src: "/family_3.png", alt: "Maatratva family moment 3" },
-              { src: "/family_4.jpg", alt: "Maatratva family moment 4" },
-              { src: "/family_5.jpg", alt: "Maatratva family moment 5" },
-              { src: "/family_6.jpg", alt: "Maatratva family moment 6" },
-              { src: "/family_7.jpg", alt: "Maatratva family moment 7" },
-              { src: "/family_1.jpg", alt: "Maatratva family moment 1" },
-              { src: "/family_2.jpg", alt: "Maatratva family moment 2" },
-              { src: "/family_3.png", alt: "Maatratva family moment 3" },
-              { src: "/family_4.jpg", alt: "Maatratva family moment 4" },
-              { src: "/family_5.jpg", alt: "Maatratva family moment 5" },
-              { src: "/family_6.jpg", alt: "Maatratva family moment 6" },
-              { src: "/family_7.jpg", alt: "Maatratva family moment 7" },
+              { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
+              { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
+              { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
+              { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
+              { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
+              { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
+              { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
+              { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
+              { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
+              { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
+              { src: "/family_11.jpeg",alt: "Maatratva family moment 11" },
+              { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
+              { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
+              { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
+              { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
+              { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
+              { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
+              { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
+              { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
+              { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
+              { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
+              { src: "/family_11.jpeg",alt: "Maatratva family moment 11" },
             ].map((photo, index) => (
               <div
                 key={index}
@@ -518,6 +496,31 @@ export default function StoriesPageContent() {
             100% { transform: translateX(-50%); }
           }
         `}</style>
+      </section>
+
+      {/* ── WRITTEN REVIEWS ── */}
+      <section className="section-padding" style={{  background: "#FAF7F4" }}>
+        <div className="container-wide">
+          <FadeUp className="mx-auto mb-14 max-w-2xl text-center">
+            <SectionLabel centered>Words From Our Mothers</SectionLabel>
+            <h2
+              className="font-display text-5xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
+              Their Journeys,{" "}
+              <span style={{ color: "#642244" }}>In Their Words</span>
+            </h2>
+          </FadeUp>
+
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {allReviews.map((review) => (
+              <ReviewCard
+                key={`${review.name}-${review.location}`}
+                review={review}
+              />
+            ))}
+          </StaggerContainer>
+        </div>
       </section>
 
       {/* ── VIDEO MODAL ── */}

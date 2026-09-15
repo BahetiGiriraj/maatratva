@@ -19,7 +19,7 @@ export default function TeamSection() {
     <section className="section-padding" style={{ background: "#FAF7F4" }}>
       <div className="container-wide">
         <FadeUp className="mx-auto mb-14 max-w-2xl text-center">
-          <SectionLabel centered>Meet Our Team</SectionLabel>
+          <SectionLabel centered>Meet Our Founder</SectionLabel>
 
           <h2
             className="mb-4 font-display text-5xl font-semibold leading-[1.1] md:text-6xl"
@@ -151,7 +151,7 @@ export default function TeamSection() {
               href="/about"
               className="btn-primary group inline-flex px-6 py-2.5 text-sm"
             >
-              Meet the Full Team
+              More About us
               <ArrowRight
                 size={14}
                 className="transition-transform group-hover:translate-x-1"

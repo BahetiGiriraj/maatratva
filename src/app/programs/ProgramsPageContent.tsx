@@ -24,7 +24,7 @@ const plans = [
     badge: "",
     cta: "Begin with Bloom",
     features: [
-      "Prenatal Yoga & Exercise",
+      "Pregnancy Yoga & Exercise",
       "Mindfulness Practices",
       "Garbhsanskar & Womb Wellbeing",
       "Weekly Live Mentor Sessions",
@@ -38,7 +38,7 @@ const plans = [
     id: "nurture",
     name: "Nurture",
     price: "₹5,499",
-    duration: "1 Trimester Program",
+    duration: "3 month Program",
     tagline: "Deeper care for a transformative trimester",
     highlight: false,
     badge: "",
@@ -50,8 +50,8 @@ const plans = [
       "Weekly Live Mentor Sessions",
       "Personalized Diet Plan",
       "3 Expert-Guided Sessions",
-      "Birth Preparation Program (Only for 3rd Trimester)",
       "3 Months Bonus Access",
+      "Birth Preparation Program (Only for 3rd Trimester)",
     ],
     included: [],
   },
@@ -86,24 +86,24 @@ const curriculumSections = [
     emoji: "🧘‍♀️",
     title: "Physical Wellbeing",
     items: [
-      "Guided prenatal yoga and safe practices",
-      "Strength building with props",
-      "Breathwork and deep relaxation",
-      "Pelvic floor strengthening (Kegel exercises)",
-      "Mind-body connection (face yoga, neuro yoga etc.)",
+      "Guided Prenatal Yoga & Safe Practices",
+      "Strength & Stability-Building Workouts",
+      "Breathwork & Relaxation Practices",
+      "Pelvic Floor Strengthening",
+      "Mind–Body Connection Practices",
     ],
     experts: [],
   },
   {
     id: "mindful",
     emoji: "🌸",
-    title: "Mindful Motherhood",
+    title: "Mindfulness & Motherhood",
     items: [
-      "Guided pregnancy meditation",
-      "Positive mindset practices (NLP technique)",
-      "Energy balancing practices (chakras and aura)",
-      "Mother-baby connection practices",
-      "Tratak kriya (focus and concentration)",
+      "Guided Pregnancy Meditation",
+      "Positive Mindset & NLP Practices",
+      "Energy Balance & Alignment",
+      "Mother–Baby Connection Practices",
+      "Focus & Inner Awareness",
     ],
     experts: [],
   },
@@ -112,83 +112,45 @@ const curriculumSections = [
     emoji: "👶",
     title: "Garbh Sanskar & Baby Development",
     items: [
-      "Visualisation for child's personality development",
-      "Baby talk practice for emotional connection",
-      "Genetic blueprint for optimal development",
-      "Brain development activity and stimulation",
-      "Sensory exploration activities",
+      "Visualization for Child's Personality Development",
+      "Baby Talk Practices for Emotional Connection",
+      "Genetic Blueprint for Optimal Development",
+      "Brain Development Activities & Stimulation",
+      "Sensory Exploration Activities",
     ],
     experts: [],
   },
   {
     id: "expert",
     emoji: "👩‍⚕️",
-    title: "Expert Sessions",
+    title: "Expert Guidance",
     items: [
-      "Nutrition and diet planning",
-      "Emotional wellbeing support",
-      "Doubt solving support",
-      "Expert guided support",
+      "Nutrition & Diet Planning",
+      "Emotional Wellbeing Support",
+      "Doubt Resolution & Guidance",
+      "Expert-Guided Sessions",
     ],
     experts: [
-      "Dietician & Nutritionist",
+      "Dietitian",
       "Ayurveda Expert",
-      "Gynaecologist",
       "Psychotherapist",
+      "Gynecologist",
       "Lactation Expert",
-      "and many more...",
+      "and more",
     ],
   },
   {
     id: "bonuses",
     emoji: "✨",
-    title: "Bonuses",
-    items: [],
+    title: "Exclusive Bonuses",
+    items: [
+      "Pregnancy Wellness Blueprint",
+      "Baby Development Activity Kit",
+      "Mindfulness Learning Library",
+      "Daily Pregnancy Ritual Guide",
+      "Birth & Family Readiness Toolkit",
+    ],
     experts: [],
-  },
-];
-
-const bonuses = [
-  {
-    emoji: "📋",
-    title: "Pregnancy Wellness Blueprint",
-    items: [
-      "Personalized Diet Plan",
-      "Month-wise Care Guide",
-      "Daily Routine Guide",
-    ],
-  },
-  {
-    emoji: "🎵",
-    title: "Audio & Learning Library",
-    items: [
-      "Pregnancy Music & Mantras",
-      "Blissful Sleep Kit",
-      "Stories Library",
-    ],
-  },
-  {
-    emoji: "🧠",
-    title: "Baby Development Activity Kit",
-    items: ["Brain Activities", "Sensory Activities", "Baby Bonding Audio"],
-  },
-  {
-    emoji: "📖",
-    title: "Pregnancy Resource Guide",
-    items: [
-      "Common Problems & Solutions",
-      "Baby Development Guide",
-      "Pregnancy Journal",
-    ],
-  },
-  {
-    emoji: "👨‍👩‍👧",
-    title: "Family & Birth Support Toolkit",
-    items: [
-      "Partner Guide",
-      "Birth Preparation",
-      "Breastfeeding Guidance",
-    ],
   },
 ];
 
@@ -609,96 +571,38 @@ export default function ProgramsPageContent() {
                           {section.id !== "bonuses" && (
                             <div className="mb-5 space-y-3">
                               {section.items.map((item) => (
-                                <div
-                                  key={item}
-                                  className="flex items-start gap-3"
-                                >
-                                  <div
-                                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-                                    style={{
-                                      background: "rgba(100,34,68,0.1)",
-                                    }}
-                                  >
-                                    <Check
-                                      size={12}
-                                      style={{ color: "#642244" }}
-                                    />
+                                <div key={item} className="flex items-start gap-3">
+                                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ background: "rgba(100,34,68,0.1)" }}>
+                                    <Check size={12} style={{ color: "#642244" }} />
                                   </div>
-                                  <span
-                                    className="font-body text-sm"
-                                    style={{ color: "#4B3B3B" }}
-                                  >
-                                    {item}
-                                  </span>
+                                  <span className="font-body text-sm" style={{ color: "#4B3B3B" }}>{item}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {section.id === "bonuses" && (
+                            <div className="mb-5 space-y-3">
+                              {section.items.map((item) => (
+                                <div key={item} className="flex items-start gap-3">
+                                  <Check size={15} className="mt-0.5 shrink-0" style={{ color: "#642244" }} />
+                                  <span className="font-body text-sm" style={{ color: "#4B3B3B" }}>{item}</span>
                                 </div>
                               ))}
                             </div>
                           )}
 
                           {section.experts.length > 0 && (
-                            <div className="mt-4 flex flex-wrap gap-2">
-                              {section.experts.map((expert) => (
-                                <span
-                                  key={expert}
-                                  className="rounded-full px-3 py-1.5 font-body text-xs font-medium"
-                                  style={{
-                                    background: "#F4EBE8",
-                                    color: "#642244",
-                                    border: "1px solid rgba(100,34,68,0.2)",
-                                  }}
-                                >
-                                  {expert}
-                                </span>
-                              ))}
+                            <div className="mt-4">
+                              <p className="font-body text-xs mb-3" style={{ color: "#7C6A6A" }}>
+                                Learn through curated sessions by experienced experts, including:
+                              </p>
+                              <p className="font-body text-sm font-semibold" style={{ color: "#642244" }}>
+                                {section.experts.join(" • ")}
+                              </p>
                             </div>
                           )}
 
-                          {section.id === "bonuses" && (
-                            <div className="grid gap-4 sm:grid-cols-2">
-                              {bonuses.map((bonus) => (
-                                <div
-                                  key={bonus.title}
-                                  className="rounded-[16px] p-5"
-                                  style={{
-                                    background: "#F4EBE8",
-                                    border: "1px solid rgba(100,34,68,0.1)",
-                                  }}
-                                >
-                                  <div className="mb-3 flex items-center gap-3">
-                                    <span className="text-2xl">
-                                      {bonus.emoji}
-                                    </span>
-                                    <h4
-                                      className="font-display text-base font-semibold"
-                                      style={{ color: "#4B3B3B" }}
-                                    >
-                                      {bonus.title}
-                                    </h4>
-                                  </div>
-
-                                  <div className="space-y-1.5">
-                                    {bonus.items.map((item) => (
-                                      <div
-                                        key={item}
-                                        className="flex items-center gap-2"
-                                      >
-                                        <Star
-                                          size={11}
-                                          style={{ color: "#D4AF37" }}
-                                        />
-                                        <span
-                                          className="font-body text-xs"
-                                          style={{ color: "#7C6A6A" }}
-                                        >
-                                          {item}
-                                        </span>
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          )}
                         </div>
                       </motion.div>
                     )}

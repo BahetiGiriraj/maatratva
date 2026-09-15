@@ -97,8 +97,8 @@ export default function Navbar() {
                 width={240}
                 height={96}
                 priority
-                className="h-22 md:h-26 w-auto object-contain transition-transform duration-300 group-hover:scale-105 brightness-0 invert"
-                style={{ marginRight: "-10px" }}
+                className="h-22 md:h-26 w-auto object-contain object-bottom transition-transform duration-300 group-hover:scale-105 brightness-0 invert"
+                style={{ marginRight: "-10px", marginTop: "10px" }}
               />
               <div className="flex flex-col leading-none">
                 <span className="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em]" style={{ color: WHITE }}>
@@ -258,7 +258,7 @@ export default function Navbar() {
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-5" style={{ borderBottom: `1px solid rgba(255,255,255,0.1)` }}>
                 <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-0 -ml-1">
-                  <Image src="/nav-logo.png" alt="Maatratva" width={160} height={64} className="h-14 w-auto object-contain brightness-0 invert" style={{ marginRight: "-8px" }} />
+                  <Image src="/nav-logo.png" alt="Maatratva" width={160} height={64} className="h-14 w-auto object-contain object-bottom brightness-0 invert" style={{ marginRight: "-8px", marginTop: "10px" }} />
                   <div className="flex flex-col leading-none">
                     <span className="font-display text-xl font-semibold" style={{ color: WHITE }}>
                       Maatratva<sup className="text-[0.55rem] align-super" style={{ color: GOLD }}>™</sup>

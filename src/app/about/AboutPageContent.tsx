@@ -87,12 +87,7 @@ const founder = {
 
 
 const team = [
-  {
-    name: "Dr. Shyam Bihari Gautam",
-    title: "Ayurveda Ratna & Vedic Astrology Expert",
-    photo: "/team-shyam-gautam.jpeg",
-    photoPosition: "center center",
-  },
+  
   {
   name: "Dr. Paridhi Jain",
   title: "Physiotherapist (OBS & Gynaec)",
@@ -111,6 +106,12 @@ const team = [
     title: "High-Risk Pregnancy & Ayurveda Expert",
     photo: "/team-saraswathi-bukka.jpeg",
     photoPosition: "center 15%",
+  },
+  {
+    name: "Dr. Shyam Bihari Gautam",
+    title: "Ayurveda Ratna & Vedic Astrology Expert",
+    photo: "/team-shyam-gautam.jpeg",
+    photoPosition: "center center",
   },
   {
   name: "Dt. Heena Kaur Bedi",
@@ -195,59 +196,13 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      {/* ── VALUES ── */}
-      <section className="section-padding" style={{ background: "#F4EBE8" }}>
-        <div className="container-wide">
-          <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
-            <SectionLabel centered>What We Stand For</SectionLabel>
-
-            <h2
-              className="font-display text-5xl font-semibold"
-              style={{ color: "#4B3B3B" }}
-            >
-              Our Core <span style={{ color: "#642244" }}>Values</span>
-            </h2>
-          </FadeUp>
-
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((value) => (
-              <StaggerItem key={value.title}>
-                <motion.div
-                  className="h-full rounded-[24px] p-8"
-                  style={{
-                    background: "white",
-                    border: "1px solid rgba(233,216,211,0.6)",
-                  }}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="mb-5 text-4xl">{value.emoji}</div>
-
-                  <h3
-                    className="mb-3 font-display text-2xl font-semibold"
-                    style={{ color: "#4B3B3B" }}
-                  >
-                    {value.title}
-                  </h3>
-
-                  <p
-                    className="font-body text-sm leading-relaxed"
-                    style={{ color: "#7C6A6A" }}
-                  >
-                    {value.desc}
-                  </p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      
 
        {/* ── FOUNDER ── */}
-      <section className="section-padding" style={{ background: "#FAF7F4" }}>
+      <section className="section-padding" style={{ background: " #F4EBE8" }}>
         <div className="container-wide">
           <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
-            <SectionLabel centered>Meet Our Founder</SectionLabel>
+            <SectionLabel centered>Meet Our Team</SectionLabel>
 
             <h2
               className="font-display text-5xl font-semibold"
@@ -344,7 +299,15 @@ export default function AboutPageContent() {
                       experience led me to the timeless wisdom of Garbha Sanskar
                       and inspired a vision to create a space where mothers feel
                       emotionally supported, spiritually connected and
-                      holistically guided.
+                      holistically nurtured.
+
+                    </p>
+                    <p
+                      className="font-body text-base leading-relaxed"
+                      style={{ color: "#7C6A6A" }}
+                    >
+                     My journey has been guided by Krishna’s grace and divine wisdom.
+
                     </p>
 
                     <p
@@ -468,6 +431,54 @@ export default function AboutPageContent() {
                     {member.title}
                   </p>
                 </motion.article>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── VALUES ── */}
+      <section className="section-padding" style={{ background: "#FAF7F4" }}>
+        <div className="container-wide">
+          <FadeUp className="mx-auto mb-16 max-w-2xl text-center">
+            <SectionLabel centered>What We Stand For</SectionLabel>
+
+            <h2
+              className="font-display text-5xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
+              Our Core <span style={{ color: "#642244" }}>Values</span>
+            </h2>
+          </FadeUp>
+
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((value) => (
+              <StaggerItem key={value.title}>
+                <motion.div
+                  className="h-full rounded-[24px] p-8"
+                  style={{
+                    background: "white",
+                    border: "1px solid rgba(233,216,211,0.6)",
+                  }}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="mb-5 text-4xl">{value.emoji}</div>
+
+                  <h3
+                    className="mb-3 font-display text-2xl font-semibold"
+                    style={{ color: "#4B3B3B" }}
+                  >
+                    {value.title}
+                  </h3>
+
+                  <p
+                    className="font-body text-sm leading-relaxed"
+                    style={{ color: "#7C6A6A" }}
+                  >
+                    {value.desc}
+                  </p>
+                </motion.div>
               </StaggerItem>
             ))}
           </StaggerContainer>

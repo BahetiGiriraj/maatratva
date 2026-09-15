@@ -62,8 +62,8 @@ export default function Footer() {
                                width={240}
                                height={96}
                                priority
-                               className="h-22 md:h-26 w-auto object-contain brightness-0 invert"
-                               style={{ marginRight: "-10px" }}
+                               className="h-22 md:h-26 w-auto object-contain object-bottom brightness-0 invert"
+                               style={{ marginRight: "-10px", marginTop: "10px" }}
                              />
                 <div className="flex flex-col leading-none">
                   <span className="font-display text-3xl md:text-4xl font-semibold" style={{ color: WHITE }}>
