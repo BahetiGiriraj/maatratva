@@ -28,7 +28,7 @@ const content = {
     title: "Terms of Service",
     updated: "Last updated: June 2025",
     sections: [
-      { title: "Acceptance of Terms", body: "By accessing and using Maatratva's services, programs, or website, you agree to be bound by these Terms of Service and our Privacy Policy." },
+      { title: "Acceptance of Terms", body: "By accessing and using Maatratva&apos;s services, programs, or website, you agree to be bound by these Terms of Service and our Privacy Policy." },
       { title: "Our Services", body: "Maatratva provides holistic pregnancy wellness programs and educational guidance. Our services complement — not replace — professional medical care. Always consult a qualified healthcare provider for medical decisions." },
       { title: "Program Enrollment", body: "Upon enrollment in any Maatratva program, you commit to the terms of that program including payment schedules. Refund and cancellation policies are communicated at the time of enrollment." },
       { title: "User Responsibilities", body: "You agree to use our services in good faith, provide accurate information, maintain confidentiality of your credentials, and treat all community members with respect and compassion." },

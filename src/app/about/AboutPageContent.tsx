@@ -30,7 +30,7 @@ const values = [
   {
     emoji: "🧠",
     title: "Empowered Mothers",
-    desc: "We don't just support we educate and empower mothers to become confident, informed and joyful.",
+    desc: "We don&apos;t just support we educate and empower mothers to become confident, informed and joyful.",
   },
   {
     emoji: "🤝",

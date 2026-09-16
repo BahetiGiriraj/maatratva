@@ -43,7 +43,7 @@ export default function Footer() {
   const [legalModal, setLegalModal] = useState<"privacy" | "terms" | null>(null);
 
   const whatsappUrl = `https://wa.me/918815182545?text=${encodeURIComponent(
-    "Hello Ma'am, I came across Maatratva and would like to know more about your pregnancy care and guidance programs. I'm interested in understanding how Maatratva can support me through my journey. Could you please guide me?"
+    "Hello, I came across Maatratva and would like to know more about your pregnancy care and guidance programs. I'm interested in understanding how Maatratva can support me through my journey. Could you please guide me?"
   )}`;
 
   return (

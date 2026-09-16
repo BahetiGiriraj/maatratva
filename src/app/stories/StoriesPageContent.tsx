@@ -74,12 +74,12 @@ const allReviews = [
   {
     name: "Shilpi kashyap",
     location: "Indore, India",
-    text: "Ever since I took Dhira mam's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being.",
+    text: "Ever since I took Dhira mam&apos;s first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being.",
   },
   {
     name: "Aayushi Jain",
     location: "Indore, India",
-    text: "Every chat with Dhira ma'am was so relaxing that I used to forget about anxiety. The lessons on gratitude, forgiveness and love made me kinder. Her caring, smiling nature gives me a motherly feeling. I loved the meditation and Tratak kriya sessions.",
+    text: "Every chat with Dhira ma&apos;am was so relaxing that I used to forget about anxiety. The lessons on gratitude, forgiveness and love made me kinder. Her caring, smiling nature gives me a motherly feeling. I loved the meditation and Tratak kriya sessions.",
   },
   {
     name: "Nikita Kathpal",
@@ -89,12 +89,12 @@ const allReviews = [
   {
     name: "Purvi Neema",
     location: "Mumbai, India",
-    text: "My final months of pregnancy were the best and blessed months after I found Dhira ma'am. I was calm and happy during my labour and had only love and positivity — only because of her. She is the best mentor I can ever get.",
+    text: "My final months of pregnancy were the best and blessed months after I found Dhira ma&apos;am. I was calm and happy during my labour and had only love and positivity — only because of her. She is the best mentor I can ever get.",
   },
   {
     name: "Jaya Bangad",
     location: "Randipur, India",
-    text: "I feel blessed to have Dheera ma'am as my mentor for Garbh Sanskar. Like Krishna, she answered all my questions just like an elder sister. Her meditation sessions brought me calmness. Her advice was not only for pregnancy but for whole life.",
+    text: "I feel blessed to have Dheera ma&apos;am as my mentor for Garbh Sanskar. Like Krishna, she answered all my questions just like an elder sister. Her meditation sessions brought me calmness. Her advice was not only for pregnancy but for whole life.",
   },
   {
     name: "Riya Gujrati",
@@ -119,7 +119,7 @@ const allReviews = [
   {
     name: "Ankita Shikre",
     location: "India",
-    text: "Ma'am, your experience will always be memorable. You made my pregnancy journey so easy. Whatever you said, I followed and the results were amazing. Whenever I was nervous you always gave me strength. Thank you so much.",
+    text: "Ma&apos;am, your experience will always be memorable. You made my pregnancy journey so easy. Whatever you said, I followed and the results were amazing. Whenever I was nervous you always gave me strength. Thank you so much.",
   },
   {
     name: "Bhavana Bajaj",
@@ -134,12 +134,12 @@ const allReviews = [
   {
     name: "Palak Jindal",
     location: "Indore, India",
-    text: "It was a wonderful journey with you. All your techniques — visualization, positive affirmations, NLP sessions — were really needful. You made us so comfortable that we didn't hesitate to discuss our problems.",
+    text: "It was a wonderful journey with you. All your techniques — visualization, positive affirmations, NLP sessions — were really needful. You made us so comfortable that we didn&apos;t hesitate to discuss our problems.",
   },
   {
     name: "Nisha Patwari",
     location: "Indore, India",
-    text: "Dheera ma'am's sessions are extremely beneficial for natural delivery. I found the meditation classes very helpful in connecting with my baby. Thank you for educating me on this beautiful journey.",
+    text: "Dheera ma&apos;am&apos;s sessions are extremely beneficial for natural delivery. I found the meditation classes very helpful in connecting with my baby. Thank you for educating me on this beautiful journey.",
   },
   {
     name: "Shweta Mahajan",
