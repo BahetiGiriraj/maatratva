@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 

@@ -404,7 +404,7 @@ export default function StoriesPageContent() {
                 boxShadow: activeTab === "reviews" ? "0 8px 24px rgba(100,34,68,0.25)" : "0 4px 12px rgba(100,34,68,0.08)",
               }}
             >
-              Mother's Reflections
+              Mother&apos;s Reflections
             </button>
           </div>
 
