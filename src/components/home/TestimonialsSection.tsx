@@ -10,7 +10,7 @@ import { FadeUp } from "@/components/ui/motion";
 type VideoStory = { videoId: string; name: string; location: string };
 
 const allReviews = [
-  { name: "Shilpi Kashup", location: "Indore, India", text: "Ever since I took Dhira mam's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being." },
+  { name: "Shilpi Kashyap", location: "Indore, India", text: "Ever since I took Dhira mam's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being." },
   { name: "Aayushi Jain", location: "Indore, India", text: "Every chat with Dhira ma'am was so relaxing that I used to forget about anxiety. The lessons on gratitude, forgiveness and love made me kinder. Her caring, smiling nature gives me a motherly feeling. I loved the meditation and Tratak kriya sessions." },
   { name: "Nikita Kathpal", location: "Westcode, USA", text: "As a first-time mom-to-be, Dhira ji made this journey so exciting. The visualizations, baby talk, meditations and brain development activities truly provide a holistic approach. I am less anxious and more calm after joining these classes." },
   { name: "Purvi Neema", location: "Mumbai, India", text: "My final months of pregnancy were the best and blessed months after I found Dhira ma'am. I was calm and happy during my labour and had only love and positivity — only because of her. She is the best mentor I can ever get." },

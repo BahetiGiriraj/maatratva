@@ -202,7 +202,7 @@ export default function HeroSection() {
                   >
                     {value}
                   </span>
-                  <span className="font-body text-[10px] tracking-wide" style={{ color: C.deepText }}>
+                  <span className="font-body text-[11px] tracking-wide" style={{ color: C.deepText }}>
                     {label}
                   </span>
                 </div>
@@ -289,7 +289,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2"
       >
         <span className="font-body text-xs tracking-widest uppercase" style={{ color: C.mutedText }}>
           Scroll

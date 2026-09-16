@@ -72,7 +72,7 @@ const videos = [
 
 const allReviews = [
   {
-    name: "Shilpi Kashup",
+    name: "Shilpi kashyap",
     location: "Indore, India",
     text: "Ever since I took Dhira mam's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being.",
   },
@@ -334,6 +334,7 @@ function ReviewCard({ review }: { review: Review }) {
 
 export default function StoriesPageContent() {
   const [playing, setPlaying] = useState<Video | null>(null);
+  const [activeTab, setActiveTab] = useState<"videos" | "reviews" | "photos">("videos");
 
   return (
     <div className="pt-24" style={{ background: "#FAF7F4" }}>
@@ -376,150 +377,211 @@ export default function StoriesPageContent() {
         </div>
       </section>
 
-      {/* ── VIDEO STORIES ── */}
+      {/* ── TABS ── */}
       <section className="section-padding" style={{ background: "#FAF7F4" }}>
         <div className="container-wide">
-          <FadeUp className="mb-12 text-center">
-            <SectionLabel centered>Video Testimonials</SectionLabel>
-
-            <h2
-              className="font-display text-5xl font-semibold"
-              style={{ color: "#4B3B3B" }}
+          {/* Tab buttons */}
+          <div className="mb-12 flex flex-wrap justify-center gap-4">
+            <button
+              onClick={() => setActiveTab("videos")}
+              className="rounded-full px-8 py-3 font-body text-base font-semibold transition-all duration-300"
+              style={{
+                background: activeTab === "videos" ? "#642244" : "white",
+                color: activeTab === "videos" ? "white" : "#642244",
+                border: `1.5px solid ${activeTab === "videos" ? "#642244" : "rgba(233,216,211,0.75)"}`,
+                boxShadow: activeTab === "videos" ? "0 8px 24px rgba(100,34,68,0.25)" : "0 4px 12px rgba(100,34,68,0.08)",
+              }}
             >
-              Hear It From <span style={{ color: "#642244" }}>Our Mothers</span>
-            </h2>
-          </FadeUp>
-
-          <StaggerContainer className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {videos.map((video) => (
-              <VideoCard
-                key={video.id}
-                video={video}
-                onPlay={setPlaying}
-              />
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ── OUR MAATRATVA FAMILY ── */}
-      <section className="section-padding" style={{background: "#F4EBE8" }}>
-        <div className="container-wide">
-          <FadeUp className="mx-auto mb-12 max-w-2xl text-center">
-            <SectionLabel centered>Our Maatratva Family</SectionLabel>
-            <h2
-              className="font-display text-5xl font-semibold"
-              style={{ color: "#4B3B3B" }}
+              Video Reviews
+            </button>
+            <button
+              onClick={() => setActiveTab("reviews")}
+              className="rounded-full px-8 py-3 font-body text-base font-semibold transition-all duration-300"
+              style={{
+                background: activeTab === "reviews" ? "#642244" : "white",
+                color: activeTab === "reviews" ? "white" : "#642244",
+                border: `1.5px solid ${activeTab === "reviews" ? "#642244" : "rgba(233,216,211,0.75)"}`,
+                boxShadow: activeTab === "reviews" ? "0 8px 24px rgba(100,34,68,0.25)" : "0 4px 12px rgba(100,34,68,0.08)",
+              }}
             >
-              Moments of{" "}
-              <span style={{ color: "#642244" }}>Love & Connection</span>
-            </h2>
-            <p
-              className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed"
-              style={{ color: "#7C6A6A" }}
+              Written Reviews
+            </button>
+            <button
+              onClick={() => setActiveTab("photos")}
+              className="rounded-full px-8 py-3 font-body text-base font-semibold transition-all duration-300"
+              style={{
+                background: activeTab === "photos" ? "#642244" : "white",
+                color: activeTab === "photos" ? "white" : "#642244",
+                border: `1.5px solid ${activeTab === "photos" ? "#642244" : "rgba(233,216,211,0.75)"}`,
+                boxShadow: activeTab === "photos" ? "0 8px 24px rgba(100,34,68,0.25)" : "0 4px 12px rgba(100,34,68,0.08)",
+              }}
             >
-              Every journey is held with warmth, care and a community that
-              celebrates motherhood together.
-            </p>
-          </FadeUp>
-        </div>
-
-        {/* Infinite scroll carousel — full bleed */}
-        <div
-          className="overflow-hidden"
-          style={{
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-          }}
-        >
-          <div
-            className="family-scroll-stories flex gap-5"
-            style={{ width: "max-content" }}
-          >
-            {[
-              { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
-              { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
-              { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
-              { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
-              { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
-              { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
-              { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
-              { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
-              { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
-              { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
-              { src: "/family_11.jpeg",alt: "Maatratva family moment 11" },
-              { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
-              { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
-              { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
-              { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
-              { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
-              { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
-              { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
-              { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
-              { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
-              { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
-              { src: "/family_11.jpeg",alt: "Maatratva family moment 11" },
-            ].map((photo, index) => (
-              <div
-                key={index}
-                className="relative shrink-0 overflow-hidden rounded-[20px]"
-                style={{
-                  height: "400px",
-                  width: "auto",
-                  minWidth: "260px",
-                  maxWidth: "460px",
-                  boxShadow: "0 8px 32px rgba(100,34,68,0.15)",
-                  background: "#F4EBE8",
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="h-full w-auto object-contain"
-                  style={{ display: "block" }}
-                />
-              </div>
-            ))}
+              Family Photos
+            </button>
           </div>
-        </div>
 
-        <style>{`
-          .family-scroll-stories {
-            animation: family-marquee-stories 32s linear infinite;
-          }
-          .family-scroll-stories:hover {
-            animation-play-state: paused;
-          }
-          @keyframes family-marquee-stories {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
-      </section>
+          <AnimatePresence mode="wait">
+            {/* Video Reviews Tab */}
+            {activeTab === "videos" && (
+              <motion.div
+                key="videos"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FadeUp className="mb-12 text-center">
+                  <h2
+                    className="font-display text-5xl font-semibold"
+                    style={{ color: "#4B3B3B" }}
+                  >
+                    Hear It From <span style={{ color: "#642244" }}>Our Mothers</span>
+                  </h2>
+                </FadeUp>
 
-      {/* ── WRITTEN REVIEWS ── */}
-      <section className="section-padding" style={{  background: "#FAF7F4" }}>
-        <div className="container-wide">
-          <FadeUp className="mx-auto mb-14 max-w-2xl text-center">
-            <SectionLabel centered>Words From Our Mothers</SectionLabel>
-            <h2
-              className="font-display text-5xl font-semibold"
-              style={{ color: "#4B3B3B" }}
-            >
-              Their Journeys,{" "}
-              <span style={{ color: "#642244" }}>In Their Words</span>
-            </h2>
-          </FadeUp>
+                <StaggerContainer className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                  {videos.map((video) => (
+                    <VideoCard
+                      key={video.id}
+                      video={video}
+                      onPlay={setPlaying}
+                    />
+                  ))}
+                </StaggerContainer>
+              </motion.div>
+            )}
 
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {allReviews.map((review) => (
-              <ReviewCard
-                key={`${review.name}-${review.location}`}
-                review={review}
-              />
-            ))}
-          </StaggerContainer>
+            {/* Written Reviews Tab */}
+            {activeTab === "reviews" && (
+              <motion.div
+                key="reviews"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FadeUp className="mx-auto mb-14 max-w-2xl text-center">
+                  <h2
+                    className="font-display text-5xl font-semibold"
+                    style={{ color: "#4B3B3B" }}
+                  >
+                    Their Journeys,{" "}
+                    <span style={{ color: "#642244" }}>In Their Words</span>
+                  </h2>
+                </FadeUp>
+
+                <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {allReviews.map((review) => (
+                    <ReviewCard
+                      key={`${review.name}-${review.location}`}
+                      review={review}
+                    />
+                  ))}
+                </StaggerContainer>
+              </motion.div>
+            )}
+
+            {/* Family Photos Tab */}
+            {activeTab === "photos" && (
+              <motion.div
+                key="photos"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FadeUp className="mx-auto mb-12 max-w-2xl text-center">
+                  <h2
+                    className="font-display text-5xl font-semibold"
+                    style={{ color: "#4B3B3B" }}
+                  >
+                    Moments of{" "}
+                    <span style={{ color: "#642244" }}>Love & Connection</span>
+                  </h2>
+                  <p
+                    className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed"
+                    style={{ color: "#7C6A6A" }}
+                  >
+                    Every journey is held with warmth, care and a community that
+                    celebrates motherhood together.
+                  </p>
+                </FadeUp>
+
+                {/* Infinite scroll carousel */}
+                <div
+                  className="overflow-hidden"
+                  style={{
+                    WebkitMaskImage:
+                      "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+                  }}
+                >
+                  <div
+                    className="family-scroll-stories flex gap-5"
+                    style={{ width: "max-content" }}
+                  >
+                    {[
+                      { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
+                      { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
+                      { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
+                      { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
+                      { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
+                      { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
+                      { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
+                      { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
+                      { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
+                      { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
+                      
+                      { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
+                      { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
+                      { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
+                      { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
+                      { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
+                      { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
+                      { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
+                      { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
+                      { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
+                      { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
+                      
+                    ].map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative shrink-0 overflow-hidden rounded-[20px]"
+                        style={{
+                          height: "400px",
+                          width: "auto",
+                          minWidth: "260px",
+                          maxWidth: "460px",
+                          boxShadow: "0 8px 32px rgba(100,34,68,0.15)",
+                          background: "#F4EBE8",
+                        }}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          className="h-full w-auto object-contain"
+                          style={{ display: "block" }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <style>{`
+                  .family-scroll-stories {
+                    animation: family-marquee-stories 32s linear infinite;
+                  }
+                  .family-scroll-stories:hover {
+                    animation-play-state: paused;
+                  }
+                  @keyframes family-marquee-stories {
+                    0%   { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                  }
+                `}</style>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
