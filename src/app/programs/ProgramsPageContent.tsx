@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Check, ChevronDown, Star } from "lucide-react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import {
   FadeUp,

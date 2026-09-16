@@ -334,7 +334,7 @@ function ReviewCard({ review }: { review: Review }) {
 
 export default function StoriesPageContent() {
   const [playing, setPlaying] = useState<Video | null>(null);
-  const [activeTab, setActiveTab] = useState<"videos" | "reviews" | "photos">("videos");
+  const [activeTab, setActiveTab] = useState<"videos" | "reviews">("videos");
 
   return (
     <div className="pt-24" style={{ background: "#FAF7F4" }}>
@@ -392,7 +392,7 @@ export default function StoriesPageContent() {
                 boxShadow: activeTab === "videos" ? "0 8px 24px rgba(100,34,68,0.25)" : "0 4px 12px rgba(100,34,68,0.08)",
               }}
             >
-              Video Reviews
+              Video Reviews & Family Photos
             </button>
             <button
               onClick={() => setActiveTab("reviews")}
@@ -405,18 +405,6 @@ export default function StoriesPageContent() {
               }}
             >
               Written Reviews
-            </button>
-            <button
-              onClick={() => setActiveTab("photos")}
-              className="rounded-full px-8 py-3 font-body text-base font-semibold transition-all duration-300"
-              style={{
-                background: activeTab === "photos" ? "#642244" : "white",
-                color: activeTab === "photos" ? "white" : "#642244",
-                border: `1.5px solid ${activeTab === "photos" ? "#642244" : "rgba(233,216,211,0.75)"}`,
-                boxShadow: activeTab === "photos" ? "0 8px 24px rgba(100,34,68,0.25)" : "0 4px 12px rgba(100,34,68,0.08)",
-              }}
-            >
-              Family Photos
             </button>
           </div>
 
@@ -480,109 +468,102 @@ export default function StoriesPageContent() {
                 </StaggerContainer>
               </motion.div>
             )}
-
-            {/* Family Photos Tab */}
-            {activeTab === "photos" && (
-              <motion.div
-                key="photos"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <FadeUp className="mx-auto mb-12 max-w-2xl text-center">
-                  <h2
-                    className="font-display text-5xl font-semibold"
-                    style={{ color: "#4B3B3B" }}
-                  >
-                    Moments of{" "}
-                    <span style={{ color: "#642244" }}>Love & Connection</span>
-                  </h2>
-                  <p
-                    className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed"
-                    style={{ color: "#7C6A6A" }}
-                  >
-                    Every journey is held with warmth, care and a community that
-                    celebrates motherhood together.
-                  </p>
-                </FadeUp>
-
-                {/* Infinite scroll carousel */}
-                <div
-                  className="overflow-hidden"
-                  style={{
-                    WebkitMaskImage:
-                      "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-                  }}
-                >
-                  <div
-                    className="family-scroll-stories flex gap-5"
-                    style={{ width: "max-content" }}
-                  >
-                    {[
-                      { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
-                      { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
-                      { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
-                      { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
-                      { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
-                      { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
-                      { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
-                      { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
-                      { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
-                      { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
-                      
-                      { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
-                      { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
-                      { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
-                      { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
-                      { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
-                      { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
-                      { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
-                      { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
-                      { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
-                      { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
-                      
-                    ].map((photo, index) => (
-                      <div
-                        key={index}
-                        className="relative shrink-0 overflow-hidden rounded-[20px]"
-                        style={{
-                          height: "400px",
-                          width: "auto",
-                          minWidth: "260px",
-                          maxWidth: "460px",
-                          boxShadow: "0 8px 32px rgba(100,34,68,0.15)",
-                          background: "#F4EBE8",
-                        }}
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={photo.src}
-                          alt={photo.alt}
-                          className="h-full w-auto object-contain"
-                          style={{ display: "block" }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <style>{`
-                  .family-scroll-stories {
-                    animation: family-marquee-stories 32s linear infinite;
-                  }
-                  .family-scroll-stories:hover {
-                    animation-play-state: paused;
-                  }
-                  @keyframes family-marquee-stories {
-                    0%   { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                  }
-                `}</style>
-              </motion.div>
-            )}
           </AnimatePresence>
         </div>
+      </section>
+
+      {/* ── OUR MAATRATVA FAMILY ── */}
+      <section className="section-padding" style={{background: "#F4EBE8" }}>
+        <div className="container-wide">
+          <FadeUp className="mx-auto mb-12 max-w-2xl text-center">
+            <SectionLabel centered>Our Maatratva Family</SectionLabel>
+            <h2
+              className="font-display text-5xl font-semibold"
+              style={{ color: "#4B3B3B" }}
+            >
+              Moments of{" "}
+              <span style={{ color: "#642244" }}>Love & Connection</span>
+            </h2>
+            <p
+              className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed"
+              style={{ color: "#7C6A6A" }}
+            >
+              Every journey is held with warmth, care and a community that
+              celebrates motherhood together.
+            </p>
+          </FadeUp>
+        </div>
+
+        {/* Infinite scroll carousel — full bleed */}
+        <div
+          className="overflow-hidden"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          }}
+        >
+          <div
+            className="family-scroll-stories flex gap-5"
+            style={{ width: "max-content" }}
+          >
+            {[
+              { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
+              { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
+              { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
+              { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
+              { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
+              { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
+              { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
+              { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
+              { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
+              { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
+              { src: "/family_1.jpg",  alt: "Maatratva family moment 1"  },
+              { src: "/family_2.jpg",  alt: "Maatratva family moment 2"  },
+              { src: "/family_3.png",  alt: "Maatratva family moment 3"  },
+              { src: "/family_4.jpg",  alt: "Maatratva family moment 4"  },
+              { src: "/family_5.jpg",  alt: "Maatratva family moment 5"  },
+              { src: "/family_6.jpg",  alt: "Maatratva family moment 6"  },
+              { src: "/family_7.jpg",  alt: "Maatratva family moment 7"  },
+              { src: "/family_8.jpeg", alt: "Maatratva family moment 8"  },
+              { src: "/family_9.jpeg", alt: "Maatratva family moment 9"  },
+              { src: "/family_10.jpeg",alt: "Maatratva family moment 10" },
+            ].map((photo, index) => (
+              <div
+                key={index}
+                className="relative shrink-0 overflow-hidden rounded-[20px]"
+                style={{
+                  height: "400px",
+                  width: "auto",
+                  minWidth: "260px",
+                  maxWidth: "460px",
+                  boxShadow: "0 8px 32px rgba(100,34,68,0.15)",
+                  background: "#F4EBE8",
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="h-full w-auto object-contain"
+                  style={{ display: "block" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style>{`
+          .family-scroll-stories {
+            animation: family-marquee-stories 32s linear infinite;
+          }
+          .family-scroll-stories:hover {
+            animation-play-state: paused;
+          }
+          @keyframes family-marquee-stories {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
       </section>
 
       {/* ── VIDEO MODAL ── */}

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { FadeUp, FadeLeft, FadeRight, StaggerContainer, StaggerItem } from "@/components/ui/motion";
+import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 
 const founder = {
   name: "Dheera Somani",
