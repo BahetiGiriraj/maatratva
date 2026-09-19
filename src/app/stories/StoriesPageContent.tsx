@@ -590,25 +590,41 @@ export default function StoriesPageContent() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 30 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-x-4 top-1/2 z-[101] mx-auto max-w-md -translate-y-1/2"
+              className="fixed inset-x-4 top-1/2 z-[101] mx-auto max-w-md -translate-y-1/2 sm:inset-x-8"
             >
+              {/* Close Button - Better positioned for mobile */}
               <button
                 type="button"
                 onClick={() => setPlaying(null)}
-                className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-200 hover:scale-110"
+                className="absolute -top-14 right-0 z-10 flex h-12 w-12 items-center justify-center rounded-full transition-all duration-200 hover:scale-110 active:scale-95"
                 style={{
-                  background: "rgba(255,255,255,0.15)",
-                  color: "white",
+                  background: "rgba(255,255,255,0.9)",
+                  color: "#2D1F2B",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
                 }}
                 aria-label="Close video"
               >
-                <X size={18} />
+                <X size={24} strokeWidth={2.5} />
               </button>
 
               <div
-                className="overflow-hidden rounded-[20px] shadow-2xl"
+                className="relative overflow-hidden rounded-[20px] shadow-2xl"
                 style={{ aspectRatio: "9/16" }}
               >
+                {/* Additional close button inside video area for better mobile UX */}
+                <button
+                  type="button"
+                  onClick={() => setPlaying(null)}
+                  className="absolute right-2 top-2 z-20 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 hover:scale-110 active:scale-95 md:hidden"
+                  style={{
+                    background: "rgba(0,0,0,0.6)",
+                    color: "white",
+                  }}
+                  aria-label="Close video"
+                >
+                  <X size={16} strokeWidth={2.5} />
+                </button>
+
                 <iframe
                   src={`https://www.youtube.com/embed/${playing.videoId}?autoplay=1&rel=0`}
                   title={`${playing.name} — Maatratva testimonial`}
