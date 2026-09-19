@@ -74,12 +74,12 @@ const allReviews = [
   {
     name: "Shilpi kashyap",
     location: "Indore, India",
-    text: "Ever since I took Dhira ma'am's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being.",
+    text: "Ever since I took Dheera ma'am's first seminar, I got the positive vibes. I started Garbh Sanskar classes and my perspective suddenly changed. Everyone including my husband started telling me that my nature has changed positively. I feel empowered to manage my mental well-being.",
   },
   {
     name: "Aayushi Jain",
     location: "Indore, India",
-    text: "Every chat with Dhira ma'am was so relaxing that I used to forget about anxiety. The lessons on gratitude, forgiveness and love made me kinder. Her caring, smiling nature gives me a motherly feeling. I loved the meditation and Tratak kriya sessions.",
+    text: "Every chat with Dheera ma'am was so relaxing that I used to forget about anxiety. The lessons on gratitude, forgiveness and love made me kinder. Her caring, smiling nature gives me a motherly feeling. I loved the meditation and Tratak kriya sessions.",
   },
   {
     name: "Nikita Kathpal",
@@ -89,12 +89,12 @@ const allReviews = [
   {
     name: "Purvi Neema",
     location: "Mumbai, India",
-    text: "My final months of pregnancy were the best and blessed months after I found Dhira ma'am. I was calm and happy during my labour and had only love and positivity — only because of her. She is the best mentor I can ever get.",
+    text: "My final months of pregnancy were the best and blessed months after I found Dheera ma'am. I was calm and happy during my labour and had only love and positivity — only because of her. She is the best mentor I can ever get.",
   },
   {
     name: "Jaya Bangad",
     location: "Randipur, India",
-    text: "I feel blessed to have Dhira ma'am as my mentor for Garbh Sanskar. Like Krishna, she answered all my questions just like an elder sister. Her meditation sessions brought me calmness. Her advice was not only for pregnancy but for whole life.",
+    text: "I feel blessed to have Dheera ma'am as my mentor for Garbh Sanskar. Like Krishna, she answered all my questions just like an elder sister. Her meditation sessions brought me calmness. Her advice was not only for pregnancy but for whole life.",
   },
   {
     name: "Riya Gujrati",
@@ -109,7 +109,7 @@ const allReviews = [
   {
     name: "Aarohi",
     location: "Indore, India",
-    text: "Dhira ma'am has completely transformed my yoga practice with patient guidance and deep knowledge. Every class feels like a personalized experience. The things I learnt in prenatal yoga classes were invaluable — and I was blessed with a baby girl.",
+    text: "Dheera ma'am has completely transformed my yoga practice with patient guidance and deep knowledge. Every class feels like a personalized experience. The things I learnt in prenatal yoga classes were invaluable — and I was blessed with a baby girl.",
   },
   {
     name: "Aditi Kothari",
@@ -139,7 +139,7 @@ const allReviews = [
   {
     name: "Nisha Patwari",
     location: "Indore, India",
-    text: "Dhira ma'am's sessions are extremely beneficial for natural delivery. I found the meditation classes very helpful in connecting with my baby. Thank you for educating me on this beautiful journey.",
+    text: "Dheera ma'am's sessions are extremely beneficial for natural delivery. I found the meditation classes very helpful in connecting with my baby. Thank you for educating me on this beautiful journey.",
   },
   {
     name: "Shweta Mahajan",
