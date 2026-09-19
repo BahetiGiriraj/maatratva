@@ -56,7 +56,7 @@ export default function TeamSection() {
                 <div className="relative aspect-[4/4.15] overflow-hidden rounded-[28px]">
                   <Image
                     src="/dheera-somani.jpg"
-                    alt="Dheera Somani — Founder and Mentor"
+                    alt="Dhira Somani — Founder and Mentor"
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 35vw"
