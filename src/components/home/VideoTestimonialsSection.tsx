@@ -1,23 +1,22 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Play, X } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 
 const videoTestimonials = [
   {
-    id: "PUqIxnrKxGc",
-    name: "Amisha Chandak",
-    location: "Indore, India",
+    id: "BNNIhRv4FLI",
+    name: "Urvashi Ajmera",
+    location: "Neemuch, India",
     label: "Mother Story",
   },
   {
-    id: "OCLb23Co8BI",
-    name: "Palak Mahajan",
-    location: "Khargon, India",
+    id: "PUqIxnrKxGc",
+    name: "Amisha Chandak",
+    location: "Indore, India",
     label: "Mother Story",
   },
   {
@@ -29,10 +28,7 @@ const videoTestimonials = [
 ];
 
 export default function VideoTestimonialsSection() {
-  const [playing, setPlaying] = useState<typeof videoTestimonials[0] | null>(null);
-
   return (
-    <>
     <section className="section-padding relative overflow-hidden" style={{ background: "#FDF6F3" }}>
       {/* Soft bg decoration */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -69,10 +65,8 @@ export default function VideoTestimonialsSection() {
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-7 max-w-4xl mx-auto">
           {videoTestimonials.map((v) => (
             <StaggerItem key={v.id}>
-              <motion.button
-                type="button"
-                onClick={() => setPlaying(v)}
-                className="group w-full flex flex-col overflow-hidden rounded-[24px] cursor-pointer"
+              <motion.div
+                className="flex flex-col overflow-hidden rounded-[24px]"
                 style={{
                   background: "white",
                   border: "1px solid #E8C6C6",
@@ -80,41 +74,21 @@ export default function VideoTestimonialsSection() {
                 }}
                 whileHover={{ y: -6, boxShadow: "0 16px 50px rgba(100,34,68,0.18)" }}
                 transition={{ duration: 0.25 }}
-                aria-label={`Play ${v.name}'s testimonial`}
               >
-                {/* Video Thumbnail */}
-                <div className="relative overflow-hidden bg-[#2D1F2B]" style={{ aspectRatio: "9/16" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`}
-                    alt={`${v.name} testimonial`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                {/* Video — 9:16 short */}
+                <div className="relative overflow-hidden" style={{ aspectRatio: "9/16" }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}?rel=0&modestbranding=1&showinfo=0`}
+                    title={`${v.name} testimonial`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: "none" }}
                   />
-
-                  <div
-                    className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-80"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(30,15,20,0.85) 0%, rgba(30,15,20,0.15) 70%, transparent 100%)",
-                    }}
-                  />
-
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div
-                      className="flex h-14 w-14 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
-                      style={{
-                        background: "rgba(255,255,255,0.16)",
-                        backdropFilter: "blur(12px)",
-                        border: "1.5px solid rgba(255,255,255,0.45)",
-                      }}
-                    >
-                      <Play size={22} fill="white" color="white" className="ml-1" />
-                    </div>
-                  </div>
                 </div>
 
                 {/* Info */}
-                <div className="px-5 py-4 text-left">
+                <div className="px-5 py-4">
                   {/* Label pill */}
                   <span
                     className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-3"
@@ -134,7 +108,7 @@ export default function VideoTestimonialsSection() {
                     {v.location}
                   </p>
                 </div>
-              </motion.button>
+              </motion.div>
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -155,87 +129,5 @@ export default function VideoTestimonialsSection() {
         </FadeUp>
       </div>
     </section>
-
-    {/* ── VIDEO MODAL ── */}
-    <AnimatePresence>
-      {playing && (
-        <>
-          <motion.div
-            key="backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100]"
-            style={{
-              background: "rgba(30,15,20,0.85)",
-              backdropFilter: "blur(8px)",
-            }}
-            onClick={() => setPlaying(null)}
-          />
-
-          <motion.div
-            key="modal"
-            initial={{ opacity: 0, scale: 0.94, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.94, y: 30 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-4 top-1/2 z-[101] mx-auto max-w-md -translate-y-1/2 sm:inset-x-8"
-          >
-            {/* Close Button - Better positioned for mobile */}
-            <button
-              type="button"
-              onClick={() => setPlaying(null)}
-              className="absolute -top-14 right-0 z-10 flex h-12 w-12 items-center justify-center rounded-full transition-all duration-200 hover:scale-110 active:scale-95"
-              style={{
-                background: "rgba(255,255,255,0.9)",
-                color: "#2D1F2B",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-              }}
-              aria-label="Close video"
-            >
-              <X size={24} strokeWidth={2.5} />
-            </button>
-
-            <div
-              className="relative overflow-hidden rounded-[20px] shadow-2xl"
-              style={{ aspectRatio: "9/16" }}
-            >
-              {/* Additional close button inside video area for better mobile UX */}
-              <button
-                type="button"
-                onClick={() => setPlaying(null)}
-                className="absolute right-2 top-2 z-20 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 hover:scale-110 active:scale-95 md:hidden"
-                style={{
-                  background: "rgba(0,0,0,0.6)",
-                  color: "white",
-                }}
-                aria-label="Close video"
-              >
-                <X size={16} strokeWidth={2.5} />
-              </button>
-
-              <iframe
-                src={`https://www.youtube.com/embed/${playing.id}?autoplay=1&rel=0`}
-                title={`${playing.name} — Maatratva testimonial`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="h-full w-full"
-              />
-            </div>
-
-            <div className="mt-4 text-center">
-              <p className="font-display text-xl font-semibold text-white">
-                {playing.name}
-              </p>
-              <p className="font-body text-sm text-white/80 mt-1">
-                {playing.location}
-              </p>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-    </>
   );
 }

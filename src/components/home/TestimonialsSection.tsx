@@ -132,9 +132,9 @@ export default function TestimonialsSection() {
 
         <div className="grid grid-cols-3 gap-5 max-w-3xl mx-auto">
           {[
-            { videoId: "P7-iCMfOOCk", name: "Shraddha Surendra", location: "Dubai, UAE"     },
+            { videoId: "BNNIhRv4FLI", name: "Urvashi Ajmera",     location: "Neemuch, India" },
             { videoId: "PUqIxnrKxGc", name: "Amisha Chandak",    location: "Indore, India"  },
-            { videoId: "OCLb23Co8BI", name: "Palak Mahajan",      location: "Khargon, India" },
+            { videoId: "P7-iCMfOOCk", name: "Shraddha Surendra", location: "Dubai, UAE"     },
             
           ].map((v) => (
             <motion.button

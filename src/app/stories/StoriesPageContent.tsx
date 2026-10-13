@@ -13,6 +13,13 @@ import {
 
 const videos = [
   {
+    id: "urvashi-ajmera",
+    videoId: "BNNIhRv4FLI",
+    name: "Urvashi Ajmera",
+    location: "Neemuch, India",
+    tag: "Mother Story",
+  },
+  {
     id: "stuti-rathi",
     videoId: "dFHzJAor36s",
     name: "Stuti Rathi",
